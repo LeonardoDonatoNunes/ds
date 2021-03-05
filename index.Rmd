@@ -7,6 +7,7 @@ output:
 site: distill::distill_website
 listing: posts
 url: https://github.com/LeonardoDonatoNunes
+css: [styles.css]
 encoding: utf-8
 ---
 
