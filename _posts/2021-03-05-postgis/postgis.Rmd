@@ -1,0 +1,302 @@
+---
+title: "PostGIS"
+description: |
+  Criação de um Banco de Dados Espacial PostGIS com o R e Rstudio
+author:
+  - name: Leonardo Donato Nunes
+    url: https://github.com/LeonardoDonatoNunes
+date: '`r format(as.Date("24/02/2021", format = "%d/%m/%Y"), "%B %d, %Y")`'
+output:
+  distill::distill_article:
+    self_contained: false
+    toc: false
+    css: ../../styles.css
+draft: false
+tags: [R,PostGIS, RPostgrees]
+categories:
+  - BD
+  - PostGIS
+  - R
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = T,
+                      message = F, 
+                      warning = F, 
+                      dev.args = list(bg = 'transparent'),
+                      cache.rebuild = F,
+                      fig.align = "center",
+                      cache = F)
+```
+ 
+<meta name="image" property="og:image" content="[https://github.com/LeonardoDonatoNunes/pagina_leonardo/blob/main/img/img_links/posgis_post.png]">
+
+
+
+```{r, fig.width=4, fig.height=0.8, echo=F}
+library(png)
+library(grid)
+library(gridExtra)
+img1 <-  rasterGrob(as.raster(readPNG("..\\..\\img\\PostGIS.png")), interpolate = FALSE)
+img2 <-  rasterGrob(as.raster(readPNG("..\\..\\img\\rstudio.png")), interpolate = FALSE)
+grid.arrange(img1, img2, ncol = 2)
+```
+
+
+O **PostGIS** é uma extensão do **PostgreSQL** para armazenamento, gerenciamento, tratamento e análise de dados espaciais. Em comparação com um banco de dados padrão, que contém textos, números e datas, um banco de dados espacial contém tipos adicionais de dados para representar feições geográficas. Esses tipos de dados espaciais abstraem e encapsulam estruturas espaciais, como limite e dimensão. Em muitos aspectos, os tipos de dados espaciais podem ser entendidos simplesmente como formas. Os tipos de dados espaciais são organizados em uma hierarquia de tipos (**Figura 1**). Cada subtipo herda a estrutura (atributos) e o comportamento (métodos ou funções) de seu supertipo. A página do [**PostGIS**](http://postgis.net/) contém uma documentação bem extensa para aprendizado. Também existe um [manual em português](https://postgis.net/docs/manual-2.4/postgis-br.html#postgis_introduction). 
+
+```{r, fig.width=8, echo=F}
+img1 <-  rasterGrob(as.raster(readPNG("..\\..\\img\\hierarquia_geometrica.png")), interpolate = FALSE)
+grid.arrange(img1)
+```
+
+**Figura 1.** Hierarquia de feições geográficas.
+Imagem obtida e traduzida da [página de introdução](https://postgis.net/workshops/postgis-intro/introduction.html) do PostGIS.
+
+
+Os bancos de dados comuns providenciam métodos de acessar os dados, conhecidos como **index**, que permitem acesso rápido a conjuntos aleatórios de dados. Indexar os dados padrão (texto, número, datas) é normalmente feito com **B-tree** índice, que particiona os dados em uma hierarquia natural ordenados em forma de árvore (tree) hierárquica. Porém o indice B-tree não pode ser facilmente usado para feições geométricas, para isso o índice usado é o **spacial index**, que tenta identificar que tipo de feição está dentro de cada "caixa" (retângulo com a extensão da feição).
+
+
+Neste documento, irei criar um banco de dados geográficos PostGIS e adicionar uma tabela com dados espaciais. Os códigos **SQL** serão enviados ao PostgreSQL através do R, com a função **dbGetQuery** do pacote **RPostgreSQL**
+
+## Breve introdução ao RPostgreSQL
+
+Antes de começar a falar de PostGIS, segue uma breve introdução ao funcionamento do RPostgreSQL.
+
+O primeiro passo é criar uma conexão com o banco de dados que vamos trabalhar, neste exemplo usarei o BD criado quando o Postgres é instalado. Tmabém usei a senha e usuário padrões.
+
+Carregar os pacotes
+
+```{r}
+library(rpostgis)
+library(raster)
+library(rgdal)
+library(RPostgreSQL)
+```
+
+Cria um driver Postgres
+
+```{r}
+drv <- dbDriver("PostgreSQL")
+```
+
+Criando a conexão com o servidor
+
+```{r}
+con <- dbConnect(drv,
+                 dbname = "postgres",
+                 host = "localhost",
+                 port = 5432, 
+                 user = "postgres",
+                 password =  "postgres123") 
+```
+
+
+### Funções do RPostgreSQL 
+
+O pacote possui algums funções para acessar e criar tabelas do BD.
+
+Seguem alguns exemplos:
+
+Para listar as tabelas do BD
+
+```{r}
+dbListTables(con)
+```
+
+Listar os campos em uma tabela específica
+
+```{r}
+dbListFields(conn = con, name = "investimento")
+```
+
+Carregra uma tabela do BD
+
+``` {r}
+investimento <- dbReadTable(con, "investimento")
+head(investimento, 3)
+```
+
+Para inserir uma nova tabela no BD, desta vez eu expecifiquei qual **schema** a tabela será criada. No argumento "nome": c("schema","tabela").
+
+```{r}
+nova_tabela <- data.frame("id" = 1:5, nomes = LETTERS[1:5])
+dbWriteTable(con, name =c("public", "nova_tabela"), value = nova_tabela)
+dbReadTable(con, name = c("public", "nova_tabela"))
+```
+
+
+Uma outra maneira de fazer consultas é enviando uma SQL Query:
+
+
+Para excluir uma tabela do BD
+
+```{r}
+dbGetQuery(conn = con, statement = "DROP TABLE IF EXISTS public.nova_tabela ;")
+```
+
+Para selecionar uma tabela 
+
+```{r}
+dbGetQuery(conn = con, statement = "SELECT * FROM investimento LIMIT 3;")
+```
+
+
+Para criar uma tabela no BD
+
+```{r}
+dbGetQuery(conn = con, statement = "DROP TABLE IF EXISTS public.nova_tabela_2;")
+
+dbGetQuery(conn = con, statement = "CREATE TABLE public.nova_tabela_2(
+           id integer,
+           nomes varchar
+           );")
+```
+
+Para inserir dados na tabela criada
+
+```{r}
+dbWriteTable(con, "nova_tabela_2", nova_tabela, row.names=FALSE, append=TRUE)
+```
+Viualizas as linhas inseridas
+
+```{r}
+dbGetQuery(conn = con, statement = "SELECT * FROM nova_tabela_2;")
+```
+
+Desconectar do bd
+
+```{r}
+dbDisconnect(con)
+```
+
+## Criando a extensão PostGIS
+
+Carregar o pacote
+
+```{r}
+library("RPostgreSQL")
+```
+
+Cria um driver Postgres
+
+```{r}
+drv <- dbDriver("PostgreSQL")
+```
+
+Criando a conexão com o servidor
+
+```{r}
+con <- dbConnect(drv,
+                 dbname = "postgres",
+                 host = "localhost",
+                 port = 5432, 
+                 user = "postgres",
+                 password =  "postgres123") 
+```
+
+
+Cria a extensão:
+
+```{r, eval = F}
+dbGetQuery(conn = con, statement = "CREATE EXTENSION postgis;")
+```
+
+Para carregar dados de uma tabela contendo coordenadas e armazenar estes dados como feição no BD primeiro é preciso criar uma função no SQL para criar a geomeria.
+
+Abaixo criei um schema de funções e uma função para criar uma feição do tipo ponto sempre que um novo registro contendo campos de lon (longitude) e lat (latitude forem adicionados)
+
+```{r, eval=F}
+dbGetQuery(conn = con, statement = "CREATE SCHEMA funcoes;")
+
+dbGetQuery(conn = con, statement = "CREATE OR REPLACE FUNCTION 
+funcoes.create_geom_points()
+RETURNS trigger AS 
+$BODY$
+DECLARE
+	thegeom geometry;
+BEGIN
+
+IF NEW.lon IS NOT NULL AND NEW.lat IS NOT NULL THEN
+	thegeom = ST_SetSRID(ST_MakePoint(NEW.lon, NEW.lat),4326);
+	NEW.geom = thegeom;
+END IF;
+
+RETURN NEW;
+END;$BODY$
+LANGUAGE plpgsql VOLATILE
+COST 100;
+COMMENT ON FUNCTION funcoes.create_geom_points()
+IS 'When called by a trigger (insert_lon_lat) 
+this function populates the field geom 
+using the values from lon and lat fields.';")
+```
+
+Criar uma tabela contendo pontos com coordenadas
+
+```{r}
+tabela_coordenadas <- data.frame(id = 1:5, 
+              lon = c(-48.08534, -48.02049,-48.01342,-47.87874,-47.90576), 
+              lat = c(-20.67190, -20.63615,-20.75088,-20.76834,-20.67439))
+```
+
+Cria a tabela no BD e executa a função "create_geom_points()"
+
+```{r}
+dbGetQuery(con, "DROP TABLE IF EXISTS public.tabela_coordenadas CASCADE;")
+
+dbGetQuery(con, "CREATE TABLE public.tabela_coordenadas(
+id integer,
+lon double precision,
+lat double precision,
+geom geometry(Point, 4326));")
+
+dbGetQuery(con, "CREATE TRIGGER inserir_lon_lat
+           BEFORE INSERT
+           ON public.tabela_coordenadas
+           FOR EACH ROW
+           EXECUTE PROCEDURE funcoes.create_geom_points();")
+
+dbWriteTable(con, c("public", "tabela_coordenadas"), tabela_coordenadas, row.names=FALSE, append=TRUE)
+
+```
+
+Observe que agora foi criada uma feição
+
+```{r}
+dbGetQuery(con, "SELECT * FROM public.tabela_coordenadas;")
+```
+
+Esses dados podem ser usados direto no QGIS, acessando o BD, ou vizualizados no pgAdmin.
+
+Para inserir um arquivo no formato Shapefile:
+
+Carregar um arquivo .shp
+
+```{r}
+area <- shapefile("C:\\Users\\user\\Documents\\area.shp")
+```
+
+Inserir o arquivo .shp no BD
+
+```{r}
+pgInsert(con, c("public","area"), area, new.id = "gid")
+```
+
+Para obter as feições do BD pode ser utilizada a função "pgGetGeom"
+
+```{r}
+area <- pgGetGeom(con, c("public","area"))
+pontos <- pgGetGeom(con, c("public","tabela_coordenadas"))
+```
+
+
+
+</br >
+
+Brasil, 24 de Fevereiro de 2021
+
+</br >
+
+ <a href="#top">Back to top</a>
