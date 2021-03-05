@@ -1,0 +1,85 @@
+---
+title: "Imagem de entrada"
+description: |
+  Descreve a imagem de entrada da pagina inicial.
+author:
+  - name: Leonardo Donato Nunes
+    url: https://github.com/LeonardoDonatoNunes
+date: '`r format(as.Date("16/02/2021", format = "%d/%m/%Y"), "%B %d, %Y")`'
+output:
+  distill::distill_article:
+    self_contained: false
+    toc: false
+    css: ../../styles.css
+draft: false
+tags: [R,GGplot2]
+categories:
+  - GGplot2
+  - R
+  - Visualizacao
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = T,
+                      message = F, 
+                      warning = F, 
+                      dev.args = list(bg = 'transparent'),
+                      cache.rebuild = F,
+                      cache = F)
+```
+
+A imagem da entrada foi pensada para ilustrar minha página pessoal. O objetivo foi estabelecer a relação entre a ciência de dados, a matemática e a visualização de dados, destaques que pretendo dar ao site.
+
+A imagem é um ggplot de uma função de onda. Para isso, criei uma sequencia de dados que chamei de '**x**' e criei outras duas variáveis '**y**' e '**z**', que são o resultado de diferentes funções. As funções foram anotadas no próprio gráfico de acordo com a cor da linha que ela representa. 
+
+
+### Pacotes utilizados
+
+```{r pacotes}
+library(ggplot2)
+library(ggthemes)
+library(extrafont)
+loadfonts(device = "win")
+```
+
+### Criação dos dados
+
+```{r dados_imagem}
+x = 1:1000
+y =  cos(2*pi*(1/2 - x/500))
+z =  cos(2*pi*(1/2 - x/250))
+legenda_x <- "cos(2 * pi * (frac(1,2) - frac(x,lambda)))"
+legenda_z <- "cos(2 * pi * (frac(1,2) - frac(x,lambda)))"
+```
+
+### Elaboração do gráfico
+
+```{r figura_entrada_post, layout="l-page", fig.width=15, fig.height=5, fig.asp=.25}
+       ggplot(data = NULL) +
+   
+                geom_point(aes(x = 100, y = 1.6), col = "transparent") +
+                geom_point(aes(x = 100, y = -1.5), col = "transparent") +
+ 
+                geom_line(aes(x = x, y = y), lwd = 1.2, 
+                          col = ifelse(x > 350 & x < 650,
+                                       alpha("purple", alpha = 0.3), 
+                                       alpha("purple", alpha = 0.7))) +
+                geom_text(aes(x = 900, y = -1.2, label = legenda_x), 
+                          parse = TRUE, col = alpha("purple", alpha = 0.5), size = 8) +
+                
+                geom_line(aes(x = x, y = z), lwd = 1.2, 
+                          col = ifelse(x > 350 & x < 650,
+                                       alpha("#408546", alpha = 0.3), 
+                                       alpha("#408546", alpha = 0.7))) +
+                geom_text(aes(x = 100, y = 1.4, label = legenda_z), parse = TRUE,
+                          col = alpha("#408546", alpha = 0.7), size = 8) +
+                
+                annotate("text", x = 500, y = 0, label = "> LDN \n + DS",
+                         size = 28, family = "Eras Bold ITC", col = "#236336") +
+                
+                theme_map()
+```
+
+</br >
+
+ <a href="#top">Back to top</a>
