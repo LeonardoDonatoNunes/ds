@@ -1,0 +1,89 @@
+---
+title: "Links para Conteúdos de DS"
+description: |
+  Lista de links de livros, sites, cais do youtube sobre Data Science.
+author:
+  - name: Leonardo Donato Nunes
+    url: https://github.com/LeonardoDonatoNunes
+date: '`r format(as.Date("28/02/2021", format = "%d/%m/%Y"), "%B %d, %Y")`'
+output:
+  distill::distill_article:
+    self_contained: false
+    toc: true
+    css: ../../styles.css
+draft: false
+tags: [R, Python, Livros]
+categories:
+  - Livros
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = F,
+                      message = F, 
+                      warning = F, 
+                      dev.args = list(bg = 'transparent'),
+                      cache.rebuild = F,
+                      fig.align = "center",
+                      cache = F)
+```
+
+```{r, fig.height=2}
+library(png)
+library(grid)
+library(gridExtra)
+img1 <-  rasterGrob(as.raster(readPNG("..\\..\\img\\conhecimento.png")), interpolate = FALSE)
+grid.arrange(img1)
+```
+
+Este post foi criado para agregar conteúdos de Data Science através de Links que levam a páginas, livros, canais e vídeos que tem relação com Data Science. Os assuntos estão organizados por tópicos que podem ser acessados rolando a página ou na tabela de conteúdos.
+
+# Canais, vídeos e playlists <i class="fab fa-youtube"></i>
+
+[Machine Learning Meetups - Nubank](https://www.youtube.com/playlist?list=PLfqo9_UMdHhYi6edz_uCRVDZASyp4Nj2e)
+
+[Working with Spark - RStudio](https://rstudio.com/collections/working-with-spark/)
+
+[RStudio Webinars](https://rstudio.com/resources/webinars/)
+
+# Sites e blogs <i class="fas fa-sitemap"></i>
+
+[Font Awesome](https://fontawesome.com/)
+
+[Create Awesome HTML Table with knitr::kable and kableExtra](https://cran.r-project.org/web/packages/kableExtra/vignettes/awesome_table_in_html.html#Overview)
+
+[Regex: Um guia prático para expressões regulares](https://medium.com/@alexandreservian/regex-um-guia-pratico-para-express%C3%B5es-regulares-1ac5fa4dd39f)
+
+[rOpenSci](https://ropensci.org/)
+
+[Spatial Data Science](https://www.rspatial.org/raster/index.html)
+
+# Livros <i class="fas fa-glasses"></i>
+
+[R Markdown: The Definitive Guide](https://bookdown.org/yihui/rmarkdown/)
+
+[Análise de Dados Financeiros e Econômicos com o R](https://www.msperlin.com/padfeR/index.html)
+
+[B3 + rvest: Explorando dados financeiros com R](https://www.fulljoin.com.br/posts/2019-07-18-b3-rvest-explorando-dados-financeiros-com-r/)
+
+
+
+
+[Mastering Spark with R](https://therinspark.com/)
+
+# Pacotes <i class="fab fa-r-project"></i>
+
+[Distill for R Markdown](https://rstudio.github.io/distill/)
+
+[Introduction to data.tree](https://cran.r-project.org/web/packages/data.tree/vignettes/data.tree.html)
+
+[sparklyr: R interface for Apache Spark](https://spark.rstudio.com/)
+
+[Mastering Shiny](https://mastering-shiny.org/index.html)
+
+[shinyMobile](https://rinterface.github.io/shinyMobile/index.html#shinymobile-)
+
+[RinteRface](https://rinterface.com/)
+
+# Repositórios e páginas <i class="fab fa-github"></i>
+
+[Michael Clark](https://github.com/m-clark)
