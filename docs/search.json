@@ -10,17 +10,16 @@
     {
       "path": "estatistica.html",
       "title": "Estatistica",
-      "description": "Some additional details about the website",
       "author": [],
-      "contents": "\r\nEstatistica\r\n\r\n\r\n\r\n",
-      "last_modified": "2021-03-05T11:17:42-03:00"
+      "contents": "\r\n\r\nContents\r\nIntrodução\r\nTipos de dados\r\n\r\nEstatísticas descritivas\r\n\r\nIntrodução\r\nA estatística é a prática e o estudo de coletar e analisar dados, pode ser utilizada para responder muitos tipos de questão. É a base da ciência de dados, é responsável por transformar os dados em valor. Ela é usada para resumir, identificar tendências e padrões e fazer previsões. Nesta página serão abordados os principais tópicos de estatística básica.\r\nA estatística pode ser dividida em duas áreas principais, a estatística descritiva, que tem como objetivo descrver e resumir os dados, como por exemplo, médias, medianas, máximo, mínimo, porcentagens e outras medidas de posição e de dispersão. E a estatística inferencial que usa uma amostra dos dados para fazer inferências sobre uma população maior.\r\nTipos de dados\r\nSer capaz de identificar os tipos de dados é importante para saber qual o tipo de análise será usada ou qual a melhor forma de visualização fará sentido para cada tipo.\r\nExistem dois tipos principais de dados\r\n\r\n\r\n\r\nNuméricos (Quantitativo)\r\nContínuo (Medidas)\r\nPreço de um produto\r\nPeso de pessoas\r\n\r\nDiscreto (Contagem)\r\nNúmero de clientes\r\nNúmero de dias\r\n\r\n\r\n\r\n\r\n\r\nCategóricos (Qualitativos)\r\nNominal (Sem uma órdem inirente)\r\nSexo (masculino, feminino, outros)\r\nEmpresa (Empresa A, Empresa B)\r\n\r\nOrdinal (Com ordem inerente)\r\nGrau de escolaridade (Fundamental, Médio, Superior)\r\nNotas em questinarios (Concordo muito, Concordo Pouco)\r\n\r\n\r\n\r\n\r\n\r\nVoltar ao topo\r\nEstatísticas descritivas\r\n\r\n\r\n\r\n",
+      "last_modified": "2021-03-05T11:26:31-03:00"
     },
     {
       "path": "index.html",
       "title": "",
       "author": [],
       "contents": "\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\nPostagens:\r\n\r\n\r\n\r\n",
-      "last_modified": "2021-03-05T11:16:06-03:00"
+      "last_modified": "2021-03-05T11:22:33-03:00"
     }
   ],
   "collections": ["posts/posts.json"]

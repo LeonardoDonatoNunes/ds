@@ -1,12 +1,78 @@
 ---
 title: "Estatistica"
-description: |
-  Some additional details about the website
+anchor_sections: FALSE
+output: 
+  distill::distill_article:
+    toc: true
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(echo = T,
+                      message = F, 
+                      warning = F, 
+                      dev.args = list(bg = 'transparent'),
+                      cache.rebuild = F,
+                      cache = F, 
+                      fig.align = 'center')
 ```
 
-## Estatistica
+## Introdução
 
+A estatística é a prática e o estudo de coletar e analisar dados, pode ser utilizada para responder muitos tipos de questão. É a base da ciência de dados, é responsável por transformar os dados em valor. Ela é usada para resumir, identificar tendências e padrões e fazer previsões. Nesta página serão abordados os principais tópicos de estatística básica.
+
+A estatística pode ser dividida em duas áreas principais, a **estatística descritiva**, que tem como objetivo descrver e resumir os dados, como por exemplo, médias, medianas, máximo, mínimo, porcentagens e outras medidas de posição e de dispersão. E a **estatística inferencial** que usa uma amostra dos dados para fazer inferências sobre uma população maior.
+
+### Tipos de dados
+
+Ser capaz de identificar os tipos de dados é importante para saber qual o tipo de análise será usada ou qual a melhor forma de visualização fará sentido para cada tipo.
+
+**Existem dois tipos principais de dados**
+
+:::::: {.cols data-latex=""}
+
+::: {.col data-latex="{0.55\textwidth}"}
+<div class="column">
+**Numéricos (Quantitativo)**  
+  
+  * **Contínuo** (Medidas)
+  
+    * Preço de um produto
+  
+    * Peso de pessoas
+  
+  * **Discreto** (Contagem)
+  
+    * Número de clientes
+  
+    * Número de dias
+</div>
+:::
+
+
+::: {.col data-latex="{0.55\textwidth}"}
+<div class="column">
+**Categóricos (Qualitativos)**  
+ 
+  * **Nominal** (Sem uma órdem inirente)
+ 
+    * Sexo (masculino, feminino, outros)
+ 
+    * Empresa (Empresa A, Empresa B)
+ 
+  * **Ordinal** (Com ordem inerente)
+ 
+    * Grau de escolaridade (Fundamental, Médio, Superior)
+ 
+    * Notas em questinarios (Concordo muito, Concordo Pouco)
+</div>
+:::
+
+::::::
+
+
+
+<br/ >
+
+<a href="#top">Voltar ao topo</a>
+
+## Estatísticas descritivas
