@@ -1,0 +1,232 @@
+---
+title: "PyMongo"
+description: |
+  Breve introdução ao PyMongo, um driver para acessar o MongoDB com Python
+author:
+  - name: Leonardo Donato Nunes
+    url: https://github.com/LeonardoDonatoNunes
+date: '`r format(as.Date("19/02/2021", format = "%d/%m/%Y"), "%B %d, %Y")`'
+output:
+  distill::distill_article:
+    self_contained: false
+draft: false
+tags: [Python,MongoDB,PyMongo]
+categories:
+  - MongoDB
+  - BD
+  - Python
+  - NoSQL
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = T,
+                      message = F, 
+                      warning = F, 
+                      dev.args = list(bg = 'transparent'),
+                      cache.rebuild = F,
+                      fig.align = "center",
+                      cache = F)
+```
+
+```{r, fig.width=4, fig.height=0.8, echo=F}
+library(png)
+library(grid)
+library(gridExtra)
+img1 <-  rasterGrob(as.raster(readPNG("..\\..\\img\\logo_python.png")), interpolate = FALSE)
+img2 <-  rasterGrob(as.raster(readPNG("..\\..\\img\\logo_mongo.jpg.png")), interpolate = FALSE)
+grid.arrange(img1, img2, ncol = 2)
+```
+
+
+Um cientista de dados não precisa ser um desenvolverdor de banco de dados, porém, conhecimentos básicos de linguagem **SQL** e dos sistemas de gerenciamento de bancos de dados (**SGBD**) mais comuns, tanto relacionais quanto não relacionais, são importantes para a execução do trabalho diário. Geralmente, como cientistas de dados, trabalhamos com **Python** ou **R**, inclusive para fazer consultas e desenvolver bancos de dados. O objetivo desta publicação é fazer uma breve introdução a biblioteca **PyMongo**, um módulo Python para acessar o **MongoDB**.  Para saber mais basta acessar a [documentação](https://pymongo.readthedocs.io/en/stable/index.html) do PyMongo
+
+O **MongoDB** é considerado o principal SGBD **não-relacional** (**NoSQL**; Not Only SQL). Diferente de um SGBD relacional, que trabalha com tabelas, colunas e linhas, que se relacionam através de chaves, o MongoDB trabalha com um formato flexivel de documento, similar a objetos **JSON**. Cada documento pode ser considerado como uma linha de uma tabela de um BD relacional, e os documentos são agrupados em coleções, que são como as tabelas, porém, cada documento pode variar em sua estrutura e ser alterado ao longo do tempo.
+
+Na página de aprendizado do [MongoDB](https://www.mongodb.com/what-is-mongodb) existe uma documentação bem extensa para quem deseja obter mais informações. 
+
+
+## Acessando o MongoDB
+
+Importar a biblioteca:
+
+```{python}
+from pymongo import MongoClient
+import pprint
+```
+
+Criar a conexão com o Mongo:
+
+```{python}
+con = MongoClient('localhost', 27017)
+```
+
+
+Para o exemplo, vou criar uma coleção chamada universidades, contendo quatro documentos 
+
+```{python}
+universidades = [ {'nome': 'URGS', 'n_alunos': 15000},
+                  {'nome': 'UNB', 'n_alunos': 20000},
+                  {'nome': '', 'n_alunos': 9000},
+                  {'nome': 'USP', 'n_alunos': 30000} ]
+```
+
+Para inserir os documentos em um BD. Note que o nome do BD é 'instituicoes'. Caso o BD não exista, um BD chamado 'instituicoes' será criado, o mesmo para a coleção 'universidades'.
+
+```{python}
+with con:
+
+    db = con.instituicoes
+    
+    db.universidades.insert_many(universidades)
+```
+
+Listar os nomes dos bancos de dados:
+
+```{python}
+con.list_database_names()
+```
+
+Acessar um banco de dados e buscar as colecoes
+
+```{python}
+bd = con.instituicoes
+print(bd.list_collection_names())
+```
+
+Para acessar os documentos de uma coleção (aqui só imprimi o primeiro documento para não ficar bagunçado)
+
+```{python}
+universidades = db.universidades.find()
+print(list(universidades)[1])
+
+```
+Para filtrar um documento
+
+```{python}
+nome = db.universidades.find({'n_alunos':20000})
+print(list(nome))
+```
+
+
+Para inserir somente um documento
+
+```{python}
+with con:
+
+    db = con.instituicoes
+    
+    db.universidades.insert_one({'nome': 'UFRJ', 'n_alunos': 25000})
+```
+
+
+Para excluir uma coleção
+
+```{python}
+db.universidades.drop()
+```
+
+
+Para excluir um bd
+
+```{python}
+con.drop_database('vendas_automoveis')
+```
+
+Listar os nomes dos bancos de dados:
+
+```{python}
+con.list_database_names()
+```
+
+
+
+## Exemplo de aplicação
+
+Nada melhor que um exemplo prático, com dados reais para melhor entendimento do funcionamento da biblioteca.
+
+### Dados utilizados
+
+Os dados para o exemplo foram obtidos do [Portal Brasileiro de Dados Abertos](https://dados.gov.br/).
+
+
+Nome do conjunto de dados: [Vendas de veículos pelas concessionárias - Automóveis](https://dados.gov.br/dataset/7384-vendas-de-veiculos-pelas-concessionarias-automoveis)
+
+
+Conceito: Valor da produção de veículos automotores no País. Refletem o desempenho das vendas das empresas associadas a(o): estoque e venda de veículos pelas concessionárias produção e vendas de veículos e congêneres produção e vendas de motociclos
+
+
+Fonte: Federação Nacional da Distribuição de Veículos Automotores
+
+URL: http://api.bcb.gov.br/dados/serie/bcdata.sgs.7384/dados?formato=json
+
+
+Variáveis no dataset: 
+
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; data: Data no formato "dd/mm/yyyy", primeiro dia do mês.
+
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; valor: Número de unidades vendidas na data (mês)
+
+
+
+### Códigos
+
+Importar as bibliotecas para obtenção dos dados
+
+```{python}
+import pandas as pd
+import requests
+import json
+import datetime
+```
+
+
+Requisição GET para obter os dados no formato JSON.
+
+```{python}
+r = requests.get(url='https://api.bcb.gov.br/dados/serie/bcdata.sgs.7384/dados?formato=json')
+```
+
+Visualizar os primeiros dois documentos do arquivo.
+
+```{python}
+r.json()[0:2]
+```
+
+
+Deleta o BD 'vendas_automoveis' que será criado novamente no próximo bloco.
+
+```{python}
+con.drop_database('vendas_automoveis')
+```
+
+Cria o BD e a coleção para inserir os dados no BD
+
+```{python}
+novo_bd = con['vendas_automoveis']
+nova_colecao = novo_bd['vendas']
+```
+
+Conecta novamente o BD, a coleção vendas e insere os dados JSON coletados no BD.
+
+```{python}
+db = con['vendas_automoveis']
+# Carrega o bd
+vendas = db.vendas
+resultado = vendas.insert_many(r.json())
+```
+
+Busca os dados do BD e configura os campos de data como datetime e o de valor como número.
+
+```{python}
+df = pd.DataFrame(list(vendas.find()))
+df['data'] = pd.to_datetime(df['data'], dayfirst=True)
+df['valor'] = pd.to_numeric(df['valor'])
+df.head()
+```
+
+
+
+</br >
+
+ <a href="#top">Back to top</a>
