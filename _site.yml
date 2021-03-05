@@ -26,3 +26,4 @@ navbar:
       href: https://www.researchgate.net/profile/Leonardo-Nunes-8
 output: 
   distill::distill_article:
+    css: styles.css
