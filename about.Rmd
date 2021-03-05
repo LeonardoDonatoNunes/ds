@@ -35,7 +35,4 @@ Optei por escrever as publicações e toda a página em português. O principal 
 
 </br >
 
-<button id="myBtn"><a href="#top" style="color: white">Top</a></button>
-
-
 
