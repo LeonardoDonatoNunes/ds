@@ -2060,7 +2060,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 body {
   font-family: Roboto, 'Libre Baskerville', sans-serif; /*, et-book, "Palatino Linotype", "Palatino LT STD", 'Lora', serif*/
-  font-size: 20px;
+  font-size: 15px;
   font-weight: 300;
   color: #408546;        /* #404040*/
   position: relative;
@@ -2232,7 +2232,6 @@ d-article h3 {
 .fas{
   text-decoration:none;
 }
-
 
 </style>
 <!--/radix_placeholder_site_in_header-->
@@ -2448,6 +2447,49 @@ Show code
 
 Leonardo Donato Nunes - 2021
 </div>
+  <style>
+.top-scrollerx {
+position: fixed;
+    bottom: 100px;
+    right: 10px;
+    font-size: 1em;
+    display: none;
+    z-index: 999;
+    text-align: center;
+    cursor: pointer;
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    background: rgba(0,0,0,.35);
+    color: #fff;
+    line-height: 40px;
+
+}
+ .top-scrollerx:hover {
+    background: rgba(0,0,0,.6);
+}
+</style>
+  <div class="top-scrollerx js-top-scrollerx svg-icons">
+    <svg xmlns="http://www.w3.org/2000/svg" style="vertical-align: text-bottom;" viewBox="0 0 448 512" data-fa-i2svg="">
+      <path fill="currentColor" d="M6.101 261.899L25.9 281.698c4.686 4.686 12.284 4.686 16.971 0L198 126.568V468c0 6.627 5.373 12 12 12h28c6.627 0 12-5.373 12-12V126.568l155.13 155.13c4.686 4.686 12.284 4.686 16.971 0l19.799-19.799c4.686-4.686 4.686-12.284 0-16.971L232.485 35.515c-4.686-4.686-12.284-4.686-16.971 0L6.101 244.929c-4.687 4.686-4.687 12.284 0 16.97z"/>
+    </svg>
+  </div>
+  <script>
+$(window).scroll(function(){
+  // console.log('wwww');
+  if ($(this).scrollTop() &gt; 400) {
+    $('.js-top-scrollerx').fadeIn();
+  } else {
+    $('.js-top-scrollerx').fadeOut();
+  }
+});
+//Click event to scroll to top
+$('.js-top-scrollerx').click(function(){
+  $('html, body').animate({scrollTop : 0},1000);
+  return false;
+});
+
+</script>
 </div>
 <!--/radix_placeholder_navigation_after_body-->
 

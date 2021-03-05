@@ -4,7 +4,7 @@
 
 body {
   font-family: Roboto, 'Libre Baskerville', sans-serif; /*, et-book, "Palatino Linotype", "Palatino LT STD", 'Lora', serif*/
-  font-size: 20px;
+  font-size: 15px;
   font-weight: 300;
   color: #408546;        /* #404040*/
   position: relative;
@@ -176,4 +176,3 @@ d-article h3 {
 .fas{
   text-decoration:none;
 }
-
