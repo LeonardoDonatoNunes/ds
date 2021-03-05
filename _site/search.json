@@ -1,0 +1,29 @@
+{
+  "articles": [
+    {
+      "path": "about.html",
+      "title": "About this site",
+      "description": "Some additional details about the website",
+      "author": [],
+      "contents": "\r\n\r\n\r\n\r\n",
+      "last_modified": "2021-03-05T10:38:20-03:00"
+    },
+    {
+      "path": "estatistica.html",
+      "title": "Estatistica",
+      "description": "Some additional details about the website",
+      "author": [],
+      "contents": "\r\nEstatistica\r\n\r\n\r\n\r\n",
+      "last_modified": "2021-03-05T10:38:27-03:00"
+    },
+    {
+      "path": "index.html",
+      "title": "LDS",
+      "description": "Welcome to the website. I hope you enjoy it!\n",
+      "author": [],
+      "contents": "\r\n\r\n\r\n\r\n",
+      "last_modified": "2021-03-05T10:38:11-03:00"
+    }
+  ],
+  "collections": []
+}

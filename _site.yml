@@ -1,0 +1,14 @@
+name: "."
+title: "LDS"
+description: |
+  LDS
+output_dir: "_site"
+navbar:
+  right:
+    - text: "Home"
+      href: index.html
+    - text: "Estatistica"
+      href: estatistica.html
+    - text: "About"
+      href: about.html
+output: distill::distill_article
