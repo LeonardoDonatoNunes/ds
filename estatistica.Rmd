@@ -73,8 +73,6 @@ Ser capaz de identificar os tipos de dados é importante para saber qual o tipo 
 
 <br/ >
 
-<a href="#top">Voltar ao topo</a>
-
 ## Estatísticas descritivas
 
 Para que possamos extrair valor dos dados que coletamos, primeiramente precisamos identificar algumas tendências e medidas. As análises mais básicas que podemos fazer, para identificar algum padrão ou tendência, são as estatísticas descritivas. Como o nome já sugere, esse conjunto de ferramentas serve para uma primeira descrição dos dados, é com essas análises que teremos as primeiras idéias a respeito do nosso conjunto de dados. 
@@ -229,8 +227,6 @@ print(media(5,3,20,2,4))
 :::
 ::::::
 
-<a href="#top">Voltar ao topo</a>
-
 ### Medidas de dispersão
 
 As medidas de dispersão, com o nome sugere, descrevem como os dados estão distribuidos, como eles variam.
@@ -285,8 +281,3 @@ print(statistics.variance(x))
 </div>
 :::
 ::::::
-
-<a href="#top">Voltar ao topo</a>
-
-
-
