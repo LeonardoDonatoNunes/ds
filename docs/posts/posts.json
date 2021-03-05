@@ -38,6 +38,27 @@
     "input_file": {}
   },
   {
+    "path": "posts/2021-03-05-rmarkdown/",
+    "title": "RMarkdown",
+    "description": "Conteúdos sobre RMarkdown.",
+    "author": [
+      {
+        "name": "Leonardo Donato Nunes",
+        "url": "https://github.com/LeonardoDonatoNunes"
+      }
+    ],
+    "date": "2021-02-28",
+    "categories": [
+      "R",
+      "Livros",
+      "RMarkdown"
+    ],
+    "contents": "\r\n\r\n\r\n\r\nEste post é um repositório pessoal de referências do Rmarkdown. Aqui vou compartilhar os livros que utilizo para criação das minhas páginas e documentos e também alguns códigos que acho relevantes para ficar com o acesso mais fácil.\r\nLivros:\r\nR Markdown Cookbook - The R Series\r\nAutores: Yihui Xie, Christophe Dervieux, Emily Riederer\r\n\r\nBrasil, 28 de Fevereiro de 2021\r\n\r\nVoltar ao topo\r\n\r\n\r\n\r\n",
+    "preview": "posts/2021-03-05-rmarkdown/rmarkdown_files/figure-html5/unnamed-chunk-1-1.png",
+    "last_modified": "2021-03-05T16:21:36-03:00",
+    "input_file": {}
+  },
+  {
     "path": "posts/2021-03-05-postgis/",
     "title": "PostGIS",
     "description": "Criação de um Banco de Dados Espacial PostGIS com o R e Rstudio",

@@ -1,0 +1,59 @@
+---
+title: "RMarkdown"
+description: |
+  Conteúdos sobre RMarkdown.
+author:
+  - name: Leonardo Donato Nunes
+    url: https://github.com/LeonardoDonatoNunes
+date: '`r format(as.Date("28/02/2021", format = "%d/%m/%Y"), "%B %d, %Y")`'
+output:
+  distill::distill_article:
+    self_contained: false
+    toc: false
+    css: ../../styles.css
+draft: false
+tags: [R,PostGIS, RPostgrees]
+categories:
+  - R
+  - Livros
+  - RMarkdown
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = T,
+                      message = F, 
+                      warning = F, 
+                      dev.args = list(bg = 'transparent'),
+                      cache.rebuild = F,
+                      fig.align = "center",
+                      cache = F)
+```
+
+
+```{r, fig.width=4, fig.height=1, echo=F}
+library(png)
+library(grid)
+library(gridExtra)
+img1 <-  rasterGrob(as.raster(readPNG("..\\..\\img\\rmarkdown.png")), interpolate = FALSE)
+grid.arrange(img1)
+```
+
+Este post é um repositório pessoal de referências do Rmarkdown. Aqui vou compartilhar os livros que utilizo para criação das minhas páginas e documentos e também alguns códigos que acho relevantes para ficar com o acesso mais fácil.
+
+
+## Livros:
+
+[R Markdown Cookbook - The R Series](https://bookdown.org/yihui/rmarkdown-cookbook/) 
+
+Autores: Yihui Xie, Christophe Dervieux, Emily Riederer
+
+
+</br >
+
+Brasil, 28 de Fevereiro de 2021
+
+</br >
+
+
+<a href="#top">Voltar ao topo</a>
