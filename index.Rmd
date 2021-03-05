@@ -1,15 +1,55 @@
 ---
-title: "LDS"
-description: |
-  Welcome to the website. I hope you enjoy it!
+title: ""
+output:
+  distill::distill_article:
+    self_contained: false
+    anchor_sections: FALSE
 site: distill::distill_website
+listing: posts
+url: https://github.com/LeonardoDonatoNunes
+encoding: utf-8
 ---
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = FALSE)
+</br >
 
-# Learn more about creating websites with Distill at:
-# https://rstudio.github.io/distill/website.html
+</br >
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = F,
+                      message = F, 
+                      warning = F, 
+                      dev.args = list(bg = 'transparent'),
+                      cache.rebuild = F,
+                      fig.align = "center",
+                      cache = F)
+library(ggplot2)
+library(ggthemes)
+library(ggforce)
+library(extrafont)
+loadfonts(device = "win")
 
 ```
 
+```{r imagem_entrada, layout="l-page", fig.width=15, fig.height=5, fig.asp=.25}
+library(png)
+library(grid)
+library(gridExtra)
+
+img1 <-  rasterGrob(as.raster(readPNG("~/ds/img/imagem_entrada_2.png")), interpolate = FALSE)
+
+grid.arrange(img1)
+```
+
+```{r palavras, layout="l-page", fig.width=15, fig.height=0.5, fig.asp=.25}
+ggplot(data = NULL) +
+     annotate("text", x = 0, y = 0.9, label = "Estatística, Matemática, Dados", size  = 14,
+           family = 'Helvetica', col = "#17421b") +
+     annotate("text", x = 0, y = 0.5, label = "Escrevo para compartilhar conhecimentos, códigos e projetos pessoais.", size  = 10,
+           family = 'Helvetica', col = "#17421b") +
+  ylim(c(0,1))+
+  theme_map()
+```
+
+
+### Postagens:

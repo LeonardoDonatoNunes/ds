@@ -6,7 +6,7 @@
       "description": "Some additional details about the website",
       "author": [],
       "contents": "\r\n\r\n\r\n\r\n",
-      "last_modified": "2021-03-05T10:41:29-03:00"
+      "last_modified": "2021-03-05T10:57:09-03:00"
     },
     {
       "path": "estatistica.html",
@@ -14,16 +14,15 @@
       "description": "Some additional details about the website",
       "author": [],
       "contents": "\r\nEstatistica\r\n\r\n\r\n\r\n",
-      "last_modified": "2021-03-05T10:41:22-03:00"
+      "last_modified": "2021-03-05T10:57:09-03:00"
     },
     {
       "path": "index.html",
-      "title": "LDS",
-      "description": "Welcome to the website. I hope you enjoy it!\n",
+      "title": "",
       "author": [],
-      "contents": "\r\n\r\n\r\n\r\n",
-      "last_modified": "2021-03-05T10:44:36-03:00"
+      "contents": "\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\nPostagens:\r\n\r\n\r\n\r\n",
+      "last_modified": "2021-03-05T11:03:50-03:00"
     }
   ],
-  "collections": []
+  "collections": ["posts/posts.json"]
 }
