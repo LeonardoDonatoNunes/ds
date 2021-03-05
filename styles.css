@@ -176,3 +176,28 @@ d-article h3 {
 .fas{
   text-decoration:none;
 }
+<<<<<<< HEAD
+=======
+
+/*Floating Back-To-Top Button*/
+    #myBtn {
+        position: fixed;
+        bottom: 10px;
+        float: right;
+        right: 18.5%;
+        left: 77.25%;
+        max-width: 30px;
+        width: 100%;
+        font-size: 12px;
+        border-color: rgba(85, 85, 85, 0.2);
+        background-color: rgb(100,100,100);
+        padding: .5px;
+        border-radius: 4px;
+
+    }
+/*On Hover Color Change*/
+    #myBtn:hover {
+        background-color: #7dbbf1;
+    }
+ 
+>>>>>>> 45b1d7425e33b712e55a67db8564975b1188de32

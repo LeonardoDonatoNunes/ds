@@ -56,3 +56,7 @@ ggplot(data = NULL) +
 ### Postagens:
 
 
+<<<<<<< HEAD
+=======
+<button id="myBtn"><a href="#top" style="color: white">Top</a></button>
+>>>>>>> 45b1d7425e33b712e55a67db8564975b1188de32
