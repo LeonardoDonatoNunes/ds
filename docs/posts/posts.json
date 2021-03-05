@@ -1,5 +1,22 @@
 [
   {
+    "path": "posts/2021-03-05-dsxde/",
+    "title": "Cientista de Dados X Engenheiro de Dados",
+    "description": {},
+    "author": [
+      {
+        "name": "Leonardo Donato Nunes",
+        "url": "https://github.com/LeonardoDonatoNunes"
+      }
+    ],
+    "date": "2021-03-05",
+    "categories": [],
+    "contents": "\r\nA distinção entre Um Cientista de Dados e um Engenheiro de Dados esta ficando cada vez mais clara para os profissionais mais experiêntes no mercado. Porém, ainda vejo muitas vagas para Cientista de Dados, onde a mioria das atribuições solicitadas são de um Engenheiro de Dados, como a configuração de clusters de máquinas para processar grandes volumes de dados.\r\n\r\n\r\n\r\nCientista de Dados\r\n\r\n\r\n\r\n\r\nEngenheiro de Dados\r\n\r\n\r\n\r\n\r\n\r\n\r\n",
+    "preview": {},
+    "last_modified": "2021-03-05T19:09:49-03:00",
+    "input_file": "dsxde.utf8.md"
+  },
+  {
     "path": "posts/2021-03-05-lgpd/",
     "title": "LGPD",
     "description": "Breve resumo sobre a Lei Geral de Proteção de Dados",
@@ -53,10 +70,10 @@
       "Livros",
       "RMarkdown"
     ],
-    "contents": "\r\n\r\n\r\n\r\nEste post é um repositório pessoal de referências do Rmarkdown. Aqui vou compartilhar os livros que utilizo para criação das minhas páginas e documentos e também alguns códigos que acho relevantes para ficar com o acesso mais fácil.\r\nLivros:\r\nR Markdown Cookbook - The R Series\r\nAutores: Yihui Xie, Christophe Dervieux, Emily Riederer\r\n\r\nBrasil, 28 de Fevereiro de 2021\r\n\r\nVoltar ao topo\r\n\r\n\r\n\r\n",
+    "contents": "\r\n\r\nContents\r\nCódigos\r\nComo criar um novo chunk de código\r\nCriar colunas\r\n\r\nLivros\r\n\r\n\r\n\r\n\r\nEste post é um guia de códigos e materiais sobre o RMarkdown. São os códigos que mais utilizo nos meus documentos.\r\nCódigos\r\nComo criar um novo chunk de código\r\nPara inserir um novo bloco de código, você pode ir na barra de ferramentas do RStudio e clicar no botão de inserir código (Insert a new code chunk) e escolher o bloco de código da linguagem desejada. Como mostrado na imagem abaixo.\r\n\r\n\r\n\r\nCriar colunas\r\nPara criar colunas no corpo do documento precisa especificar o quanto cada coluna vai ocupar na página. No arquivo de estico .css, ou na própria página com as tags de estilo, configurar o tamanho das colunas dependendo do número de colunas inserido. Neste exemplo, criei uma classe para duas colunas = .column, e para três colunas = .column_3. No exemplo abaixo usei a classe column para cruar duas colunas, se for criar três ou mais colunas, trocar a classe.\r\n\r\n<style>\r\n  \r\n      /* configuracao das colunas no texto */ \r\n    /* 2 colunas */ \r\n    .column{\r\n      float: left;\r\n      width: 48%;\r\n      text-align: left;\r\n    }\r\n    \r\n    /* 3 colunas */ \r\n    .column_3{\r\n      float: left;\r\n      width: 33.33%;\r\n      text-align: left;\r\n    }\r\n  \r\n<\/style>\r\n\r\n:::::: {.cols data-latex=\"\"}\r\n\r\n::: {.column}\r\n\r\n  **Texto da primeira coluna**  Texto ou blocos de código da primeira coluna.  \r\n  \r\n:::\r\n\r\n::: {.column}\r\n\r\n  **Texto da segunda coluna**  Texto ou blocos de código da segunda coluna.\r\n\r\n:::\r\n\r\n::::::\r\n\r\n\r\n\r\nTexto da primeira coluna Texto ou blocos de código da primeira coluna.\r\n\r\n\r\nTexto da segunda coluna Texto ou blocos de código da segunda coluna.\r\n\r\n\r\nLivros\r\nR Markdown Cookbook - The R Series\r\nAutores: Yihui Xie, Christophe Dervieux, Emily Riederer\r\nVoltar ao topo\r\n\r\n\r\n\r\n",
     "preview": "posts/2021-03-05-rmarkdown/rmarkdown_files/figure-html5/unnamed-chunk-1-1.png",
-    "last_modified": "2021-03-05T18:01:22-03:00",
-    "input_file": {}
+    "last_modified": "2021-03-05T20:00:03-03:00",
+    "input_file": "rmarkdown.utf8.md"
   },
   {
     "path": "posts/2021-03-05-postgis/",

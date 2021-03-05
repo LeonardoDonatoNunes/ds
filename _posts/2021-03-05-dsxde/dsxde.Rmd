@@ -1,0 +1,46 @@
+---
+title: "Cientista de Dados X Engenheiro de Dados"
+author:
+  - name: Leonardo Donato Nunes
+    url: https://github.com/LeonardoDonatoNunes
+date: 03-05-2021
+output:
+  distill::distill_article:
+    self_contained: false
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+
+A distinção entre Um Cientista de Dados e um Engenheiro de Dados esta ficando cada vez mais clara para os profissionais mais experiêntes no mercado. Porém, ainda vejo muitas vagas para Cientista de Dados, onde a mioria das atribuições solicitadas são de um Engenheiro de Dados, como a configuração de clusters de máquinas para processar grandes volumes de dados.
+
+
+:::::: {.cols data-latex=""}
+
+::: {.col data-latex="{0.55\textwidth}"}
+<div class="column">
+
+**Cientista de Dados**
+
+
+</div>
+:::
+
+::: {.col data-latex="{0.55\textwidth}"}
+<div class="column">
+
+**Engenheiro de Dados**
+
+
+</div>
+:::
+
+::::::
+
+
+
+
+

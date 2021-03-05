@@ -9,7 +9,7 @@ date: '`r format(as.Date("28/02/2021", format = "%d/%m/%Y"), "%B %d, %Y")`'
 output:
   distill::distill_article:
     self_contained: false
-    toc: false
+    toc: true
     css: ../../styles.css
 draft: false
 tags: [R,PostGIS, RPostgrees]
@@ -39,21 +39,89 @@ img1 <-  rasterGrob(as.raster(readPNG("..\\..\\img\\rmarkdown.png")), interpolat
 grid.arrange(img1)
 ```
 
-Este post é um repositório pessoal de referências do Rmarkdown. Aqui vou compartilhar os livros que utilizo para criação das minhas páginas e documentos e também alguns códigos que acho relevantes para ficar com o acesso mais fácil.
+Este post é um guia de códigos e materiais sobre o RMarkdown. São os códigos que mais utilizo nos meus documentos.
 
 
-## Livros:
+## Códigos
+
+### Como criar um novo *chunk* de código
+
+Para inserir um novo bloco de código, você pode ir na barra de ferramentas do RStudio e clicar no botão de inserir código (**Insert a new code chunk**) e escolher o bloco de código da linguagem desejada. Como mostrado na imagem abaixo.
+
+```{r, fig.width=4, fig.height=1.6, echo=F}
+library(png)
+library(grid)
+library(gridExtra)
+img1 <-  rasterGrob(as.raster(readPNG("..\\..\\img\\rmarkdownfig.png")), interpolate = FALSE)
+grid.arrange(img1)
+```
+
+### Criar colunas
+
+Para criar colunas no corpo do documento precisa especificar o quanto cada coluna vai ocupar na página. No arquivo de estico .css, ou na própria página com as tags de estilo, configurar o tamanho das colunas dependendo do número de colunas inserido. Neste exemplo, criei uma classe para duas colunas = **.column**, e para três colunas = **.column_3**. No exemplo abaixo usei a classe column para cruar duas colunas, se for criar três ou mais colunas, trocar a classe.  
+
+```{r, eval=F}
+<style>
+  
+      /* configuracao das colunas no texto */ 
+    /* 2 colunas */ 
+    .column{
+      float: left;
+      width: 48%;
+      text-align: left;
+    }
+    
+    /* 3 colunas */ 
+    .column_3{
+      float: left;
+      width: 33.33%;
+      text-align: left;
+    }
+  
+</style>
+
+:::::: {.cols data-latex=""}
+
+::: {.column}
+
+  **Texto da primeira coluna**  Texto ou blocos de código da primeira coluna.  
+  
+:::
+
+::: {.column}
+
+  **Texto da segunda coluna**  Texto ou blocos de código da segunda coluna.
+
+:::
+
+::::::
+
+```
+
+:::::: {.cols data-latex=""}
+
+::: {.column}
+
+  **Texto da primeira coluna**  Texto ou blocos de código da primeira coluna.  
+  
+:::
+
+::: {.column}
+
+  **Texto da segunda coluna**  Texto ou blocos de código da segunda coluna.
+
+:::
+
+::::::
+
+
+## Livros
 
 [R Markdown Cookbook - The R Series](https://bookdown.org/yihui/rmarkdown-cookbook/) 
 
 Autores: Yihui Xie, Christophe Dervieux, Emily Riederer
 
 
-</br >
-
-Brasil, 28 de Fevereiro de 2021
-
-</br >
 
 
 <a href="#top">Voltar ao topo</a>
