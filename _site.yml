@@ -2,7 +2,7 @@ name: "."
 title: "LDS"
 description: |
   LDS
-output_dir: "_site"
+output_dir: "docs"
 navbar:
   right:
     - text: "Home"
