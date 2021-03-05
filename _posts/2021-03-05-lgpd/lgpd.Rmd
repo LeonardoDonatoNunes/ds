@@ -1,23 +1,208 @@
 ---
-title: "lgpd"
+title: "LGPD"
 description: |
-  A short description of the post.
+  Breve resumo sobre a Lei Geral de Proteção de Dados
 author:
   - name: Leonardo Donato Nunes
     url: https://github.com/LeonardoDonatoNunes
-date: 03-05-2021
+date: '`r format(as.Date("28/02/2021", format = "%d/%m/%Y"), "%B %d, %Y")`'
 output:
   distill::distill_article:
     self_contained: false
+    toc: false
+    css: ../../styles.css
+    code_folding: true
+draft: false
+tags: [R]
+categories:
+  - LGPD
+---
 ---
 
 
+
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = FALSE)
+knitr::opts_chunk$set(echo = T,
+                      message = F, 
+                      warning = F, 
+                      dev.args = list(bg = 'transparent'),
+                      cache.rebuild = F,
+                      fig.align = "center",
+                      cache = F)
 ```
 
-Distill is a publication format for scientific and technical writing, native to the web.
+```{r, fig.width=6, fig.height=1.5, echo=F}
+library(png)
+library(grid)
+library(gridExtra)
+library(ggplot2)
+library(ggthemes)
+img1 <-  rasterGrob(as.raster(readPNG("..\\..\\img\\lgpd.png")), interpolate = FALSE)
+img2 <- ggplot(data = NULL) +
+  annotate("text", x = 0, y = 0, label = "Lei Geral de Proteção de Dados", hjust = 0) +
+  annotate("text", x = 0, y = -0.1, label = "Lei nº 13.709/2018", hjust = 0) +
+  annotate("text", x = 0, y = -0.2, label = "Medida Provisória nº 869/2018", hjust = 0) +
+  annotate("text", x = 0, y = -0.3, label = " Convertida em Lei nº 13.853/19", hjust = 0) +
+  xlim(c(0,2)) +
+  theme_map()
+grid.arrange(img1, img2, ncol = 2)
+```
 
-Learn more about using Distill at <https://rstudio.github.io/distill>.
+<br/ >
+
+Este post é um resumo da aula de Legislação no Ambiente Digital (LGPD) do MBA em Data Science & Analytics ministrada pela professora Núria López. O objetivo do ducumento é fazer um breve histórico da LGPD e comentar os principais pontos da lei. Além das aulas também foram pesquisadas informações nos sites oficiais do governo federal, como a [página sobre LGPD do ministério da defesa](https://www.gov.br/defesa/pt-br/acesso-a-informacao/lei-geral-de-protecao-de-dados-pessoais-lgpd) e as próprias leis e decretos publicados. E da página sobre LGPD da [Serpro](https://www.serpro.gov.br/lgpd/) (Serviço Federal de Processamento de Dados).
+
+A LGPD é a lei que regula todo tratamento de dados pessoais dos cidadãos brasileiros dentro e fora do Brasil. Se aplica aos meios físicos e digitais. Tem a missão de proteger os direitos fundamentais: **Liberdade**; **Privacidade**; **Livre desenvolvimento** e **Pesonalidade**. É baseada no Regulamento Geral de Proteção de Dados da União Européia que criou regras claras sobre os processos de **coleta**, **armazenamento** e **compartilhamentos** de **informações**.  Na prática, geverno e empresas terão que garantir maior segurança aos dados pessoais.
+
+  
+## Histórico de criação da LGPD 
+
+A **LGPD** possui três datas de vigência, a primeira é de dezembro de 2018, quando foi sancionada entraram em vigor as leis que definem a Agencia Nacional de Proteção de Dados (**ANPD**), que só foi instituida em agosto de 2020 através do decreto nº 10.474/20. A lei entrou em vigor em setembro de 2020, porém, as penalidades só podem ser aplicadas em agosto de 2021.
+
+```{r, echo=F, fig.height=2, fig.width=8}
+meses <- seq.Date(as.Date("2018-10-01"), as.Date("2022-01-01"), by = "month")
+
+
+ggplot(data = NULL, aes(x = meses, y = 0)) +
+  geom_hline(yintercept = 0) +
+  geom_point(aes(x = c(as.Date("2018-12-01"), as.Date("2020-09-01"), as.Date("2021-08-01")),
+                 y = c(0,0,0)), size = 8, col = alpha("blue", alpha = 0.3)) +
+  annotate("text", x = as.Date("2018-12-01"), y = -0.2, label = "Dez/2018 \n ANPD", size = 5) +
+  annotate("text", x = as.Date("2020-09-01"), y = -0.2, label = "Set/2020 \n Vigência LGPD", size = 5) +
+  annotate("text", x = as.Date("2021-08-01"), y = -0.2, label = "Ago/2021 \n Aplicações de sanções \n pela ANPD", size = 5) +
+
+  xlim(c(as.Date("2018-10-01"), as.Date("2022-01-01"))) +
+  ylim(c(-0.5, 0.1)) +
+  theme_map()
+
+```
+
+Na página do ministério da defesa, conta o seguinte texto:
+
+A Lei Geral de Proteção de Dados Pessoais (LGPD), [Lei nº 13.709, de 14 de agosto de 2018](http://www.planalto.gov.br/ccivil_03/_Ato2015-2018/2018/Lei/L13709compilado.htm), dispõe sobre o tratamento de dados pessoais, inclusive nos meios digitais, por pessoa natural ou por pessoa jurídica de direito público ou privado, com o objetivo de proteger os direitos fundamentais de liberdade e de privacidade e o livre desenvolvimento da personalidade da pessoa natural. 
+
+Para proteger os direitos fundamentais de liberdade e privacidade e o livre desenvolvimento da personalidade da pessoa natural foi criada a Autoridade Nacional de Proteção de Dados (ANPD), conforme estabelecido no [Decreto nº 10.474, de 26 de agosto de 2020](https://www.planalto.gov.br/ccivil_03/_Ato2019-2022/2020/Decreto/D10474.htm).
+
+## Dado Pessoal
+
+Dado pessoal é qualquer dado capaz de identificar alguém, pode ser email, CEP, telefone, endereço, IP, dado de compra, geolocalização, Cookie ID, número do cartão, e qualquer outro dado que posssa ser usado para identificação pessoal. Ou seja, o conceito de dado pessoal é dinâminco, dependendo da capacidade de análise. Qualquer dados pode ser um potencial dado pessoal.
+
+### Dado pessoal sensível
+São dados que  exigem um pouco mais de atenção: são os sobre crianças e adolescentes; e os “sensíveis”, que são os que revelam origem racial ou étnica, convicções religiosas ou filosóficas, opiniões políticas, filiação sindical, questões genéticas, biométricas e sobre a saúde ou a vida sexual de uma pessoa.
+
+Texto obtido em [https://www.serpro.gov.br/lgpd/menu/protecao-de-dados/dados-sensiveis-lgpd](https://www.serpro.gov.br/lgpd/menu/protecao-de-dados/dados-sensiveis-lgpd). Data do acesso: 28 de fevereiro de 2021.
+
+
+## Tratamento de dados
+
+Toda operação realizada com dados pessoais; como as que se referem a:
+
+:::::: {.cols data-latex=""}
+
+::: {.col data-latex="{0.55\textwidth}"}
+<div class="column">
+
+  * __acesso__ - possibilidade de comunicar-se com um dispositivo, meio de armazenamento, unidade de rede, memória, registro, arquivo etc., visando receber, fornecer, ou eliminar dados
+  
+  * __armazenamento__ - ação ou resultado de manter ou conservar em repositório um dado
+  
+  * __arquivamento__ - ato ou efeito de manter registrado um dado embora já tenha perdido a validade ou esgotada a sua vigência
+  
+  * __avaliação__ - ato ou efeito de calcular valor sobre um ou mais dados
+  
+  * __classificação__ - maneira de ordenar os dados conforme algum critério estabelecido
+  
+  * __coleta__ - recolhimento de dados com finalidade específica
+  
+  * **comunicação** - transmitir informações pertinentes a políticas de ação sobre os dados
+  
+  * **controle** - ação ou poder de regular, determinar ou monitorar as ações sobre o dado
+  
+  * **difusão** - ato ou efeito de divulgação, propagação, multiplicação dos dados
+  
+  * **distribuição** - ato ou efeito de dispor de dados de acordo com algum critério estabelecido
+  
+  </div>
+:::
+
+::: {.col data-latex="{0.55\textwidth}"}
+<div class="column">
+  
+  
+  * **eliminação** - ato ou efeito de excluir ou destruir dado do repositório
+  
+  * **extração** - ato de copiar ou retirar dados do repositório em que se encontrava
+  
+  * **modificação** - ato ou efeito de alteração do dado
+  
+  * __processamento__ - ato ou efeito de processar dados
+  
+  * **produção** - criação de bens e de serviços a partir do tratamento de dados
+  
+  * **recepção** - ato de receber os dados ao final da transmissão
+  
+  * **reprodução** - cópia de dado preexistente obtido por meio de qualquer processo
+  
+  * **transferência** - mudança de dados de uma área de armazenamento para outra, ou para terceiro
+  
+  * **transmissão** - movimentação de dados entre dois pontos por meio de dispositivos elétricos, eletrônicos,      
+  * **telegráficos**, telefônicos, radioelétricos, pneumáticos etc.
+  
+  * **utilização** - ato ou efeito do aproveitamento dos dados
+
+</div>
+:::
+::::::
+
+Texto obtido em [https://www.serpro.gov.br/lgpd/menu/a-lgpd/glossario-lgpd](https://www.serpro.gov.br/lgpd/menu/a-lgpd/glossario-lgpd). Data do acesso: 28 de fevereiro de 2021.
+
+## A quem se aplica a LGPD
+
+Meios Físico e Digital para:
+
+* Tratamentos de dados realizados no Brasil
+
+* Bens e serviços oferecidos ou fornecidos no Brasil
+
+* Tratamento de dados coletados no Brasil
+
+* Tratamento de dados de indivíduos localizados no Brasil
+
+## Algumas informações relevantes
+
+**Cultura de defesa do consumidor** - A LGPD é aderente a cultura de defesa do consumidor.
+
+**Não discriminação** - impossibilidade de realização de tratamento para fins discriminatórios, ilícitos ou abusivos;
+
+**Posso tratar dados pessoais de acordo com a LGPD?** O dado precisa ser necessário e adequado para a finalidade a qual foi autorizado.
+
+  **Consentimento** - Precisa ser explícito, por finalidade.
+  
+  **Cumprimento de obrigação legal ou regulatória**
+  
+  **Execução de política pública**
+  
+  **Estudo por órgão de pesquisa** -  Sem finalidade lucrativa
+
+  **Execução de contrato ou diligência pré-contratual**
+  
+  **Exercício regular do direito** - Guardar o dado para defesa
+  
+  **Proteção da vida ou da incolumidade física** - Não precisa ter consentimento
+  
+  **Tutela da saúde**
+  
+  **Interesses legítimos** - Prevenção a fraude, monitoramento, investigação
+  
+  **Proteção do crédito** - Abrange o cadastro positivo, dados de inadimplência
+  
+
+Na prática, quado solicitamos dados, devemos criar várias solicitações de autorização (consentimento), bem separados por cada finalidade a qual o dado está sendo coletado.
+
+
+<br/ >
+
+<a href="#top">Voltar ao topo</a>
+
 
 
