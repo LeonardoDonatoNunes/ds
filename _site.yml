@@ -22,5 +22,7 @@ navbar:
       href: https://www.linkedin.com/in/leonardo-donato-nunes-754aa5b8/
     - icon: fa-instagram fa-1.2x
       href: https://www.instagram.com/leonardodonatonunes/?hl=pt-br
+    - icon: fab fa-researchgate
+      href: https://www.researchgate.net/profile/Leonardo-Nunes-8
 output: 
   distill::distill_article:
