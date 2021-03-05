@@ -2331,7 +2331,7 @@ d-article h3 {
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    db <span class="op">=</span> con.instituicoes</span>
 <span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    </span>
 <span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    db.universidades.insert_many(universidades)</span></code></pre></div>
-<pre><code>&lt;pymongo.results.InsertManyResult object at 0x000000003E489480&gt;</code></pre>
+<pre><code>&lt;pymongo.results.InsertManyResult object at 0x000000003E4AAC80&gt;</code></pre>
 </div>
 <p>Listar os nomes dos bancos de dados:</p>
 <div class="layout-chunk" data-layout="l-body">
@@ -2348,13 +2348,13 @@ d-article h3 {
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode" id="cb10"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>universidades <span class="op">=</span> db.universidades.find()</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">list</span>(universidades)[<span class="dv">1</span>])</span></code></pre></div>
-<pre><code>{&#39;_id&#39;: ObjectId(&#39;60428260301c5a1f407d7484&#39;), &#39;nome&#39;: &#39;UNB&#39;, &#39;n_alunos&#39;: 20000}</code></pre>
+<pre><code>{&#39;_id&#39;: ObjectId(&#39;60429bd538dfd69aa3aa2d58&#39;), &#39;nome&#39;: &#39;UNB&#39;, &#39;n_alunos&#39;: 20000}</code></pre>
 </div>
 <p>Para filtrar um documento</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode" id="cb12"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>nome <span class="op">=</span> db.universidades.find({<span class="st">&#39;n_alunos&#39;</span>:<span class="dv">20000</span>})</span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">list</span>(nome))</span></code></pre></div>
-<pre><code>[{&#39;_id&#39;: ObjectId(&#39;60428260301c5a1f407d7484&#39;), &#39;nome&#39;: &#39;UNB&#39;, &#39;n_alunos&#39;: 20000}]</code></pre>
+<pre><code>[{&#39;_id&#39;: ObjectId(&#39;60429bd538dfd69aa3aa2d58&#39;), &#39;nome&#39;: &#39;UNB&#39;, &#39;n_alunos&#39;: 20000}]</code></pre>
 </div>
 <p>Para inserir somente um documento</p>
 <div class="layout-chunk" data-layout="l-body">
@@ -2363,7 +2363,7 @@ d-article h3 {
 <span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>    db <span class="op">=</span> con.instituicoes</span>
 <span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>    </span>
 <span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>    db.universidades.insert_one({<span class="st">&#39;nome&#39;</span>: <span class="st">&#39;UFRJ&#39;</span>, <span class="st">&#39;n_alunos&#39;</span>: <span class="dv">25000</span>})</span></code></pre></div>
-<pre><code>&lt;pymongo.results.InsertOneResult object at 0x000000004E4B1F00&gt;</code></pre>
+<pre><code>&lt;pymongo.results.InsertOneResult object at 0x000000004E4C2A80&gt;</code></pre>
 </div>
 <p>Para excluir uma coleção</p>
 <div class="layout-chunk" data-layout="l-body">
@@ -2454,31 +2454,31 @@ d-article h3 {
   <tbody>
     <tr>
       <th>0</th>
-      <td>6042826c301c5a1f407d7488</td>
+      <td>60429bdd38dfd69aa3aa2d5c</td>
       <td>1990-01-01</td>
       <td>52233</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>6042826c301c5a1f407d7489</td>
+      <td>60429bdd38dfd69aa3aa2d5d</td>
       <td>1990-02-01</td>
       <td>41228</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>6042826c301c5a1f407d748a</td>
+      <td>60429bdd38dfd69aa3aa2d5e</td>
       <td>1990-03-01</td>
       <td>24353</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>6042826c301c5a1f407d748b</td>
+      <td>60429bdd38dfd69aa3aa2d5f</td>
       <td>1990-04-01</td>
       <td>23705</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>6042826c301c5a1f407d748c</td>
+      <td>60429bdd38dfd69aa3aa2d60</td>
       <td>1990-05-01</td>
       <td>44062</td>
     </tr>
