@@ -2221,10 +2221,27 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
     text-decoration:none;
   }
 
+  /*Floating Back-To-Top Button*/
+      #myBtn {
+          position: fixed;
+          bottom: 10px;
+          float: right;
+          right: 18.5%;
+          left: 77.25%;
+          max-width: 30px;
+          width: 100%;
+          font-size: 12px;
+          border-color: rgba(85, 85, 85, 0.2);
+          background-color: rgb(100,100,100);
+          padding: .5px;
+          border-radius: 4px;
 
-
-
-
+      }
+  /*On Hover Color Change*/
+      #myBtn:hover {
+          background-color: #7dbbf1;
+      }
+   
   </style>
   <!--/radix_placeholder_site_in_header-->
 
@@ -2483,6 +2500,9 @@ Criar uma função
 </div>
 </div>
 </div>
+<button id="myBtn">
+<a href="#top" style="color: white">Top</a>
+</button>
 <div class="sourceCode" id="cb13"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
