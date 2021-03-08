@@ -65,6 +65,7 @@ Este post foi criado para agregar conteúdos de Data Science através de Links q
 
 [B3 + rvest: Explorando dados financeiros com R](https://www.fulljoin.com.br/posts/2019-07-18-b3-rvest-explorando-dados-financeiros-com-r/)
 
+[Mastering Shiny](https://mastering-shiny.org/index.html)
 
 
 
