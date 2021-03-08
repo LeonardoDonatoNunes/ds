@@ -25,6 +25,18 @@ A distinção entre Um Cientista de Dados e um Engenheiro de Dados esta ficando 
 
 **Cientista de Dados**
 
+* Minerar dados para encontrar pdrões
+
+* Modelagem estatística
+
+* Criar modelos preditivos usando Machine Learning
+
+* Monitorar os processos do negócio
+
+* Limpar dados discrepantes
+
+* Comnhecimento do negócio
+
 
 </div>
 :::
@@ -33,6 +45,17 @@ A distinção entre Um Cientista de Dados e um Engenheiro de Dados esta ficando 
 <div class="column">
 
 **Engenheiro de Dados**
+
+* Desenvolver arquiteturas de dados escaláveis 
+
+* Agilizar a aquisição de dados
+
+* Criar processos para buscar dados de muitas fontes
+
+* Limpeza de dados corrompidos
+
+* Bom conhecimento de computação em nuvem
+
 
 
 </div>

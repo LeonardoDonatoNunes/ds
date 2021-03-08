@@ -11,10 +11,10 @@
     ],
     "date": "2021-03-05",
     "categories": [],
-    "contents": "\r\nA distinção entre Um Cientista de Dados e um Engenheiro de Dados esta ficando cada vez mais clara para os profissionais mais experiêntes no mercado. Porém, ainda vejo muitas vagas para Cientista de Dados, onde a mioria das atribuições solicitadas são de um Engenheiro de Dados, como a configuração de clusters de máquinas para processar grandes volumes de dados.\r\n\r\n\r\n\r\nCientista de Dados\r\n\r\n\r\n\r\n\r\nEngenheiro de Dados\r\n\r\n\r\n\r\n\r\n\r\n\r\n",
+    "contents": "\r\nA distinção entre Um Cientista de Dados e um Engenheiro de Dados esta ficando cada vez mais clara para os profissionais mais experiêntes no mercado. Porém, ainda vejo muitas vagas para Cientista de Dados, onde a mioria das atribuições solicitadas são de um Engenheiro de Dados, como a configuração de clusters de máquinas para processar grandes volumes de dados.\r\n\r\n\r\n\r\nCientista de Dados\r\nMinerar dados para encontrar pdrões\r\nModelagem estatística\r\nCriar modelos preditivos usando Machine Learning\r\nMonitorar os processos do negócio\r\nLimpar dados discrepantes\r\nComnhecimento do negócio\r\n\r\n\r\n\r\n\r\nEngenheiro de Dados\r\nDesenvolver arquiteturas de dados escaláveis\r\nAgilizar a aquisição de dados\r\nCriar processos para buscar dados de muitas fontes\r\nLimpeza de dados corrompidos\r\nBom conhecimento de computação em nuvem\r\n\r\n\r\n\r\n\r\n\r\n\r\n",
     "preview": {},
-    "last_modified": "2021-03-05T19:09:50-03:00",
-    "input_file": {}
+    "last_modified": "2021-03-08T11:15:57-03:00",
+    "input_file": "dsxde.utf8.md"
   },
   {
     "path": "posts/2021-03-05-lgpd/",
