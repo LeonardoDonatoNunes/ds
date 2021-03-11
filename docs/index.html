@@ -2031,7 +2031,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </script>
 
   <!--/radix_placeholder_distill-->
-  <script src="site_libs/header-attrs-2.6/header-attrs.js"></script>
+  <script src="site_libs/header-attrs-2.7/header-attrs.js"></script>
   <script src="site_libs/popper-2.6.0/popper.min.js"></script>
   <link href="site_libs/tippy-6.2.7/tippy.css" rel="stylesheet" />
   <link href="site_libs/tippy-6.2.7/tippy-light-border.css" rel="stylesheet" />
@@ -2200,7 +2200,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   /* 2 colunas */ 
   .column{
     float: left;
-    width: 48%;
+    width: 45%;
     text-align: left;
   }
 
@@ -2211,15 +2211,18 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
     text-align: left;
   }
 
+  /* coluna de espaco */ 
+  .column_spc{
+    float: left;
+    width: 4%;
+    text-align: left;
+  }
 
   /* preview da imagem dos posts na pagina inicial */ 
 
   .posts-list .post-preview .thumbnail img { width: 80%; display: block; }
 
 
-  .fas{
-    text-decoration:none;
-  }
 
   </style>
   <!--/radix_placeholder_site_in_header-->
@@ -2412,7 +2415,9 @@ function init_posts_list() {
 <div class="dt-author">Leonardo Donato Nunes</div>
 </div>
 </div>
-<div class="thumbnail"></div>
+<div class="thumbnail">
+<img/>
+</div>
 <div class="description">
 <h2>Cientista de Dados X Engenheiro de Dados</h2>
 <div class="dt-tags"></div>
@@ -2627,7 +2632,7 @@ function init_posts_list() {
 <a href="#">More articles &raquo;</a>
 </div>
 </div>
-<!--/radix_placeholder_article_listing-->
+<!--/radix_placeholder_article_listing-->
 
 <div class="d-title">
 <h1>index.utf8</h1>
