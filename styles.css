@@ -178,4 +178,7 @@ d-article h3 {
 
 .posts-list .post-preview .thumbnail img { width: 80%; display: block; }
 
-
+/* blocos de codigos */ 
+d-article div.sourceCode pre {
+    background: #f2f2f2;
+}

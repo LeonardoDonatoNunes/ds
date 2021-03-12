@@ -37,7 +37,7 @@ library(png)
 library(grid)
 library(gridExtra)
 
-img1 <-  rasterGrob(as.raster(readPNG("img/imagem_entrada_2.png")), interpolate = FALSE)
+img1 <-  rasterGrob(as.raster(readPNG("img/imagem_entrada.png")), interpolate = FALSE)
 
 grid.arrange(img1)
 ```

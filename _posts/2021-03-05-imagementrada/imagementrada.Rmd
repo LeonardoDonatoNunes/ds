@@ -50,6 +50,9 @@ y =  cos(2*pi*(1/2 - x/500))
 z =  cos(2*pi*(1/2 - x/250))
 legenda_x <- "cos(2 * pi * (frac(1,2) - frac(x,lambda)))"
 legenda_z <- "cos(2 * pi * (frac(1,2) - frac(x,lambda)))"
+
+cor_linha_1 <- '#E84B00'
+cor_linha_2 <- '#0F4ABF'
 ```
 
 ### Elaboração do gráfico
@@ -60,19 +63,19 @@ legenda_z <- "cos(2 * pi * (frac(1,2) - frac(x,lambda)))"
                 geom_point(aes(x = 100, y = 1.6), col = "transparent") +
                 geom_point(aes(x = 100, y = -1.5), col = "transparent") +
  
-                geom_line(aes(x = x, y = y), lwd = 1.2, 
+                geom_line(aes(x = x, y = y), lwd = 1.6, 
                           col = ifelse(x > 350 & x < 650,
-                                       alpha("purple", alpha = 0.3), 
-                                       alpha("purple", alpha = 0.7))) +
+                                       alpha(cor_linha_1, alpha = 0.3), 
+                                       alpha(cor_linha_1, alpha = 0.7))) +
                 geom_text(aes(x = 900, y = -1.2, label = legenda_x), 
-                          parse = TRUE, col = alpha("purple", alpha = 0.5), size = 8) +
+                          parse = TRUE, col = alpha(cor_linha_1, alpha = 0.7), size = 8) +
                 
-                geom_line(aes(x = x, y = z), lwd = 1.2, 
+                geom_line(aes(x = x, y = z), lwd = 1.6, 
                           col = ifelse(x > 350 & x < 650,
-                                       alpha("#408546", alpha = 0.3), 
-                                       alpha("#408546", alpha = 0.7))) +
+                                       alpha(cor_linha_2, alpha = 0.3), 
+                                       alpha(cor_linha_2, alpha = 0.7))) +
                 geom_text(aes(x = 100, y = 1.4, label = legenda_z), parse = TRUE,
-                          col = alpha("#408546", alpha = 0.7), size = 8) +
+                          col = alpha(cor_linha_2, alpha = 0.7), size = 8) +
                 
                 annotate("text", x = 500, y = 0, label = "> LDN \n + DS",
                          size = 28, family = "Eras Bold ITC", col = "#236336") +

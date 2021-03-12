@@ -113,12 +113,12 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   <!--radix_placeholder_rmarkdown_metadata-->
 
 <script type="text/json" id="radix-rmarkdown-metadata">
-{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","output","draft","tags","categories"]}},"value":[{"type":"character","attributes":{},"value":["Imagem de entrada"]},{"type":"character","attributes":{},"value":["Descreve a imagem de entrada da pagina inicial."]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url"]}},"value":[{"type":"character","attributes":{},"value":["Leonardo Donato Nunes"]},{"type":"character","attributes":{},"value":["https://github.com/LeonardoDonatoNunes"]}]}]},{"type":"character","attributes":{},"value":["February 16, 2021"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained","toc","css"]}},"value":[{"type":"logical","attributes":{},"value":[false]},{"type":"logical","attributes":{},"value":[false]},{"type":"character","attributes":{},"value":["../../styles.css"]}]}]},{"type":"logical","attributes":{},"value":[false]},{"type":"character","attributes":{},"value":["R","GGplot2"]},{"type":"character","attributes":{},"value":["GGplot2","R","Visualizacao"]}]}
+{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","output","draft","tags","categories"]}},"value":[{"type":"character","attributes":{},"value":["Imagem de entrada"]},{"type":"character","attributes":{},"value":["Descreve a imagem de entrada da pagina inicial."]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url"]}},"value":[{"type":"character","attributes":{},"value":["Leonardo Donato Nunes"]},{"type":"character","attributes":{},"value":["https://github.com/LeonardoDonatoNunes"]}]}]},{"type":"character","attributes":{},"value":["fevereiro 16, 2021"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained","toc","css"]}},"value":[{"type":"logical","attributes":{},"value":[false]},{"type":"logical","attributes":{},"value":[false]},{"type":"character","attributes":{},"value":["../../styles.css"]}]}]},{"type":"logical","attributes":{},"value":[false]},{"type":"character","attributes":{},"value":["R","GGplot2"]},{"type":"character","attributes":{},"value":["GGplot2","R","Visualizacao"]}]}
 </script>
 <!--/radix_placeholder_rmarkdown_metadata-->
   
   <script type="text/json" id="radix-resource-manifest">
-  {"type":"character","attributes":{},"value":["imagementrada_files/anchor-4.2.2/anchor.min.js","imagementrada_files/bowser-1.9.3/bowser.min.js","imagementrada_files/distill-2.2.21/template.v2.js","imagementrada_files/figure-html5/figura_entrada_post-1.png","imagementrada_files/header-attrs-2.6/header-attrs.js","imagementrada_files/jquery-1.11.3/jquery.min.js","imagementrada_files/popper-2.6.0/popper.min.js","imagementrada_files/tippy-6.2.7/tippy-bundle.umd.min.js","imagementrada_files/tippy-6.2.7/tippy-light-border.css","imagementrada_files/tippy-6.2.7/tippy.css","imagementrada_files/tippy-6.2.7/tippy.umd.min.js","imagementrada_files/webcomponents-2.0.0/webcomponents.js"]}
+  {"type":"character","attributes":{},"value":["imagementrada_files/anchor-4.2.2/anchor.min.js","imagementrada_files/bowser-1.9.3/bowser.min.js","imagementrada_files/distill-2.2.21/template.v2.js","imagementrada_files/figure-html5/figura_entrada_post-1.png","imagementrada_files/header-attrs-2.6/header-attrs.js","imagementrada_files/header-attrs-2.7/header-attrs.js","imagementrada_files/jquery-1.11.3/jquery.min.js","imagementrada_files/popper-2.6.0/popper.min.js","imagementrada_files/tippy-6.2.7/tippy-bundle.umd.min.js","imagementrada_files/tippy-6.2.7/tippy-light-border.css","imagementrada_files/tippy-6.2.7/tippy.css","imagementrada_files/tippy-6.2.7/tippy.umd.min.js","imagementrada_files/webcomponents-2.0.0/webcomponents.js"]}
   </script>
   <!--radix_placeholder_navigation_in_header-->
 <meta name="distill:offset" content="../.."/>
@@ -2042,7 +2042,7 @@ document.addEventListener('DOMContentLoaded', function() {
 </script>
 
 <!--/radix_placeholder_distill-->
-  <script src="../../site_libs/header-attrs-2.6/header-attrs.js"></script>
+  <script src="../../site_libs/header-attrs-2.7/header-attrs.js"></script>
   <script src="../../site_libs/jquery-1.11.3/jquery.min.js"></script>
   <script src="../../site_libs/popper-2.6.0/popper.min.js"></script>
   <link href="../../site_libs/tippy-6.2.7/tippy.css" rel="stylesheet" />
@@ -2234,7 +2234,10 @@ d-article h3 {
 
 .posts-list .post-preview .thumbnail img { width: 80%; display: block; }
 
-
+/* blocos de codigos */ 
+d-article div.sourceCode pre {
+    background: #f2f2f2;
+}
 
 </style>
 <!--/radix_placeholder_site_in_header-->
@@ -2300,7 +2303,7 @@ d-article h3 {
 <div class="d-byline">
   Leonardo Donato Nunes <a href="https://github.com/LeonardoDonatoNunes" class="uri">https://github.com/LeonardoDonatoNunes</a> 
   
-<br/>February 16, 2021
+<br/>fevereiro 16, 2021
 </div>
 
 <div class="d-article">
@@ -2324,6 +2327,9 @@ d-article h3 {
 <span class='va'>z</span> <span class='op'>=</span>  <span class='fu'><a href='https://rdrr.io/r/base/Trig.html'>cos</a></span><span class='op'>(</span><span class='fl'>2</span><span class='op'>*</span><span class='va'>pi</span><span class='op'>*</span><span class='op'>(</span><span class='fl'>1</span><span class='op'>/</span><span class='fl'>2</span> <span class='op'>-</span> <span class='va'>x</span><span class='op'>/</span><span class='fl'>250</span><span class='op'>)</span><span class='op'>)</span>
 <span class='va'>legenda_x</span> <span class='op'>&lt;-</span> <span class='st'>"cos(2 * pi * (frac(1,2) - frac(x,lambda)))"</span>
 <span class='va'>legenda_z</span> <span class='op'>&lt;-</span> <span class='st'>"cos(2 * pi * (frac(1,2) - frac(x,lambda)))"</span>
+
+<span class='va'>cor_linha_1</span> <span class='op'>&lt;-</span> <span class='st'>'#E84B00'</span>
+<span class='va'>cor_linha_2</span> <span class='op'>&lt;-</span> <span class='st'>'#0F4ABF'</span>
 </code></pre>
 </div>
 </div>
@@ -2335,19 +2341,19 @@ d-article h3 {
                 <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_point.html'>geom_point</a></span><span class='op'>(</span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='fl'>100</span>, y <span class='op'>=</span> <span class='fl'>1.6</span><span class='op'>)</span>, col <span class='op'>=</span> <span class='st'>"transparent"</span><span class='op'>)</span> <span class='op'>+</span>
                 <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_point.html'>geom_point</a></span><span class='op'>(</span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='fl'>100</span>, y <span class='op'>=</span> <span class='op'>-</span><span class='fl'>1.5</span><span class='op'>)</span>, col <span class='op'>=</span> <span class='st'>"transparent"</span><span class='op'>)</span> <span class='op'>+</span>
  
-                <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_path.html'>geom_line</a></span><span class='op'>(</span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>x</span>, y <span class='op'>=</span> <span class='va'>y</span><span class='op'>)</span>, lwd <span class='op'>=</span> <span class='fl'>1.2</span>, 
+                <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_path.html'>geom_line</a></span><span class='op'>(</span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>x</span>, y <span class='op'>=</span> <span class='va'>y</span><span class='op'>)</span>, lwd <span class='op'>=</span> <span class='fl'>1.6</span>, 
                           col <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/ifelse.html'>ifelse</a></span><span class='op'>(</span><span class='va'>x</span> <span class='op'>&gt;</span> <span class='fl'>350</span> <span class='op'>&amp;</span> <span class='va'>x</span> <span class='op'>&lt;</span> <span class='fl'>650</span>,
-                                       <span class='fu'><a href='https://scales.r-lib.org//reference/alpha.html'>alpha</a></span><span class='op'>(</span><span class='st'>"purple"</span>, alpha <span class='op'>=</span> <span class='fl'>0.3</span><span class='op'>)</span>, 
-                                       <span class='fu'><a href='https://scales.r-lib.org//reference/alpha.html'>alpha</a></span><span class='op'>(</span><span class='st'>"purple"</span>, alpha <span class='op'>=</span> <span class='fl'>0.7</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+                                       <span class='fu'><a href='https://scales.r-lib.org//reference/alpha.html'>alpha</a></span><span class='op'>(</span><span class='va'>cor_linha_1</span>, alpha <span class='op'>=</span> <span class='fl'>0.3</span><span class='op'>)</span>, 
+                                       <span class='fu'><a href='https://scales.r-lib.org//reference/alpha.html'>alpha</a></span><span class='op'>(</span><span class='va'>cor_linha_1</span>, alpha <span class='op'>=</span> <span class='fl'>0.7</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
                 <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_text.html'>geom_text</a></span><span class='op'>(</span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='fl'>900</span>, y <span class='op'>=</span> <span class='op'>-</span><span class='fl'>1.2</span>, label <span class='op'>=</span> <span class='va'>legenda_x</span><span class='op'>)</span>, 
-                          parse <span class='op'>=</span> <span class='cn'>TRUE</span>, col <span class='op'>=</span> <span class='fu'><a href='https://scales.r-lib.org//reference/alpha.html'>alpha</a></span><span class='op'>(</span><span class='st'>"purple"</span>, alpha <span class='op'>=</span> <span class='fl'>0.5</span><span class='op'>)</span>, size <span class='op'>=</span> <span class='fl'>8</span><span class='op'>)</span> <span class='op'>+</span>
+                          parse <span class='op'>=</span> <span class='cn'>TRUE</span>, col <span class='op'>=</span> <span class='fu'><a href='https://scales.r-lib.org//reference/alpha.html'>alpha</a></span><span class='op'>(</span><span class='va'>cor_linha_1</span>, alpha <span class='op'>=</span> <span class='fl'>0.7</span><span class='op'>)</span>, size <span class='op'>=</span> <span class='fl'>8</span><span class='op'>)</span> <span class='op'>+</span>
                 
-                <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_path.html'>geom_line</a></span><span class='op'>(</span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>x</span>, y <span class='op'>=</span> <span class='va'>z</span><span class='op'>)</span>, lwd <span class='op'>=</span> <span class='fl'>1.2</span>, 
+                <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_path.html'>geom_line</a></span><span class='op'>(</span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>x</span>, y <span class='op'>=</span> <span class='va'>z</span><span class='op'>)</span>, lwd <span class='op'>=</span> <span class='fl'>1.6</span>, 
                           col <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/ifelse.html'>ifelse</a></span><span class='op'>(</span><span class='va'>x</span> <span class='op'>&gt;</span> <span class='fl'>350</span> <span class='op'>&amp;</span> <span class='va'>x</span> <span class='op'>&lt;</span> <span class='fl'>650</span>,
-                                       <span class='fu'><a href='https://scales.r-lib.org//reference/alpha.html'>alpha</a></span><span class='op'>(</span><span class='st'>"#408546"</span>, alpha <span class='op'>=</span> <span class='fl'>0.3</span><span class='op'>)</span>, 
-                                       <span class='fu'><a href='https://scales.r-lib.org//reference/alpha.html'>alpha</a></span><span class='op'>(</span><span class='st'>"#408546"</span>, alpha <span class='op'>=</span> <span class='fl'>0.7</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+                                       <span class='fu'><a href='https://scales.r-lib.org//reference/alpha.html'>alpha</a></span><span class='op'>(</span><span class='va'>cor_linha_2</span>, alpha <span class='op'>=</span> <span class='fl'>0.3</span><span class='op'>)</span>, 
+                                       <span class='fu'><a href='https://scales.r-lib.org//reference/alpha.html'>alpha</a></span><span class='op'>(</span><span class='va'>cor_linha_2</span>, alpha <span class='op'>=</span> <span class='fl'>0.7</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
                 <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_text.html'>geom_text</a></span><span class='op'>(</span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='fl'>100</span>, y <span class='op'>=</span> <span class='fl'>1.4</span>, label <span class='op'>=</span> <span class='va'>legenda_z</span><span class='op'>)</span>, parse <span class='op'>=</span> <span class='cn'>TRUE</span>,
-                          col <span class='op'>=</span> <span class='fu'><a href='https://scales.r-lib.org//reference/alpha.html'>alpha</a></span><span class='op'>(</span><span class='st'>"#408546"</span>, alpha <span class='op'>=</span> <span class='fl'>0.7</span><span class='op'>)</span>, size <span class='op'>=</span> <span class='fl'>8</span><span class='op'>)</span> <span class='op'>+</span>
+                          col <span class='op'>=</span> <span class='fu'><a href='https://scales.r-lib.org//reference/alpha.html'>alpha</a></span><span class='op'>(</span><span class='va'>cor_linha_2</span>, alpha <span class='op'>=</span> <span class='fl'>0.7</span><span class='op'>)</span>, size <span class='op'>=</span> <span class='fl'>8</span><span class='op'>)</span> <span class='op'>+</span>
                 
                 <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/annotate.html'>annotate</a></span><span class='op'>(</span><span class='st'>"text"</span>, x <span class='op'>=</span> <span class='fl'>500</span>, y <span class='op'>=</span> <span class='fl'>0</span>, label <span class='op'>=</span> <span class='st'>"&gt; LDN \n + DS"</span>,
                          size <span class='op'>=</span> <span class='fl'>28</span>, family <span class='op'>=</span> <span class='st'>"Eras Bold ITC"</span>, col <span class='op'>=</span> <span class='st'>"#236336"</span><span class='op'>)</span> <span class='op'>+</span>
