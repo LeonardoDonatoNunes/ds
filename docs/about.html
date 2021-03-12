@@ -86,27 +86,27 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 </style>
 
   <!--radix_placeholder_meta_tags-->
-  <title>LDN - Data Science: </title>
+  <title>LDN - Data Science: Sobre a página e o autor</title>
 
 
   <link rel="icon" type="image/png" href="img/Meu_Logo_Azul.png"/>
 
 
   <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
-  <meta property="og:title" content="LDN - Data Science: "/>
+  <meta property="og:title" content="LDN - Data Science: Sobre a página e o autor"/>
   <meta property="og:type" content="article"/>
   <meta property="og:locale" content="en_US"/>
   <meta property="og:site_name" content="LDN - Data Science"/>
 
   <!--  https://dev.twitter.com/cards/types/summary -->
   <meta property="twitter:card" content="summary"/>
-  <meta property="twitter:title" content="LDN - Data Science: "/>
+  <meta property="twitter:title" content="LDN - Data Science: Sobre a página e o autor"/>
 
   <!--/radix_placeholder_meta_tags-->
   <!--radix_placeholder_rmarkdown_metadata-->
 
   <script type="text/json" id="radix-rmarkdown-metadata">
-  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","output","site","listing","url","css","encoding"]}},"value":[{"type":"character","attributes":{},"value":[""]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained","anchor_sections"]}},"value":[{"type":"logical","attributes":{},"value":[false]},{"type":"logical","attributes":{},"value":[false]}]}]},{"type":"character","attributes":{},"value":["distill::distill_website"]},{"type":"character","attributes":{},"value":["posts"]},{"type":"character","attributes":{},"value":["https://github.com/LeonardoDonatoNunes"]},{"type":"character","attributes":{},"value":["styles.css"]},{"type":"character","attributes":{},"value":["utf-8"]}]}
+  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title"]}},"value":[{"type":"character","attributes":{},"value":["Sobre a página e o autor"]}]}
   </script>
   <!--/radix_placeholder_rmarkdown_metadata-->
   <!--radix_placeholder_navigation_in_header-->
@@ -2234,12 +2234,12 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 
 </head>
 
-<body class="layout-listing">
+<body>
 
 <!--radix_placeholder_front_matter-->
 
 <script id="distill-front-matter" type="text/json">
-{"title":"","authors":[]}
+{"title":"Sobre a página e o autor","authors":[]}
 </script>
 
 <!--/radix_placeholder_front_matter-->
@@ -2275,370 +2275,9 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <!--/radix_placeholder_navigation_before_body-->
 <!--radix_placeholder_site_before_body-->
 <!--/radix_placeholder_site_before_body-->
-<!--radix_placeholder_article_listing-->
-
-
-<script type="application/javascript">
-
-function init_posts_list() {
-
-  function load_image(img) {
-    var src = $(img).attr('data-src');
-    if (src) {
-      $(img).attr('src', src);
-      $(img).load(function() {
-        img.removeAttribute('data-src');
-      });
-    }
-  }
-
-  function set_posts_visible(posts, visible) {
-    if (visible) {
-
-      // show bottom border by default
-      $(posts).removeClass('post-preview-last');
-
-      // apply limits if need be
-      var max_posts = 25;
-      var apply_limits = $('.posts-container').hasClass('posts-apply-limit');
-      if (apply_limits && posts.length > max_posts) {
-        posts = $(posts).slice(0, max_posts);
-      } else {
-        $('.posts-more a').addClass('hidden');
-      }
-
-      // apply last style
-      $(posts.slice(-1)[0]).addClass('post-preview-last');
-
-      $(posts).removeClass('hidden');
-      $(posts).find('img[data-src]').each(function(i, img) {
-        load_image(img);
-      });
-    } else {
-      $(posts).addClass('hidden');
-    }
-  }
-
-  function apply_hash_filter() {
-
-    // clear active state
-    $('.categories .active').removeClass('active');
-
-    // mark all posts invisible to start
-    set_posts_visible($('.posts-list').children('a'), false);
-
-    // if we have a hash filter
-    if (window.location.hash && window.location.hash.startsWith("#category:")) {
-
-      // mark posts that match the category visible
-      var page_category = window.location.hash.replace(/^#category:/, "");
-      var posts = $('.post-metadata').map(function(idx, script) {
-        var metadata = $.parseJSON($(script).html());
-        var post = null;
-        $.each(metadata.categories, function(idx, category) {
-          category = category.replace(/ /g,"_");
-          if ((page_category || '').toLowerCase() === "articles" || category === page_category) {
-            post = $(script).parent().get();
-            return false;
-          }
-        });
-        return post;
-      });
-      set_posts_visible(posts, true);
-
-      // mark the hash active
-      $('.categories li>a[href="' + window.location.hash + '"]').addClass('active');
-
-      // update the list_caption
-      var list_caption = $('.posts-list-caption');
-      var caption = (page_category || '').toLowerCase() === "articles"
-        ? list_caption.attr('data-caption')
-        : ('Category: ' + page_category.replace(/_/g," "));
-      list_caption.text(caption);
-
-    } else {
-
-      // no hash filter, make all posts visible (subject to max display)
-      set_posts_visible($('.posts-list').children(), true);
-
-      // reset list caption
-      var list_caption = $('.posts-list-caption');
-      list_caption.text(list_caption.attr('data-caption'));
-
-
-    }
-  }
-
-  // more articles
-  function apply_post_limits(apply) {
-    if (apply) {
-      $('.posts-container').addClass('posts-apply-limit');
-      $('.posts-more a').removeClass('hidden');
-    } else {
-      $('.posts-container').removeClass('posts-apply-limit');
-      $('.posts-more a').addClass('hidden');
-    }
-  }
-
-  // click handling for tags
-  $('.dt-tag').click(function(ev) {
-    window.location.hash = '#category:' + $(this).text().replace(/ /g, "_");
-    return false;
-  })
-
-  // hash filter handling
-  apply_hash_filter();
-  $(window).on('hashchange',function() {
-    apply_post_limits(true);
-    apply_hash_filter();
-  });
-
-  // more articles link
-  $('.posts-more a').click(function(e) {
-    e.preventDefault();
-    apply_post_limits(false);
-    apply_hash_filter();
-    return false;
-  });
-
-}
-
-</script>
-
-
-
-<div class="posts-container posts-with-sidebar posts-apply-limit l-screen-inset">
-<div class="posts-list">
-<h1 class="posts-list-caption" data-caption=""></h1>
-<a href="posts/2021-03-05-dsxde/" class="post-preview">
-<script class="post-metadata" type="text/json">{"categories":[]}</script>
-<div class="metadata">
-<div class="publishedDate">March 5, 2021</div>
-<div class="dt-authors">
-<div class="dt-author">Leonardo Donato Nunes</div>
-</div>
-</div>
-<div class="thumbnail">
-<img/>
-</div>
-<div class="description">
-<h2>Cientista de Dados X Engenheiro de Dados</h2>
-<div class="dt-tags"></div>
-<p></p>
-</div>
-</a>
-<a href="posts/2021-03-05-lgpd/" class="post-preview">
-<script class="post-metadata" type="text/json">{"categories":["LGPD"]}</script>
-<div class="metadata">
-<div class="publishedDate">Feb. 28, 2021</div>
-<div class="dt-authors">
-<div class="dt-author">Leonardo Donato Nunes</div>
-</div>
-</div>
-<div class="thumbnail">
-<img src="posts/2021-03-05-lgpd/lgpd_files/figure-html5/unnamed-chunk-1-1.png"/>
-</div>
-<div class="description">
-<h2>LGPD</h2>
-<div class="dt-tags">
-<div class="dt-tag">LGPD</div>
-</div>
-<p>Breve resumo sobre a Lei Geral de Proteção de Dados</p>
-</div>
-</a>
-<a href="posts/2021-03-05-materiais/" class="post-preview">
-<script class="post-metadata" type="text/json">{"categories":["Livros"]}</script>
-<div class="metadata">
-<div class="publishedDate">Feb. 28, 2021</div>
-<div class="dt-authors">
-<div class="dt-author">Leonardo Donato Nunes</div>
-</div>
-</div>
-<div class="thumbnail">
-<img src="posts/2021-03-05-materiais/materiais_files/figure-html5/unnamed-chunk-1-1.png"/>
-</div>
-<div class="description">
-<h2>Links para Conteúdos de DS</h2>
-<div class="dt-tags">
-<div class="dt-tag">Livros</div>
-</div>
-<p>Lista de links de livros, sites, cais do youtube sobre Data Science.</p>
-</div>
-</a>
-<a href="posts/2021-03-05-rmarkdown/" class="post-preview">
-<script class="post-metadata" type="text/json">{"categories":["R","Livros","RMarkdown"]}</script>
-<div class="metadata">
-<div class="publishedDate">Feb. 28, 2021</div>
-<div class="dt-authors">
-<div class="dt-author">Leonardo Donato Nunes</div>
-</div>
-</div>
-<div class="thumbnail">
-<img src="posts/2021-03-05-rmarkdown/rmarkdown_files/figure-html5/unnamed-chunk-1-1.png"/>
-</div>
-<div class="description">
-<h2>RMarkdown</h2>
-<div class="dt-tags">
-<div class="dt-tag">R</div>
-<div class="dt-tag">Livros</div>
-<div class="dt-tag">RMarkdown</div>
-</div>
-<p>Conteúdos sobre RMarkdown.</p>
-</div>
-</a>
-<a href="posts/2021-03-05-postgis/" class="post-preview">
-<script class="post-metadata" type="text/json">{"categories":["BD","PostGIS","R"]}</script>
-<div class="metadata">
-<div class="publishedDate">Feb. 24, 2021</div>
-<div class="dt-authors">
-<div class="dt-author">Leonardo Donato Nunes</div>
-</div>
-</div>
-<div class="thumbnail">
-<img src="posts/2021-03-05-postgis/postgis_files/figure-html5/unnamed-chunk-1-1.png"/>
-</div>
-<div class="description">
-<h2>PostGIS</h2>
-<div class="dt-tags">
-<div class="dt-tag">BD</div>
-<div class="dt-tag">PostGIS</div>
-<div class="dt-tag">R</div>
-</div>
-<p>Criação de um Banco de Dados Espacial PostGIS com o R e Rstudio</p>
-</div>
-</a>
-<a href="posts/2021-03-05-pymongo/" class="post-preview">
-<script class="post-metadata" type="text/json">{"categories":["MongoDB","BD","Python","NoSQL"]}</script>
-<div class="metadata">
-<div class="publishedDate">Feb. 19, 2021</div>
-<div class="dt-authors">
-<div class="dt-author">Leonardo Donato Nunes</div>
-</div>
-</div>
-<div class="thumbnail">
-<img data-src="posts/2021-03-05-pymongo/pymongo_files/figure-html5/unnamed-chunk-1-1.png"/>
-</div>
-<div class="description">
-<h2>PyMongo</h2>
-<div class="dt-tags">
-<div class="dt-tag">MongoDB</div>
-<div class="dt-tag">BD</div>
-<div class="dt-tag">Python</div>
-<div class="dt-tag">NoSQL</div>
-</div>
-<p>Breve introdução ao PyMongo, um driver para acessar o MongoDB com Python</p>
-</div>
-</a>
-<a href="posts/2021-03-05-imagementrada/" class="post-preview">
-<script class="post-metadata" type="text/json">{"categories":["GGplot2","R","Visualizacao"]}</script>
-<div class="metadata">
-<div class="publishedDate">Feb. 16, 2021</div>
-<div class="dt-authors">
-<div class="dt-author">Leonardo Donato Nunes</div>
-</div>
-</div>
-<div class="thumbnail">
-<img data-src="posts/2021-03-05-imagementrada/imagementrada_files/figure-html5/figura_entrada_post-1.png"/>
-</div>
-<div class="description">
-<h2>Imagem de entrada</h2>
-<div class="dt-tags">
-<div class="dt-tag">GGplot2</div>
-<div class="dt-tag">R</div>
-<div class="dt-tag">Visualizacao</div>
-</div>
-<p>Descreve a imagem de entrada da pagina inicial.</p>
-</div>
-</a>
-<a href="posts/2021-03-05-menodistancia/" class="post-preview">
-<script class="post-metadata" type="text/json">{"categories":["SIG","R","Visualizacao"]}</script>
-<div class="metadata">
-<div class="publishedDate">Feb. 16, 2021</div>
-<div class="dt-authors">
-<div class="dt-author">Leonardo Donato Nunes</div>
-</div>
-</div>
-<div class="thumbnail">
-<img data-src="posts/2021-03-05-menodistancia/menodistancia_files/figure-html5/plot_caminho_intro-1.png"/>
-</div>
-<div class="description">
-<h2>Distancia hidrica</h2>
-<div class="dt-tags">
-<div class="dt-tag">SIG</div>
-<div class="dt-tag">R</div>
-<div class="dt-tag">Visualizacao</div>
-</div>
-<p>Menor distancia entre dois pontos em um rio</p>
-</div>
-</a>
-</div>
-<div class="posts-sidebar">
-<div class="sidebar-section categories">
-<h3>Categories</h3>
-<ul>
-<li>
-<a href="#category:Articles">Articles</a>
-<span class="category-count">(8)</span>
-</li>
-<li>
-<a href="#category:BD">BD</a>
-<span class="category-count">(2)</span>
-</li>
-<li>
-<a href="#category:GGplot2">GGplot2</a>
-<span class="category-count">(1)</span>
-</li>
-<li>
-<a href="#category:LGPD">LGPD</a>
-<span class="category-count">(1)</span>
-</li>
-<li>
-<a href="#category:Livros">Livros</a>
-<span class="category-count">(2)</span>
-</li>
-<li>
-<a href="#category:MongoDB">MongoDB</a>
-<span class="category-count">(1)</span>
-</li>
-<li>
-<a href="#category:NoSQL">NoSQL</a>
-<span class="category-count">(1)</span>
-</li>
-<li>
-<a href="#category:PostGIS">PostGIS</a>
-<span class="category-count">(1)</span>
-</li>
-<li>
-<a href="#category:Python">Python</a>
-<span class="category-count">(1)</span>
-</li>
-<li>
-<a href="#category:R">R</a>
-<span class="category-count">(4)</span>
-</li>
-<li>
-<a href="#category:RMarkdown">RMarkdown</a>
-<span class="category-count">(1)</span>
-</li>
-<li>
-<a href="#category:SIG">SIG</a>
-<span class="category-count">(1)</span>
-</li>
-<li>
-<a href="#category:Visualizacao">Visualizacao</a>
-<span class="category-count">(2)</span>
-</li>
-</ul>
-</div>
-</div>
-<div class="posts-more">
-<a href="#">More articles &raquo;</a>
-</div>
-</div>
-<!--/radix_placeholder_article_listing-->
 
 <div class="d-title">
-<h1>index.utf8</h1>
+<h1>Sobre a página e o autor</h1>
 <!--radix_placeholder_categories-->
 <!--/radix_placeholder_categories-->
 
@@ -2647,14 +2286,18 @@ function init_posts_list() {
 
 <div class="d-article">
 <p></br ></p>
+<p><img src="img/Minha_Foto_Hexagonal.png" style="display:block; margin: 0 auto; width: 33%"></p>
+<h2 id="quem-sou-eu">Quem sou eu</h2>
+<p>Eu sou Leonardo Donato Nunes, Biólogo, Cientista de Dados e Estudante de Matemática.</p>
+<p>Desde que comecei a trabalhar com dados, me apaixonei por pegar informações de uma fonte bagunçada e sem nenhum padrão e transformar em um arquivo limpo e funcional de onde se pode extrair valor. Comecei a estudar cada vez mais os processos e ferramentas de obtenção e limpeza de dados, estatística, visualizações de dados e divulgação de resultados. Gosto muito de leitura e de estar em constante aprendizado.</p>
+<p>Minhas áreas de interesse são: Estatística; Ciência de Dados; Análises de Dados; Meio Ambiente; Mercado Financeiro; Tecnologia; Educação, e tudo que envolva aprendizado e desenvolvimento pessoal.</p>
+<p>Trabalho a nove anos como biólogo, profissão que amo e me dedico. Depois de formado, em 2013, logo fui apresentado a estatística e a programação, e desde então me aprofundei na área de análise de dados e mais recentemente na ciência de dados.</p>
+<p>Gosto muito de programar em R, minha primeira linguagem e a que mais utilizo, mas ao longo da minha vida profissional precisei aprender SQL e Python. Gosto muito de estatística, tenho experiência com estatística descritiva, medidas de posição e dispersão, testes de hipóteses, análises de variância, correlação e regressão. Trabalho muito com modelos lineares generalizados para dados de contagem.</p>
+<h2 id="sobre-a-página">Sobre a página</h2>
+<p>Criei a página com a intenção de compartilhar meus aprendizados e descobertas, e também para demostrar minhas habilidades de uma maneira organizada e fácil. Os temas principais que vou seguir são <strong>programação</strong> (<strong>R</strong>; <strong>Python</strong>; <strong>SQL</strong>), <strong>estatística</strong>, <strong>matemática</strong> e <strong>visualização de dados</strong>.</p>
+<p>Aqui vou blicar meus projetos de Ciência de Dados e alguns tutoriais que faço, principalmente para mim mesmo. As vezes passo muito tempo pesquisando para criar um código que resolva meu problema e uma página bem organizada e dividida é um bom ambiente para ter esse aprendizado de forma mais direta.</p>
+<p>Optei por escrever as publicações e toda a página em português. O principal motivo é que consigo expressar melhor o que pretendo dizer. Segundo, existe muito material disponível em inglês, e acredito que estarei contribuindo mais para a comunidade brasileira fazendo minhas publicações em português.</p>
 <p></br ></p>
-<div class="layout-chunk" data-layout="l-page">
-<p><img src="index_files/figure-html5/imagem_entrada-1.png" width="1440" style="display: block; margin: auto;" /></p>
-</div>
-<div class="layout-chunk" data-layout="l-page">
-<p><img src="index_files/figure-html5/palavras-1.png" width="1440" style="display: block; margin: auto;" /></p>
-</div>
-<h3 id="postagens">Postagens:</h3>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
