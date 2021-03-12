@@ -17,11 +17,11 @@ d-article{
 
 /* configuracao do titulo com 1 # */
 d-article h1 {
-  font-family: 'Open Sans Condensed', Roboto, Helvetica, Arial, sans;
+  font-family: Roboto, 'Libre Baskerville', sans-serif;
   font-style: normal;
   font-weight: 400;
   font-size: 150%;
-  color: #ff5500;
+  color: #06663C;
   margin-top: 2.1rem;
   margin-bottom: 1.2rem;
   line-height: 1;
@@ -34,11 +34,11 @@ d-article h1 {
 
 /* configuracao do titulo com 2 # */
 d-article h2 {
-  font-family: 'Open Sans Condensed', Roboto, Helvetica, Arial, sans;
+  font-family: Roboto, 'Libre Baskerville', sans-serif;
   font-style: normal;
   font-weight: 400;
   font-size: 150%;
-  color: #ff5500;
+  color: #06663C;
   margin-top: 2.1rem;
   margin-bottom: 1.2rem;
   line-height: 1;
@@ -50,11 +50,11 @@ d-article h2 {
 
 /* configuracao do titulo com 3 # */
 d-article h3 {
-  font-family: 'Open Sans Condensed', Roboto, Helvetica, Arial, sans;
+  font-family: Roboto, 'Libre Baskerville', sans-serif;
   font-style: normal;
   font-weight: 400;
   font-size: 130%;
-  color: #ff5500;
+  color: #06663C;
   margin-top: 2.1rem;
   margin-bottom: 1.2rem;
   line-height: 1;
@@ -67,7 +67,7 @@ d-article h3 {
 
 /* Configuracoes do texto de todos os titulos do documento */
 .index-title h1 {
-  font-family: 'Open Sans Condensed', Roboto, Helvetica, Arial, sans;
+  font-family: Roboto, 'Libre Baskerville', sans-serif;
   font-weight: 200;
   font-size: 75px;
   font-variant: small-caps;
@@ -87,7 +87,7 @@ d-article h3 {
 
 /* Texto da pagina de entrada */
 .index-titulo_inicio{
-  font-family: 'Open Sans Condensed', Roboto, Helvetica, Arial, sans;
+  font-family: Roboto, 'Libre Baskerville', sans-serif;
   text-align: center;
   font-size: 50px;
   color: #408546;
@@ -95,7 +95,7 @@ d-article h3 {
 
 /* Textos selecionados para ficar centralizado */
 .index-frase_entrada {
-  font-family: 'Open Sans Condensed', Roboto, Helvetica, Arial, sans;
+  font-family: Roboto, 'Libre Baskerville', sans-serif;
   text-align: center;
   font-size: 30px;
   color: #17421b;
@@ -108,7 +108,7 @@ d-article h3 {
 
 .distill-site-nav {
   color: #dce0dc;  /* Cor da fonte */
-  background-color: #408546;
+  background-color: #06663C;
   font-size: 20px;
   font-weight: 300;
 }

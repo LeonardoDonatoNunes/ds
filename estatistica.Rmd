@@ -1,5 +1,5 @@
 ---
-title: "Estatistica"
+title: "Estatística"
 anchor_sections: FALSE
 output: 
   distill::distill_article:

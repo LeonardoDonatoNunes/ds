@@ -208,7 +208,9 @@ Na prática, para os profissionais que trabalham com dados, a LGPD estabelece re
   
 <br/ >
 
-<a href="#top">Voltar ao topo</a>
+
+<a href="#top">Back to top</a>
+
 
 
 
