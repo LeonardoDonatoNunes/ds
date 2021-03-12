@@ -174,11 +174,11 @@ Criar uma função
 ```{r}
 # Define a função
 media <- function(x){
-      acumulador <- 0
+      soma <- 0
         for(i in 1:length(x)){
-          acumulador <- acumulador + x[i]  
+          soma <- soma + x[i]  
         }
-      media <- acumulador/length(x)
+      media <- soma/length(x)
       return(media)
       }
 

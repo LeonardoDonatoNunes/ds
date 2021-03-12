@@ -2152,7 +2152,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 
   .distill-site-nav {
     color: #dce0dc;  /* Cor da fonte */
-    background-color: #102B17;
+    background-color: #06663C;
     font-size: 20px;
     font-weight: 300;
   }
@@ -2395,11 +2395,11 @@ Criar uma função
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='co'># Define a função</span>
 <span class='va'>media</span> <span class='op'>&lt;-</span> <span class='kw'>function</span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span><span class='op'>{</span>
-      <span class='va'>acumulador</span> <span class='op'>&lt;-</span> <span class='fl'>0</span>
+      <span class='va'>soma</span> <span class='op'>&lt;-</span> <span class='fl'>0</span>
         <span class='kw'>for</span><span class='op'>(</span><span class='va'>i</span> <span class='kw'>in</span> <span class='fl'>1</span><span class='op'>:</span><span class='fu'><a href='https://rdrr.io/r/base/length.html'>length</a></span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span><span class='op'>)</span><span class='op'>{</span>
-          <span class='va'>acumulador</span> <span class='op'>&lt;-</span> <span class='va'>acumulador</span> <span class='op'>+</span> <span class='va'>x</span><span class='op'>[</span><span class='va'>i</span><span class='op'>]</span>  
+          <span class='va'>soma</span> <span class='op'>&lt;-</span> <span class='va'>soma</span> <span class='op'>+</span> <span class='va'>x</span><span class='op'>[</span><span class='va'>i</span><span class='op'>]</span>  
         <span class='op'>}</span>
-      <span class='va'>media</span> <span class='op'>&lt;-</span> <span class='va'>acumulador</span><span class='op'>/</span><span class='fu'><a href='https://rdrr.io/r/base/length.html'>length</a></span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span>
+      <span class='va'>media</span> <span class='op'>&lt;-</span> <span class='va'>soma</span><span class='op'>/</span><span class='fu'><a href='https://rdrr.io/r/base/length.html'>length</a></span><span class='op'>(</span><span class='va'>x</span><span class='op'>)</span>
       <span class='kw'><a href='https://rdrr.io/r/base/function.html'>return</a></span><span class='op'>(</span><span class='va'>media</span><span class='op'>)</span>
       <span class='op'>}</span>
 
