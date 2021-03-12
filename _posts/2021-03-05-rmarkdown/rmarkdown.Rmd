@@ -46,7 +46,7 @@ Este post é um guia de códigos e materiais sobre o RMarkdown. São os códigos
 
 ### Como criar um novo *chunk* de código
 
-Para inserir um novo bloco de código, você pode ir na barra de ferramentas do RStudio e clicar no botão de inserir código (**Insert a new code chunk**) e escolher o bloco de código da linguagem desejada. Como mostrado na imagem abaixo.
+Para inserir um novo bloco de código, você pode ir na barra de ferramentas do RStudio e clicar no botão de inserir código (**Insert a new code chunk**) e escolher o bloco de código da linguagem desejada. Como mostrado na imagem abaixo. Ou pelo atalho do teclado $Ctrl + Alt + I$.
 
 ```{r, fig.width=4, fig.height=1.6, echo=F}
 library(png)
