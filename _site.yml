@@ -3,12 +3,12 @@ title: "LDN - Data Science"
 description: |
   LDS
 output_dir: "docs"
-favicon: img/Meu_Logo_Azul.png
+favicon: img/Logo_Azul.png
 Content-Type: charset=utf-8
 Content-Language: pt-br
 navbar:
   logo:
-      image: img/Meu_Logo_Azul.png
+      image: img/Logo_Cinza.png
       href: index.html
   search: true
   right:
