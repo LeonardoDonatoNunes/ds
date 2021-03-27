@@ -16,7 +16,7 @@ navbar:
       href: estatistica.html
     - text: "Sobre"
       href: about.html
-    - icon: fas fa-id-badge fa-1.2x
+    - text: CV
       href: Leonardo_Nunes_DatSci.pdf
     - icon: fab fa-github fa-1.2x
       href: https://github.com/LeonardoDonatoNunes
