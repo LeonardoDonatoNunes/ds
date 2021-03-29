@@ -11,8 +11,7 @@ knitr::opts_chunk$set(echo = FALSE)
 
 <img src="img/Minha_Foto_Hexagonal.png" style="display:block; margin: 0 auto; width: 33%">
 
-
-## Quem sou eu
+</br >
 
 Eu sou Leonardo Donato Nunes, Biólogo, Cientista de Dados e Estudante de Matemática. 
 
