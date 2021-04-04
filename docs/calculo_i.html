@@ -86,39 +86,636 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 </style>
 
   <!--radix_placeholder_meta_tags-->
-  <title>Links para Conteúdos de DS</title>
-
-  <meta property="description" itemprop="description" content="Lista de links de livros, sites, cais do youtube sobre Data Science."/>
+  <title>LDN - Data Science: Cálculo</title>
 
 
-  <!--  https://schema.org/Article -->
-  <meta property="article:published" itemprop="datePublished" content="2021-02-28"/>
-  <meta property="article:created" itemprop="dateCreated" content="2021-02-28"/>
-  <meta name="article:author" content="Leonardo Donato Nunes"/>
+  <link rel="icon" type="image/png" href="img/Logo_Azul.png"/>
+
 
   <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
-  <meta property="og:title" content="Links para Conteúdos de DS"/>
+  <meta property="og:title" content="LDN - Data Science: Cálculo"/>
   <meta property="og:type" content="article"/>
-  <meta property="og:description" content="Lista de links de livros, sites, cais do youtube sobre Data Science."/>
   <meta property="og:locale" content="en_US"/>
+  <meta property="og:site_name" content="LDN - Data Science"/>
 
   <!--  https://dev.twitter.com/cards/types/summary -->
   <meta property="twitter:card" content="summary"/>
-  <meta property="twitter:title" content="Links para Conteúdos de DS"/>
-  <meta property="twitter:description" content="Lista de links de livros, sites, cais do youtube sobre Data Science."/>
+  <meta property="twitter:title" content="LDN - Data Science: Cálculo"/>
 
   <!--/radix_placeholder_meta_tags-->
   <!--radix_placeholder_rmarkdown_metadata-->
 
   <script type="text/json" id="radix-rmarkdown-metadata">
-  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","output","draft","tags","categories"]}},"value":[{"type":"character","attributes":{},"value":["Links para Conteúdos de DS"]},{"type":"character","attributes":{},"value":["Lista de links de livros, sites, cais do youtube sobre Data Science.\n"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url"]}},"value":[{"type":"character","attributes":{},"value":["Leonardo Donato Nunes"]},{"type":"character","attributes":{},"value":["https://github.com/LeonardoDonatoNunes"]}]}]},{"type":"character","attributes":{},"value":["fevereiro 28, 2021"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained","toc","css"]}},"value":[{"type":"logical","attributes":{},"value":[false]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["../../styles.css"]}]}]},{"type":"logical","attributes":{},"value":[false]},{"type":"character","attributes":{},"value":["R","Python","Livros"]},{"type":"character","attributes":{},"value":["Livros"]}]}
+  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","anchor_sections","output"]}},"value":[{"type":"character","attributes":{},"value":["Cálculo"]},{"type":"logical","attributes":{},"value":[false]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["toc"]}},"value":[{"type":"logical","attributes":{},"value":[true]}]}]}]}
   </script>
   <!--/radix_placeholder_rmarkdown_metadata-->
-  
-  <script type="text/json" id="radix-resource-manifest">
-  {"type":"character","attributes":{},"value":["materiais_files/anchor-4.2.2/anchor.min.js","materiais_files/bowser-1.9.3/bowser.min.js","materiais_files/distill-2.2.21/template.v2.js","materiais_files/figure-html5/unnamed-chunk-1-1.png","materiais_files/header-attrs-2.6/header-attrs.js","materiais_files/jquery-1.11.3/jquery.min.js","materiais_files/popper-2.6.0/popper.min.js","materiais_files/tippy-6.2.7/tippy-bundle.umd.min.js","materiais_files/tippy-6.2.7/tippy-light-border.css","materiais_files/tippy-6.2.7/tippy.css","materiais_files/tippy-6.2.7/tippy.umd.min.js","materiais_files/webcomponents-2.0.0/webcomponents.js"]}
-  </script>
   <!--radix_placeholder_navigation_in_header-->
+  <meta name="distill:offset" content=""/>
+
+  <script type="application/javascript">
+
+    window.headroom_prevent_pin = false;
+
+    window.document.addEventListener("DOMContentLoaded", function (event) {
+
+      // initialize headroom for banner
+      var header = $('header').get(0);
+      var headerHeight = header.offsetHeight;
+      var headroom = new Headroom(header, {
+        tolerance: 5,
+        onPin : function() {
+          if (window.headroom_prevent_pin) {
+            window.headroom_prevent_pin = false;
+            headroom.unpin();
+          }
+        }
+      });
+      headroom.init();
+      if(window.location.hash)
+        headroom.unpin();
+      $(header).addClass('headroom--transition');
+
+      // offset scroll location for banner on hash change
+      // (see: https://github.com/WickyNilliams/headroom.js/issues/38)
+      window.addEventListener("hashchange", function(event) {
+        window.scrollTo(0, window.pageYOffset - (headerHeight + 25));
+      });
+
+      // responsive menu
+      $('.distill-site-header').each(function(i, val) {
+        var topnav = $(this);
+        var toggle = topnav.find('.nav-toggle');
+        toggle.on('click', function() {
+          topnav.toggleClass('responsive');
+        });
+      });
+
+      // nav dropdowns
+      $('.nav-dropbtn').click(function(e) {
+        $(this).next('.nav-dropdown-content').toggleClass('nav-dropdown-active');
+        $(this).parent().siblings('.nav-dropdown')
+           .children('.nav-dropdown-content').removeClass('nav-dropdown-active');
+      });
+      $("body").click(function(e){
+        $('.nav-dropdown-content').removeClass('nav-dropdown-active');
+      });
+      $(".nav-dropdown").click(function(e){
+        e.stopPropagation();
+      });
+    });
+  </script>
+
+  <style type="text/css">
+
+  /* Theme (user-documented overrideables for nav appearance) */
+
+  .distill-site-nav {
+    color: rgba(255, 255, 255, 0.8);
+    background-color: #0F2E3D;
+    font-size: 15px;
+    font-weight: 300;
+  }
+
+  .distill-site-nav a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .distill-site-nav a:hover {
+    color: white;
+  }
+
+  @media print {
+    .distill-site-nav {
+      display: none;
+    }
+  }
+
+  .distill-site-header {
+
+  }
+
+  .distill-site-footer {
+
+  }
+
+
+  /* Site Header */
+
+  .distill-site-header {
+    width: 100%;
+    box-sizing: border-box;
+    z-index: 3;
+  }
+
+  .distill-site-header .nav-left {
+    display: inline-block;
+    margin-left: 8px;
+  }
+
+  @media screen and (max-width: 768px) {
+    .distill-site-header .nav-left {
+      margin-left: 0;
+    }
+  }
+
+
+  .distill-site-header .nav-right {
+    float: right;
+    margin-right: 8px;
+  }
+
+  .distill-site-header a,
+  .distill-site-header .title {
+    display: inline-block;
+    text-align: center;
+    padding: 14px 10px 14px 10px;
+  }
+
+  .distill-site-header .title {
+    font-size: 18px;
+    min-width: 150px;
+  }
+
+  .distill-site-header .logo {
+    padding: 0;
+  }
+
+  .distill-site-header .logo img {
+    display: none;
+    max-height: 20px;
+    width: auto;
+    margin-bottom: -4px;
+  }
+
+  .distill-site-header .nav-image img {
+    max-height: 18px;
+    width: auto;
+    display: inline-block;
+    margin-bottom: -3px;
+  }
+
+
+
+  @media screen and (min-width: 1000px) {
+    .distill-site-header .logo img {
+      display: inline-block;
+    }
+    .distill-site-header .nav-left {
+      margin-left: 20px;
+    }
+    .distill-site-header .nav-right {
+      margin-right: 20px;
+    }
+    .distill-site-header .title {
+      padding-left: 12px;
+    }
+  }
+
+
+  .distill-site-header .nav-toggle {
+    display: none;
+  }
+
+  .nav-dropdown {
+    display: inline-block;
+    position: relative;
+  }
+
+  .nav-dropdown .nav-dropbtn {
+    border: none;
+    outline: none;
+    color: rgba(255, 255, 255, 0.8);
+    padding: 16px 10px;
+    background-color: transparent;
+    font-family: inherit;
+    font-size: inherit;
+    font-weight: inherit;
+    margin: 0;
+    margin-top: 1px;
+    z-index: 2;
+  }
+
+  .nav-dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: white;
+    min-width: 200px;
+    border: 1px solid rgba(0,0,0,0.15);
+    border-radius: 4px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.1);
+    z-index: 1;
+    margin-top: 2px;
+    white-space: nowrap;
+    padding-top: 4px;
+    padding-bottom: 4px;
+  }
+
+  .nav-dropdown-content hr {
+    margin-top: 4px;
+    margin-bottom: 4px;
+    border: none;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  }
+
+  .nav-dropdown-active {
+    display: block;
+  }
+
+  .nav-dropdown-content a, .nav-dropdown-content .nav-dropdown-header {
+    color: black;
+    padding: 6px 24px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+  }
+
+  .nav-dropdown-content .nav-dropdown-header {
+    display: block;
+    padding: 5px 24px;
+    padding-bottom: 0;
+    text-transform: uppercase;
+    font-size: 14px;
+    color: #999999;
+    white-space: nowrap;
+  }
+
+  .nav-dropdown:hover .nav-dropbtn {
+    color: white;
+  }
+
+  .nav-dropdown-content a:hover {
+    background-color: #ddd;
+    color: black;
+  }
+
+  .nav-right .nav-dropdown-content {
+    margin-left: -45%;
+    right: 0;
+  }
+
+  @media screen and (max-width: 768px) {
+    .distill-site-header a, .distill-site-header .nav-dropdown  {display: none;}
+    .distill-site-header a.nav-toggle {
+      float: right;
+      display: block;
+    }
+    .distill-site-header .title {
+      margin-left: 0;
+    }
+    .distill-site-header .nav-right {
+      margin-right: 0;
+    }
+    .distill-site-header {
+      overflow: hidden;
+    }
+    .nav-right .nav-dropdown-content {
+      margin-left: 0;
+    }
+  }
+
+
+  @media screen and (max-width: 768px) {
+    .distill-site-header.responsive {position: relative; min-height: 500px; }
+    .distill-site-header.responsive a.nav-toggle {
+      position: absolute;
+      right: 0;
+      top: 0;
+    }
+    .distill-site-header.responsive a,
+    .distill-site-header.responsive .nav-dropdown {
+      display: block;
+      text-align: left;
+    }
+    .distill-site-header.responsive .nav-left,
+    .distill-site-header.responsive .nav-right {
+      width: 100%;
+    }
+    .distill-site-header.responsive .nav-dropdown {float: none;}
+    .distill-site-header.responsive .nav-dropdown-content {position: relative;}
+    .distill-site-header.responsive .nav-dropdown .nav-dropbtn {
+      display: block;
+      width: 100%;
+      text-align: left;
+    }
+  }
+
+  /* Site Footer */
+
+  .distill-site-footer {
+    width: 100%;
+    overflow: hidden;
+    box-sizing: border-box;
+    z-index: 3;
+    margin-top: 30px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    text-align: center;
+  }
+
+  /* Headroom */
+
+  d-title {
+    padding-top: 6rem;
+  }
+
+  @media print {
+    d-title {
+      padding-top: 4rem;
+    }
+  }
+
+  .headroom {
+    z-index: 1000;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+  }
+
+  .headroom--transition {
+    transition: all .4s ease-in-out;
+  }
+
+  .headroom--unpinned {
+    top: -100px;
+  }
+
+  .headroom--pinned {
+    top: 0;
+  }
+
+  /* adjust viewport for navbar height */
+  /* helps vertically center bootstrap (non-distill) content */
+  .min-vh-100 {
+    min-height: calc(100vh - 100px) !important;
+  }
+
+  </style>
+
+  <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+  <link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet"/>
+  <link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet"/>
+  <script src="site_libs/headroom-0.9.4/headroom.min.js"></script>
+  <script src="site_libs/autocomplete-0.37.1/autocomplete.min.js"></script>
+  <script src="site_libs/fuse-6.4.1/fuse.min.js"></script>
+
+  <script type="application/javascript">
+
+  function getMeta(metaName) {
+    var metas = document.getElementsByTagName('meta');
+    for (let i = 0; i < metas.length; i++) {
+      if (metas[i].getAttribute('name') === metaName) {
+        return metas[i].getAttribute('content');
+      }
+    }
+    return '';
+  }
+
+  function offsetURL(url) {
+    var offset = getMeta('distill:offset');
+    return offset ? offset + '/' + url : url;
+  }
+
+  function createFuseIndex() {
+
+    // create fuse index
+    var options = {
+      keys: [
+        { name: 'title', weight: 20 },
+        { name: 'categories', weight: 15 },
+        { name: 'description', weight: 10 },
+        { name: 'contents', weight: 5 },
+      ],
+      ignoreLocation: true,
+      threshold: 0
+    };
+    var fuse = new window.Fuse([], options);
+
+    // fetch the main search.json
+    return fetch(offsetURL('search.json'))
+      .then(function(response) {
+        if (response.status == 200) {
+          return response.json().then(function(json) {
+            // index main articles
+            json.articles.forEach(function(article) {
+              fuse.add(article);
+            });
+            // download collections and index their articles
+            return Promise.all(json.collections.map(function(collection) {
+              return fetch(offsetURL(collection)).then(function(response) {
+                if (response.status === 200) {
+                  return response.json().then(function(articles) {
+                    articles.forEach(function(article) {
+                      fuse.add(article);
+                    });
+                  })
+                } else {
+                  return Promise.reject(
+                    new Error('Unexpected status from search index request: ' +
+                              response.status)
+                  );
+                }
+              });
+            })).then(function() {
+              return fuse;
+            });
+          });
+
+        } else {
+          return Promise.reject(
+            new Error('Unexpected status from search index request: ' +
+                        response.status)
+          );
+        }
+      });
+  }
+
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+
+    // get search element (bail if we don't have one)
+    var searchEl = window.document.getElementById('distill-search');
+    if (!searchEl)
+      return;
+
+    createFuseIndex()
+      .then(function(fuse) {
+
+        // make search box visible
+        searchEl.classList.remove('hidden');
+
+        // initialize autocomplete
+        var options = {
+          autoselect: true,
+          hint: false,
+          minLength: 2,
+        };
+        window.autocomplete(searchEl, options, [{
+          source: function(query, callback) {
+            const searchOptions = {
+              isCaseSensitive: false,
+              shouldSort: true,
+              minMatchCharLength: 2,
+              limit: 10,
+            };
+            var results = fuse.search(query, searchOptions);
+            callback(results
+              .map(function(result) { return result.item; })
+            );
+          },
+          templates: {
+            suggestion: function(suggestion) {
+              var img = suggestion.preview && Object.keys(suggestion.preview).length > 0
+                ? `<img src="${offsetURL(suggestion.preview)}"</img>`
+                : '';
+              var html = `
+                <div class="search-item">
+                  <h3>${suggestion.title}</h3>
+                  <div class="search-item-description">
+                    ${suggestion.description || ''}
+                  </div>
+                  <div class="search-item-preview">
+                    ${img}
+                  </div>
+                </div>
+              `;
+              return html;
+            }
+          }
+        }]).on('autocomplete:selected', function(event, suggestion) {
+          window.location.href = offsetURL(suggestion.path);
+        });
+        // remove inline display style on autocompleter (we want to
+        // manage responsive display via css)
+        $('.algolia-autocomplete').css("display", "");
+      })
+      .catch(function(error) {
+        console.log(error);
+      });
+
+  });
+
+  </script>
+
+  <style type="text/css">
+
+  .nav-search {
+    font-size: x-small;
+  }
+
+  /* Algolioa Autocomplete */
+
+  .algolia-autocomplete {
+    display: inline-block;
+    margin-left: 10px;
+    vertical-align: sub;
+    background-color: white;
+    color: black;
+    padding: 6px;
+    padding-top: 8px;
+    padding-bottom: 0;
+    border-radius: 6px;
+    border: 1px #0F2E3D solid;
+    width: 180px;
+  }
+
+
+  @media screen and (max-width: 768px) {
+    .distill-site-nav .algolia-autocomplete {
+      display: none;
+      visibility: hidden;
+    }
+    .distill-site-nav.responsive .algolia-autocomplete {
+      display: inline-block;
+      visibility: visible;
+    }
+    .distill-site-nav.responsive .algolia-autocomplete .aa-dropdown-menu {
+      margin-left: 0;
+      width: 400px;
+      max-height: 400px;
+    }
+  }
+
+  .algolia-autocomplete .aa-input, .algolia-autocomplete .aa-hint {
+    width: 90%;
+    outline: none;
+    border: none;
+  }
+
+  .algolia-autocomplete .aa-hint {
+    color: #999;
+  }
+  .algolia-autocomplete .aa-dropdown-menu {
+    width: 550px;
+    max-height: 70vh;
+    overflow-x: visible;
+    overflow-y: scroll;
+    padding: 5px;
+    margin-top: 3px;
+    margin-left: -150px;
+    background-color: #fff;
+    border-radius: 5px;
+    border: 1px solid #999;
+    border-top: none;
+  }
+
+  .algolia-autocomplete .aa-dropdown-menu .aa-suggestion {
+    cursor: pointer;
+    padding: 5px 4px;
+    border-bottom: 1px solid #eee;
+  }
+
+  .algolia-autocomplete .aa-dropdown-menu .aa-suggestion:last-of-type {
+    border-bottom: none;
+    margin-bottom: 2px;
+  }
+
+  .algolia-autocomplete .aa-dropdown-menu .aa-suggestion .search-item {
+    overflow: hidden;
+    font-size: 0.8em;
+    line-height: 1.4em;
+  }
+
+  .algolia-autocomplete .aa-dropdown-menu .aa-suggestion .search-item h3 {
+    font-size: 1rem;
+    margin-block-start: 0;
+    margin-block-end: 5px;
+  }
+
+  .algolia-autocomplete .aa-dropdown-menu .aa-suggestion .search-item-description {
+    display: inline-block;
+    overflow: hidden;
+    height: 2.8em;
+    width: 80%;
+    margin-right: 4%;
+  }
+
+  .algolia-autocomplete .aa-dropdown-menu .aa-suggestion .search-item-preview {
+    display: inline-block;
+    width: 15%;
+  }
+
+  .algolia-autocomplete .aa-dropdown-menu .aa-suggestion .search-item-preview img {
+    height: 3em;
+    width: auto;
+    display: none;
+  }
+
+  .algolia-autocomplete .aa-dropdown-menu .aa-suggestion .search-item-preview img[src] {
+    display: initial;
+  }
+
+  .algolia-autocomplete .aa-dropdown-menu .aa-suggestion.aa-cursor {
+    background-color: #eee;
+  }
+  .algolia-autocomplete .aa-dropdown-menu .aa-suggestion em {
+    font-weight: bold;
+    font-style: normal;
+  }
+
+  </style>
+
+
   <!--/radix_placeholder_navigation_in_header-->
   <!--radix_placeholder_distill-->
 
@@ -1434,20 +2031,206 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </script>
 
   <!--/radix_placeholder_distill-->
-  <script src="materiais_files/header-attrs-2.7/header-attrs.js"></script>
-  <script src="materiais_files/jquery-1.11.3/jquery.min.js"></script>
-  <script src="materiais_files/popper-2.6.0/popper.min.js"></script>
-  <link href="materiais_files/tippy-6.2.7/tippy.css" rel="stylesheet" />
-  <link href="materiais_files/tippy-6.2.7/tippy-light-border.css" rel="stylesheet" />
-  <script src="materiais_files/tippy-6.2.7/tippy.umd.min.js"></script>
-  <script src="materiais_files/anchor-4.2.2/anchor.min.js"></script>
-  <script src="materiais_files/bowser-1.9.3/bowser.min.js"></script>
-  <script src="materiais_files/webcomponents-2.0.0/webcomponents.js"></script>
-  <script src="materiais_files/distill-2.2.21/template.v2.js"></script>
+  <script src="site_libs/header-attrs-2.7/header-attrs.js"></script>
+  <script src="site_libs/popper-2.6.0/popper.min.js"></script>
+  <link href="site_libs/tippy-6.2.7/tippy.css" rel="stylesheet" />
+  <link href="site_libs/tippy-6.2.7/tippy-light-border.css" rel="stylesheet" />
+  <script src="site_libs/tippy-6.2.7/tippy.umd.min.js"></script>
+  <script src="site_libs/anchor-4.2.2/anchor.min.js"></script>
+  <script src="site_libs/bowser-1.9.3/bowser.min.js"></script>
+  <script src="site_libs/webcomponents-2.0.0/webcomponents.js"></script>
+  <script src="site_libs/distill-2.2.21/template.v2.js"></script>
   <!--radix_placeholder_site_in_header-->
+  <style type="text/css">
+  @import url("pygment_highlights.css");
+  @import url(https://fonts.googleapis.com/css?family=Roboto:400,400italic,500,500italic,700,700italic,900,900italic,300italic,300,100italic,100);
+  @import url("https://fonts.googleapis.com/css?family=Roboto|Roboto+Mono|Roboto+Condensed|Open+Sans|Open+Sans+Condensed:300|Open+Sans+Condensed:light|Lato|Lora|Fira+Sans|Fira+Mono");
+
+  body {
+    font-family: Roboto, 'Libre Baskerville', sans-serif; /*, et-book, "Palatino Linotype", "Palatino LT STD", 'Lora', serif*/
+    font-size: 15px;
+    font-weight: 300;
+    color: #408546;        /* #404040*/
+    position: relative;
+    background: #f2f2f2;      /* cor do fundo da pagina */
+  }
+
+  d-article{
+    text-align: justify;
+  }
+
+  /* configuracao do titulo com 1 # */
+  d-article h1 {
+    font-family: Roboto, 'Libre Baskerville', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 150%;
+    color: #06663C;
+    margin-top: 2.1rem;
+    margin-bottom: 1.2rem;
+    line-height: 1;
+    /* to remove will require something to keep the inline from inserting
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1); 
+    padding-bottom: 1rem; 
+    */
+  }
+
+
+  /* configuracao do titulo com 2 # */
+  d-article h2 {
+    font-family: Roboto, 'Libre Baskerville', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 150%;
+    color: #06663C;
+    margin-top: 2.1rem;
+    margin-bottom: 1.2rem;
+    line-height: 1;
+    /* to remove will require something to keep the inline from inserting
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1); 
+    padding-bottom: 1rem; 
+    */
+  }
+
+  /* configuracao do titulo com 3 # */
+  d-article h3 {
+    font-family: Roboto, 'Libre Baskerville', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 130%;
+    color: #06663C;
+    margin-top: 2.1rem;
+    margin-bottom: 1.2rem;
+    line-height: 1;
+    /* to remove will require something to keep the inline from inserting
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1); 
+    padding-bottom: 1rem; 
+    */
+  }
+
+
+  /* Configuracoes do texto de todos os titulos do documento */
+  .index-title h1 {
+    font-family: Roboto, 'Libre Baskerville', sans-serif;
+    font-weight: 200;
+    font-size: 75px;
+    font-variant: small-caps;
+    text-align: center;
+    color: #00990d;
+    margin-top: 4rem;
+    margin-bottom: 1.5rem;
+    line-height: 1;
+    border-bottom: 0; /*same as default h2*/
+    padding-bottom: 1rem; 
+  }
+
+  /* Textos selecionados para ficar centralizado */
+  .index-texto_centralizado {
+    text-align: center;
+  }
+
+  /* Texto da pagina de entrada */
+  .index-titulo_inicio{
+    font-family: Roboto, 'Libre Baskerville', sans-serif;
+    text-align: center;
+    font-size: 50px;
+    color: #408546;
+  }
+
+  /* Textos selecionados para ficar centralizado */
+  .index-frase_entrada {
+    font-family: Roboto, 'Libre Baskerville', sans-serif;
+    text-align: center;
+    font-size: 30px;
+    color: #17421b;
+  }
+
+  .d-toc {
+    font-size: 2.0rem
+  }
+        /* Nav bar */
+
+  .distill-site-nav {
+    color: #dce0dc;  /* Cor da fonte */
+    background-color: #06663C;
+    font-size: 20px;
+    font-weight: 300;
+  }
+
+
+  .distill-site-nav a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .distill-site-nav a:hover {
+    color: #0085a1;
+  }
+
+  /* configuracao da imagem de logo - logo - image */
+  .distill-site-header .logo img {
+      max-height: 40px;
+      width: auto;
+      margin-bottom: -16px; /*posicao*/
+  }
+  /* sidebar on front page with category listing */
+
+  .posts-with-sidebar .posts-sidebar {
+    float: right;
+    width: 10%;    /* default 20, made narrow */
+    margin-top: 60px;
+    padding-top: 24px;
+    padding-bottom: 24px;
+  }
+
+  /* attempt to make result not so wide/spacious */ 
+
+  .posts-with-sidebar .posts-list {
+    width: 66%;
+    margin-left: 11%;
+  }
+
+  .posts-sidebar {
+    font-size: 100%;
+    margin-right: 10%;
+  }
+
+
+  /* configuracao das colunas no texto */ 
+  /* 2 colunas */ 
+  .column{
+    float: left;
+    width: 45%;
+    text-align: left;
+  }
+
+  /* 3 colunas */ 
+  .column_3{
+    float: left;
+    width: 33.33%;
+    text-align: left;
+  }
+
+  /* coluna de espaco */ 
+  .column_spc{
+    float: left;
+    width: 4%;
+    text-align: left;
+  }
+
+  /* preview da imagem dos posts na pagina inicial */ 
+
+  .posts-list .post-preview .thumbnail img { width: 80%; display: block; }
+
+  /* blocos de codigos */ 
+  d-article div.sourceCode pre {
+      background: #f2f2f2;
+  }
+
+  </style>
   <!--/radix_placeholder_site_in_header-->
 
-  <link rel="stylesheet" href="..\..\styles.css" type="text/css"/>
+  <link rel="stylesheet" href="styles.css" type="text/css"/>
 
 </head>
 
@@ -1456,74 +2239,82 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <!--radix_placeholder_front_matter-->
 
 <script id="distill-front-matter" type="text/json">
-{"title":"Links para Conteúdos de DS","description":"Lista de links de livros, sites, cais do youtube sobre Data Science.","authors":[{"author":"Leonardo Donato Nunes","authorURL":"https://github.com/LeonardoDonatoNunes","affiliation":"&nbsp;","affiliationURL":"#","orcidID":""}],"publishedDate":"2021-02-28T00:00:00.000-03:00","citationText":"Nunes, 2021"}
+{"title":"Cálculo","authors":[]}
 </script>
 
 <!--/radix_placeholder_front_matter-->
 <!--radix_placeholder_navigation_before_body-->
+<header class="header header--fixed" role="banner">
+<nav class="distill-site-nav distill-site-header">
+<div class="nav-left">
+<a class="logo" href="index.html">
+<img src="img/Logo_Cinza.png" alt="Logo"/>
+</a>
+<a href="index.html" class="title">LDN - Data Science</a>
+<input id="distill-search" class="nav-search hidden" type="text" placeholder="Search..."/>
+</div>
+<div class="nav-right">
+<a href="estatistica.html">Estatistica</a>
+<a href="about.html">Sobre</a>
+<a href="Leonardo_Nunes_DatSci.pdf">CV</a>
+<a href="https://github.com/LeonardoDonatoNunes">
+<i class="fab fa-github fa-1.2x" aria-hidden="true"></i>
+</a>
+<a href="https://www.linkedin.com/in/leonardo-donato-nunes-754aa5b8/">
+<i class="fa fa-linkedin-square fa-1.2x" aria-hidden="true"></i>
+</a>
+<a href="https://www.instagram.com/leonardodonatonunes/?hl=pt-br">
+<i class="fa fa-instagram fa-1.2x" aria-hidden="true"></i>
+</a>
+<a href="https://www.researchgate.net/profile/Leonardo-Nunes-8">
+<i class="fab fa-researchgate" aria-hidden="true"></i>
+</a>
+<a href="javascript:void(0);" class="nav-toggle">&#9776;</a>
+</div>
+</nav>
+</header>
 <!--/radix_placeholder_navigation_before_body-->
 <!--radix_placeholder_site_before_body-->
 <!--/radix_placeholder_site_before_body-->
 
 <div class="d-title">
-<h1>Links para Conteúdos de DS</h1>
+<h1>Cálculo</h1>
 <!--radix_placeholder_categories-->
-<div class="dt-tags">
-<div class="dt=tag">Livros</div>
-</div>
 <!--/radix_placeholder_categories-->
-<p><p>Lista de links de livros, sites, cais do youtube sobre Data Science.</p></p>
+
 </div>
 
-<div class="d-byline">
-  Leonardo Donato Nunes <a href="https://github.com/LeonardoDonatoNunes" class="uri">https://github.com/LeonardoDonatoNunes</a> 
-  
-<br/>fevereiro 28, 2021
-</div>
 
 <div class="d-article">
 <div class="d-contents d-contents-float">
 <nav class="l-text toc figcaption" id="TOC">
 <h3>Contents</h3>
 <ul>
-<li><a href="#canais-vídeos-e-playlists">Canais, vídeos e playlists <i class="fab fa-youtube"></i></a></li>
-<li><a href="#sites-e-blogs">Sites e blogs <i class="fas fa-sitemap"></i></a></li>
-<li><a href="#livros">Livros <i class="fas fa-glasses"></i></a></li>
-<li><a href="#pacotes">Pacotes <i class="fab fa-r-project"></i></a></li>
-<li><a href="#repositórios-e-páginas">Repositórios e páginas <i class="fab fa-github"></i></a></li>
+<li><a href="#demonstração-matemática">Demonstração matemática</a></li>
 </ul>
 </nav>
 </div>
-<div class="layout-chunk" data-layout="l-body">
-<p><img src="materiais_files/figure-html5/unnamed-chunk-1-1.png" width="624" style="display: block; margin: auto;" /></p>
-</div>
-<p>Este post foi criado para agregar conteúdos de Data Science através de Links que levam a páginas, livros, canais e vídeos que tem relação com Data Science. Os assuntos estão organizados por tópicos que podem ser acessados rolando a página ou na tabela de conteúdos.</p>
-<h1 id="canais-vídeos-e-playlists">Canais, vídeos e playlists <i class="fab fa-youtube"></i></h1>
-<p><a href="https://www.youtube.com/playlist?list=PLfqo9_UMdHhYi6edz_uCRVDZASyp4Nj2e">Machine Learning Meetups - Nubank</a></p>
-<p><a href="https://rstudio.com/collections/working-with-spark/">Working with Spark - RStudio</a></p>
-<p><a href="https://rstudio.com/resources/webinars/">RStudio Webinars</a></p>
-<h1 id="sites-e-blogs">Sites e blogs <i class="fas fa-sitemap"></i></h1>
-<p><a href="https://fontawesome.com/">Font Awesome</a></p>
-<p><a href="https://cran.r-project.org/web/packages/kableExtra/vignettes/awesome_table_in_html.html#Overview">Create Awesome HTML Table with knitr::kable and kableExtra</a></p>
-<p><a href="https://medium.com/@alexandreservian/regex-um-guia-pratico-para-express%C3%B5es-regulares-1ac5fa4dd39f">Regex: Um guia prático para expressões regulares</a></p>
-<p><a href="https://ropensci.org/">rOpenSci</a></p>
-<p><a href="https://www.rspatial.org/raster/index.html">Spatial Data Science</a></p>
-<p><a href="https://en.wikibooks.org/wiki/LaTeX/Mathematics">Latex - Notações matemáticas</a></p>
-<h1 id="livros">Livros <i class="fas fa-glasses"></i></h1>
-<p><a href="https://bookdown.org/yihui/rmarkdown/">R Markdown: The Definitive Guide</a></p>
-<p><a href="https://www.msperlin.com/padfeR/index.html">Análise de Dados Financeiros e Econômicos com o R</a></p>
-<p><a href="https://www.fulljoin.com.br/posts/2019-07-18-b3-rvest-explorando-dados-financeiros-com-r/">B3 + rvest: Explorando dados financeiros com R</a></p>
-<p><a href="https://mastering-shiny.org/index.html">Mastering Shiny</a></p>
-<p><a href="https://therinspark.com/">Mastering Spark with R</a></p>
-<h1 id="pacotes">Pacotes <i class="fab fa-r-project"></i></h1>
-<p><a href="https://rstudio.github.io/distill/">Distill for R Markdown</a></p>
-<p><a href="https://cran.r-project.org/web/packages/data.tree/vignettes/data.tree.html">Introduction to data.tree</a></p>
-<p><a href="https://spark.rstudio.com/">sparklyr: R interface for Apache Spark</a></p>
-<p><a href="https://mastering-shiny.org/index.html">Mastering Shiny</a></p>
-<p><a href="https://rinterface.github.io/shinyMobile/index.html#shinymobile-">shinyMobile</a></p>
-<p><a href="https://rinterface.com/">RinteRface</a></p>
-<h1 id="repositórios-e-páginas">Repositórios e páginas <i class="fab fa-github"></i></h1>
-<p><a href="https://github.com/m-clark">Michael Clark</a></p>
+<p>Cálculo I</p>
+<h2 id="demonstração-matemática">Demonstração matemática</h2>
+<p>Dar evidências que convençam os ouvintes de que uma certa afirmação matemática é verdadeira.</p>
+<p>Equação de segundo grau <span class="math inline">\(ax2 + bx + c = 0\)</span></p>
+<p>Função de segundo grau ou função quadrática: <span class="math inline">\(y = ax2 + bx + c\)</span></p>
+<p>Função definida: <span class="math inline">\(f(x) := ax2 + bx + c\)</span></p>
+<p>Problema 1: Encontre se existirem, as raízes reais da equação:</p>
+<p>Sol:</p>
+<p><span class="math display">\[x=\frac{- b \pm\sqrt{b^2 - 4ac}}{2a} \]</span></p>
+<p>Esta fórmula (Báscara) demonstra que toda equação de segundo grau tem 0, 1 ou 2 raízes reais. Mais precisamente, se <span class="math inline">\(\Delta = b^2 +4ac\)</span> (descriminante da equação), então:</p>
+$$se
+<span class="math display">\[\begin{cases}
+
+\Delta &lt; 0, \text{ Nenhuma raiz real.}\\
+
+\Delta = 0, \text{ Uma raiz real.} \\
+
+\Delta &gt; 0, \text{ Duas raízes reais.} 
+
+ \end{cases}\]</span>
+<p>$$</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
@@ -1532,6 +2323,15 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <div class="d-appendix">
 </div>
 
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
 
 <!--radix_placeholder_site_after_body-->
 <!--/radix_placeholder_site_after_body-->
@@ -1539,7 +2339,53 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <div class="appendix-bottom"></div>
 <!--/radix_placeholder_appendices-->
 <!--radix_placeholder_navigation_after_body-->
+<div class="distill-site-nav distill-site-footer">
+<div>
+Leonardo Donato Nunes - 2021
+</div>
+<style>
+.top-scrollerx {
+position: fixed;
+    bottom: 100px;
+    right: 10px;
+    font-size: 1em;
+    display: none;
+    z-index: 999;
+    text-align: center;
+    cursor: pointer;
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    background: rgba(0,0,0,.35);
+    color: #fff;
+    line-height: 40px;
+
+}
+ .top-scrollerx:hover {
+    background: rgba(0,0,0,.6);
+}
+</style>
+<div class="top-scrollerx js-top-scrollerx svg-icons">
+   <svg style="vertical-align: text-bottom;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg=""><path fill="currentColor" d="M6.101 261.899L25.9 281.698c4.686 4.686 12.284 4.686 16.971 0L198 126.568V468c0 6.627 5.373 12 12 12h28c6.627 0 12-5.373 12-12V126.568l155.13 155.13c4.686 4.686 12.284 4.686 16.971 0l19.799-19.799c4.686-4.686 4.686-12.284 0-16.971L232.485 35.515c-4.686-4.686-12.284-4.686-16.971 0L6.101 244.929c-4.687 4.686-4.687 12.284 0 16.97z"></path></svg>
+</div>
+<script>
+$(window).scroll(function(){
+  // console.log('wwww');
+  if ($(this).scrollTop() > 400) {
+    $('.js-top-scrollerx').fadeIn();
+  } else {
+    $('.js-top-scrollerx').fadeOut();
+  }
+});
+//Click event to scroll to top
+$('.js-top-scrollerx').click(function(){
+  $('html, body').animate({scrollTop : 0},1000);
+  return false;
+});
+</script>
+</div>
 <!--/radix_placeholder_navigation_after_body-->
+
 
 </body>
 

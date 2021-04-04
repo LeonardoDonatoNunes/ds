@@ -57,6 +57,8 @@ Este post foi criado para agregar conteúdos de Data Science através de Links q
 
 [Spatial Data Science](https://www.rspatial.org/raster/index.html)
 
+[Latex - Notações matemáticas](https://en.wikibooks.org/wiki/LaTeX/Mathematics)
+
 # Livros <i class="fas fa-glasses"></i>
 
 [R Markdown: The Definitive Guide](https://bookdown.org/yihui/rmarkdown/)
