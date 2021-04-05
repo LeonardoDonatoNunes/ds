@@ -45,6 +45,8 @@ Este post foi criado para agregar conteúdos de Data Science através de Links q
 
 [RStudio Webinars](https://rstudio.com/resources/webinars/)
 
+[Cálculo I - Unicamp/Univesp](https://www.youtube.com/playlist?list=PL2D9B691A704C6F7B)
+
 # Sites e blogs <i class="fas fa-sitemap"></i>
 
 [Font Awesome](https://fontawesome.com/)
