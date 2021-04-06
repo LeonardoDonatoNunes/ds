@@ -1,5 +1,4 @@
 ---
-title: "Cálculo"
 author: "Leonardo Donato nunes"
 date: "05/04/2021"
 output: html_document
@@ -9,7 +8,7 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-# Cálculo {.tabset .tabset-dropdown}
+# Cálculo {.tabset}
 
 ## Pré-cálculo 
 
