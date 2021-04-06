@@ -1,5 +1,24 @@
 [
   {
+    "path": "posts/2021-04-06-peixes-dashboard/",
+    "title": "Peixes Dashboard",
+    "description": "Aplicação Shiny de acompanhamento de programas de marcação de peixes.",
+    "author": [
+      {
+        "name": "Leonardo Donato Nunes",
+        "url": "https://github.com/LeonardoDonatoNunes"
+      }
+    ],
+    "date": "2021-06-20",
+    "categories": [
+      "ShinyApp"
+    ],
+    "contents": "\r\nEsta aplicação Shiny foi desenvolvida como exemplo de um modelo para acompanhar projetos de marcação de peixes.\r\nOs dados usados foram invetados, o passo a passo da criação dos dados pode ser vista no arquivo dados.R.\r\nAs visualizações e as entradas (inputs) foram escolhidos apenas para demostrar o funcionamento do aplicativo.\r\nO funcionamento do aplicativo pode ser visto no GIF abaixo:\r\n\r\n\r\n\r\nA aplicação está disponível em:\r\nhttps://leonardodonatonunes.shinyapps.io/PeixesMarcados_Shiny/\r\nO código fonte pode ser visto em:\r\nhttps://github.com/LeonardoDonatoNunes/PeixesMarcados_Shiny\r\n\r\n\r\n\r\n",
+    "preview": {},
+    "last_modified": "2021-04-06T10:54:03-03:00",
+    "input_file": "peixes-dashboard.utf8.md"
+  },
+  {
     "path": "posts/2021-03-05-lgpd/",
     "title": "LGPD",
     "description": "Breve resumo sobre a Lei Geral de Proteção de Dados",
