@@ -92,3 +92,9 @@ Este post foi criado para agregar conteúdos de Data Science através de Links q
 # Repositórios e páginas <i class="fab fa-github"></i>
 
 [Michael Clark](https://github.com/m-clark)
+
+# Geral <i class="fas fa-blender"></i>
+
+Fiz uma pesquisa sobre como criar uma página distill com {.tabset} e umas das respostas do link abaixo resolveu meu problema.
+
+[Distill - com tabset](https://github.com/rstudio/distill/issues/11#issuecomment-492406780)
