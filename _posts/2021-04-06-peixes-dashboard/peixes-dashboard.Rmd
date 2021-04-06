@@ -15,6 +15,8 @@ draft: false
 tags: [R, Python, Livros]
 categories:
   - ShinyApp
+  - R
+preview: img/peixes_Shiny_app.gif
 ---
 
 ```{r setup, include=FALSE}
@@ -37,7 +39,7 @@ O funcionamento do aplicativo pode ser visto no GIF abaixo:
 
 <p align="center">
 
-<img src = "c:/Projetos/R/ds/_posts/2021-04-06-peixes-dashboard/img/Shiny_app.gif">
+<img src = "https://github.com/LeonardoDonatoNunes/PeixesMarcados_Shiny/blob/21c5481df82242389e536a3674be33260531b698/www/Shiny_app.gif">
 
 </p>
 
