@@ -1,0 +1,138 @@
+---
+title: "Árvore de classificação das aves do Brail"
+description: |
+  Criação de uma árvore de classificação das aves do Brasil usando o pacote collapsibleTree
+author:
+  - name: Leonardo Donato Nunes
+    url: https://github.com/LeonardoDonatoNunes
+date: '`r format(as.Date("12/04/2021", format = "%d/%m/%Y"), "%B %d, %Y")`'
+output:
+  distill::distill_article:
+    self_contained: false
+    css: ../../styles.css
+    code_folding: false
+preview: img/aves/Shiny_app_aves.gif
+draft: false
+tags: [R]
+categories:
+  - R
+  - Visualizacao
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = T,
+                      message = F, 
+                      warning = F, 
+                      dev.args = list(bg = 'transparent'),
+                      cache.rebuild = F,
+                      fig.align = "center",
+                      cache = F)
+```
+
+
+```{r, echo=F, include=FALSE}
+library(collapsibleTree)
+```
+
+```{r, echo=F, include=FALSE}
+aves <- read.csv("../../dados/aves.csv")
+
+Ordens <- length(unique(aves$Ordem))
+Familias <- length(unique(aves$familia))
+Especies <- length(unique(aves$especie))
+
+```
+
+
+o objetivo da visualização é criar uma árvore hierárquica da classificação das aves do Brasil. Os dados foram obtidos do [Wikiaves](https://www.wikiaves.com.br/index.php). Foram obtidos um total de `r Especies` espécies, pertencentes a `r Familias` famílias e `r Ordens` ordens.
+
+ 
+```{r, fig.width=8, fig.height=7, layout="l-page", code_folding=TRUE}
+collapsibleTree(
+  aves,
+  root = "Aves",
+  attribute = "especie",
+  hierarchy = c("Ordem","Subordem",
+                "Parvordem","familia","especie"),
+  fill = "Green",
+  zoomable = T,
+  fontSize = 16,
+)
+```
+
+## Carrega os pacotes
+
+```{r pacotes, eval=F}
+library(tidyverse)
+library(rvest)
+library(stringr)
+library(plyr)
+library(collapsibleTree)
+```
+
+## Carrega os dados das famílias e das espécies 
+
+```{r, eval=F}
+aves <- read.table("C:\\Users\\leona\\Desktop\\aves.txt", sep = "\t", header = T, encoding = "utf-8")
+names(aves) <- c("familia", "especie", "nome_comum", "sons", "fotos")
+aves[aves$familia == " ",]$familia <- NA
+aves <- aves %>% fill(familia)
+familias <- unique(aves$familia)
+```
+
+## Busca os dados hierárquicos de cada família no site do wikiaves
+
+```{r, eval=F}
+# Cria uma planilha para armazenar os dados até reino de cada família
+reino_familia <- data.frame()
+
+# Loop para baixar os dados de todas as famílias
+for(i in 1:length(familias)){
+  
+  # Cria a url
+  url <- paste0("https://www.wikiaves.com.br/wiki/", str_to_lower(familias[i]))
+  
+  # Coleta a tabela
+  tabela <- url %>% 
+    read_html() %>%
+    html_table()
+  
+  # Converte em um data.frame
+  tabela <- as.data.frame(tabela)
+  
+  # Estrai as variáveis da tabela da família
+  variaveis <- str_remove(str_trim(tabela[,1]), ":")
+  variaveis[variaveis == ""] <- "Autor"
+  dados <- str_trim(tabela[,2])
+  
+  # Cria uma tabela contendo os dados de cada família 
+  tabela_1 <- data.frame()
+  tabela_1 <- rbind(tabela_1, dados)
+  names(tabela_1) <- variaveis
+  
+  # Combina as tabelas
+  reino_familia <- rbind.fill(reino_familia, tabela_1)
+}
+```
+
+
+## Renomeia as colunas e seleciona os dados de interesse
+
+```{r, eval=F}
+# Ajusta o nome familia
+names(reino_familia) <- c("Reino","Filo","Classe","Ordem","familia","Autor","Subordem","Parvordem")
+# Junta as tabelas
+aves <- merge(aves, reino_familia, by = "familia")
+
+aves <- aves[,c("Reino","Filo","Classe",
+                "Ordem","Autor","Subordem",
+                "Parvordem","familia","especie")]
+
+```
+
+```{r, eval=F, echo=F, include=F}
+write.csv(aves, file = "C:/Projetos/R/ds/dados/aves.csv", fileEncoding = "utf-8", row.names = F)
+```
+
+

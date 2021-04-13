@@ -16,7 +16,7 @@ tags: [R, Python, Livros]
 categories:
   - ShinyApp
   - R
-preview: img/Shiny_app.gif
+preview: C:/Projetos/R/ds/img/Shiny_app.gif
 ---
 
 ```{r setup, include=FALSE}
