@@ -45,6 +45,17 @@ Especies <- length(unique(aves$especie))
 ```
 
 
+
+
+```{r imagem_entrada, layout="l-page", fig.asp=.25, echo=F}
+library(png)
+library(grid)
+library(gridExtra)
+img1 <-  rasterGrob(as.raster(readPNG("../../img/aves/img_aves.png")), interpolate = FALSE)
+grid.arrange(img1)
+```
+
+
 o objetivo da visualização é criar uma árvore hierárquica da classificação das aves do Brasil. Os dados foram obtidos do [Wikiaves](https://www.wikiaves.com.br/index.php). Foram obtidos um total de `r Especies` espécies, pertencentes a `r Familias` famílias e `r Ordens` ordens.
 
 
@@ -83,25 +94,60 @@ collapsibleTree(
 
 ## Carrega os pacotes
 
-```{r pacotes, eval=F}
+```{r pacotes}
 library(tidyverse)
 library(rvest)
 library(stringr)
 library(plyr)
 library(collapsibleTree)
+library(kableExtra)
 ```
 
 ## Carrega os dados das famílias e das espécies 
 
-```{r, eval=F}
+Os dados das espécies e das famílias foram obtidos da tabela contendo todas as espécies no Wikiaves. Salvei a tabela em um arquivo .txt manualmente. 
+
+[https://www.wikiaves.com.br/especies.php?t=t](https://www.wikiaves.com.br/especies.php?t=t)
+
+
+```{r, fig.width=6, echo=F}
+
+img1 <-  rasterGrob(as.raster(readPNG("../../img/aves/tabela.png")), interpolate = FALSE)
+grid.arrange(img1)
+```
+
+
+```{r}
+# Abre o arquivo .txt salvo
 aves <- read.table("C:\\Users\\leona\\Desktop\\aves.txt", sep = "\t", header = T, encoding = "utf-8")
+
+# Corrige os nomes das colunas
 names(aves) <- c("familia", "especie", "nome_comum", "sons", "fotos")
+
+# Subistitui os nomes de famílias que estão com espaço por NA
 aves[aves$familia == " ",]$familia <- NA
+
+# Completa os nomes das famílias nas tabelas
 aves <- aves %>% fill(familia)
+
+# Lista das famílias
 familias <- unique(aves$familia)
+# Vizualiza os dados
+kable(head(aves))
+
 ```
 
 ## Busca os dados hierárquicos de cada família no site do wikiaves
+
+Os dados das classificações superiores a família foram obtidos da tabela de classificação da página de cada família.
+
+```{r, fig.width=6, echo=F}
+
+img1 <-  rasterGrob(as.raster(readPNG("../../img/aves/tabela_2.png")), interpolate = FALSE)
+grid.arrange(img1)
+```
+
+O loop abaixo busca a classificação de cada família e controi uma tabela.
 
 ```{r, eval=F}
 # Cria uma planilha para armazenar os dados até reino de cada família
@@ -149,10 +195,17 @@ aves <- aves[,c("Reino","Filo","Classe",
                 "Ordem","Autor","Subordem",
                 "Parvordem","familia","especie")]
 
+# Visualiza as primeiras linhas da tabela aves
+kable(head(aves))
 ```
 
 ```{r, eval=F, echo=F, include=F}
 write.csv(aves, file = "C:/Projetos/R/ds/dados/aves.csv", fileEncoding = "utf-8", row.names = F)
+```
+
+```{r, echo = F}
+aves <- read.csv("../../dados/aves.csv")
+kable(head(aves))
 ```
 
 
