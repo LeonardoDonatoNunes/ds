@@ -16,7 +16,7 @@ tags: [R, Python, Livros]
 categories:
   - ShinyApp
   - R
-preview: C:/Projetos/R/ds/img/Shiny_app.gif
+preview: ../../img/Shiny_app.gif
 ---
 
 ```{r setup, include=FALSE}
@@ -39,9 +39,10 @@ O funcionamento do aplicativo pode ser visto no GIF abaixo:
 
 <p align="center">
 
-<img src = "img/Shiny_app.gif">
+<img src = "../../img/Shiny_app.gif">
 
 </p>
+
 
 A aplicação está disponível em:
 

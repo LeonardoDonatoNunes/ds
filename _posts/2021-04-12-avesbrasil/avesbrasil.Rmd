@@ -12,6 +12,7 @@ output:
     css: ../../styles.css
     code_folding: false
 draft: false
+preview: ../../img/aves/Shiny_app_aves.gif
 tags: [R]
 categories:
   - R
@@ -72,11 +73,11 @@ collapsibleTree(
   aves,
   root = "Aves",
   attribute = "especie",
-  hierarchy = c("Ordem","Subordem",
-                "Parvordem","familia","especie"),
+  hierarchy = c("Ordem","Subordem", "Parvordem","familia","especie"),
   fill = "Green",
   zoomable = T,
-  fontSize = 16,
+  fontSize = 16, 
+  width = 900 
 )
 ```
 
