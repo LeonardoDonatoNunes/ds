@@ -1,5 +1,5 @@
 ---
-title: "Árvore de classificação das aves do Brail"
+title: "Árvore de classificação das aves do Brasil"
 description: |
   Criação de uma árvore de classificação das aves do Brasil usando o pacote collapsibleTree
 author:
