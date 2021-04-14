@@ -40,6 +40,26 @@
     "input_file": {}
   },
   {
+    "path": "posts/2021-04-14-excelpython/",
+    "title": "Agregar abas e arquivos do Excel",
+    "description": "Combinar planilhas do Excel de diferentes abas e arquivos",
+    "author": [
+      {
+        "name": "Leonardo Donato Nunes",
+        "url": "https://github.com/LeonardoDonatoNunes"
+      }
+    ],
+    "date": "2021-04-14",
+    "categories": [
+      "Python",
+      "ETL"
+    ],
+    "contents": "\r\nMuitas vezes nos deparamos com planilhas de Excel com os dados dividídos em intermináveis abas e ainda por cima separadas em diferentes arquivos. As instruções abaixo são para quem quer uma maneira fácil e rápida de unificar tudo isso em uma única planilha.\r\nPara o exemplo criei três arquivos excel, cada um contendo duas abas, uma com duas colunas, e outra com três.\r\n{width = “50%”}\r\nBibliotecas\r\n\r\nimport os\r\nimport pandas as pd\r\n\r\n\r\n\r\n\r\n\r\n",
+    "preview": {},
+    "last_modified": "2021-04-14T20:03:20-03:00",
+    "input_file": "excelpython.utf8.md"
+  },
+  {
     "path": "posts/2021-03-05-lgpd/",
     "title": "LGPD",
     "description": "Breve resumo sobre a Lei Geral de Proteção de Dados",
