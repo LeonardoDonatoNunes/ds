@@ -11,7 +11,12 @@ output:
     self_contained: false
     css: ../../styles.css
     code_folding: false
+<<<<<<< HEAD
 draft: true
+=======
+draft: false
+preview: ../../img/aves/Shiny_app_aves.gif
+>>>>>>> a76d30e870318acf0aa1e4c4434ddce63b8a434c
 tags: [R]
 categories:
   - Python
@@ -34,9 +39,16 @@ Muitas vezes nos deparamos com planilhas de Excel com os dados dividídos em int
 
 Para o exemplo criei três arquivos excel, cada um contendo duas abas, uma com duas colunas, e outra com três.
 
+<<<<<<< HEAD
 
 
 ![](../../img/planilhas_excel.gif){width = "50%"}
+=======
+<center>
+
+![](../../img/planilhas_diretorio.png)
+</center>
+>>>>>>> a76d30e870318acf0aa1e4c4434ddce63b8a434c
 
 ### Bibliotecas
 
