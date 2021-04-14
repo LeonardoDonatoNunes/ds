@@ -119,7 +119,7 @@ grid.arrange(img1)
 
 ```{r}
 # Abre o arquivo .txt salvo
-aves <- read.table("C:\\Users\\leona\\Desktop\\aves.txt", sep = "\t", header = T, encoding = "utf-8")
+aves <- read.table("../../dados/aves.txt", sep = "\t", header = T, encoding = "utf-8")
 
 # Corrige os nomes das colunas
 names(aves) <- c("familia", "especie", "nome_comum", "sons", "fotos")
