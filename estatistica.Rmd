@@ -124,11 +124,11 @@ kableExtra::kable(head(df))
 </center>
 
 
-** Para calcular uma tabela de frequência com o R
+**Para calcular uma tabela de frequência com o R**
 
 <center>
 
-```{r}
+```{r, code_folding=TRUE}
 # Com o pacote dplyr é muito simples calcular uma tabela de frequências
 library(dplyr)
 
