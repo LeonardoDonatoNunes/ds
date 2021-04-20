@@ -2375,7 +2375,10 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 Show code
 </summary>
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='co'># Cria uma semente para que os dados criados sejam reprodutíveis</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='co'># Código R</span>
+
+<span class='co'># Cria uma semente para que os dados criados sejam reprodutíveis</span>
+<span class='fu'><a href='https://rdrr.io/r/base/Random.html'>set.seed</a></span><span class='op'>(</span><span class='fl'>1234</span><span class='op'>)</span>
 
 <span class='co'># Vetor com as cinco formações</span>
 <span class='va'>formacao</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"Matemática"</span>, <span class='st'>"Biologia"</span>, <span class='st'>"Estatística"</span>, <span class='st'>"Física"</span>, <span class='st'>"Ciência da computação"</span><span class='op'>)</span>
@@ -2413,7 +2416,7 @@ Física
 2
 </td>
 <td style="text-align:left;">
-Matemática
+Biologia
 </td>
 </tr>
 <tr>
@@ -2421,7 +2424,7 @@ Matemática
 3
 </td>
 <td style="text-align:left;">
-Matemática
+Ciência da computação
 </td>
 </tr>
 <tr>
@@ -2429,7 +2432,7 @@ Matemática
 4
 </td>
 <td style="text-align:left;">
-Ciência da computação
+Física
 </td>
 </tr>
 <tr>
@@ -2437,7 +2440,7 @@ Ciência da computação
 5
 </td>
 <td style="text-align:left;">
-Física
+Matemática
 </td>
 </tr>
 <tr>
@@ -2445,7 +2448,7 @@ Física
 6
 </td>
 <td style="text-align:left;">
-Física
+Ciência da computação
 </td>
 </tr>
 </tbody>
@@ -2512,16 +2515,16 @@ Frequência relativa acumulada
 Biologia
 </td>
 <td style="text-align:center;">
-197
+181
 </td>
 <td style="text-align:center;">
-19.7
+18.1
 </td>
 <td style="text-align:center;">
-197
+181
 </td>
 <td style="text-align:center;">
-19.7
+18.1
 </td>
 </tr>
 <tr>
@@ -2529,16 +2532,16 @@ Biologia
 Ciência da computação
 </td>
 <td style="text-align:center;">
-215
+197
 </td>
 <td style="text-align:center;">
-21.5
+19.7
 </td>
 <td style="text-align:center;">
-412
+378
 </td>
 <td style="text-align:center;">
-41.2
+37.8
 </td>
 </tr>
 <tr>
@@ -2546,10 +2549,10 @@ Ciência da computação
 Estatística
 </td>
 <td style="text-align:center;">
-200
+234
 </td>
 <td style="text-align:center;">
-20
+23.4
 </td>
 <td style="text-align:center;">
 612
@@ -2563,16 +2566,16 @@ Estatística
 Física
 </td>
 <td style="text-align:center;">
-195
+194
 </td>
 <td style="text-align:center;">
-19.5
+19.4
 </td>
 <td style="text-align:center;">
-807
+806
 </td>
 <td style="text-align:center;">
-80.7
+80.6
 </td>
 </tr>
 <tr>
@@ -2580,10 +2583,10 @@ Física
 Matemática
 </td>
 <td style="text-align:center;">
-193
+194
 </td>
 <td style="text-align:center;">
-19.3
+19.4
 </td>
 <td style="text-align:center;">
 1000
