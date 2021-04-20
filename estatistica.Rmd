@@ -4,6 +4,7 @@ anchor_sections: FALSE
 output: 
   distill::distill_article:
     toc: true
+    code_folding: false
 ---
 
 ```{r setup, include=FALSE}
@@ -22,7 +23,7 @@ A estatística é a prática e o estudo de coletar e analisar dados, pode ser ut
 
 A estatística pode ser dividida em duas áreas principais, a **estatística descritiva**, que tem como objetivo descrver e resumir os dados, como por exemplo, médias, medianas, máximo, mínimo, porcentagens e outras medidas de posição e de dispersão. E a **estatística inferencial** que usa uma amostra dos dados para fazer inferências sobre uma população maior.
 
-### Tipos de dados
+### Tipos de variáveis
 
 Ser capaz de identificar os tipos de dados é importante para saber qual o tipo de análise será usada ou qual a melhor forma de visualização fará sentido para cada tipo.
 
@@ -76,6 +77,86 @@ Ser capaz de identificar os tipos de dados é importante para saber qual o tipo 
 ## Estatísticas descritivas
 
 Para que possamos extrair valor dos dados que coletamos, primeiramente precisamos identificar algumas tendências e medidas. As análises mais básicas que podemos fazer, para identificar algum padrão ou tendência, são as estatísticas descritivas. Como o nome já sugere, esse conjunto de ferramentas serve para uma primeira descrição dos dados, é com essas análises que teremos as primeiras idéias a respeito do nosso conjunto de dados. 
+
+
+Como uma primeira descrição dos nossos dados, principalmente para dados categórigos, mas também pode ser empregado para dados numéricos, pode ser feita com a contrução de uma **tabela de frequência**, que é uma tabela, com as quantidades de ocorrências por categoria.
+
+  * De acordo com o tipo devariável:
+  
+    + Categória - Contagem de ocorrências para cada categoria.
+    
+    + Numéricas:
+    
+      - Variável discreta - Contagem de cada valor
+      
+      - Variável contínua - Categorização por classes da variável contínua, e depois uma contagem das classes.
+
+Uma tabela de frequência é composta pelos seguintes tipos de frequência:
+
+  * **Frequência absoluta** -  Contagem de ocorrências por categoria
+   
+  * **Frequência relativa** - Porcentagem de cada categoria em relação ao todo
+  
+  * **Frequência acumulada** - Soma da frequência absoluta a cada nova classe
+  
+  * **Frequência relativa acumulada** - Soma da frequência relativa a cada nova classe
+
+
+Para um exemplo de uma tabela de frequência, foi criado um conjunto de dados com cinco tipos de formação acadêmica, que descrevem um total de 1000 pessoas. 
+
+A variável "**Formação**", do tipo categórica (ou qualitativa) nominal, pois não possui uma órdem natural   , contém cinco categorias (também conhecidas como níveis ou classes), que são: Matemática; Biologia; Estatística; Física, e Ciências da computação. A variável indivíduos, que apesar de ser representada por um número, também é uma variável qualitativa, pois se refere a uma identidade de um indivíduo, está representata somente para compor o conjunto de dados. 
+ 
+<center>
+ 
+```{r, code_folding=TRUE}
+# Cria uma semente para que os dados criados sejam reprodutíveis
+
+# Vetor com as cinco formações
+formacao <- c("Matemática", "Biologia", "Estatística", "Física", "Ciência da computação")
+
+# Cria o data frame das formações
+df <- data.frame(individuo = 1:1000,
+                 formacao = sample(formacao, size = 1000, replace = T))
+
+kableExtra::kable(head(df))
+```
+
+</center>
+
+
+** Para calcular uma tabela de frequência com o R
+
+<center>
+
+```{r}
+# Com o pacote dplyr é muito simples calcular uma tabela de frequências
+library(dplyr)
+
+# Calcula as frequências
+tabela_frequencia <- df %>% 
+                      group_by(formacao) %>% 
+                      count() %>%
+                      summarise(absoluta = n,
+                                relativa = n/nrow(df))
+
+# Calcula as variáveis acumuladas
+tabela_frequencia$acumulada <- cumsum(tabela_frequencia$absoluta)
+tabela_frequencia$realativa_acumulada <- cumsum(tabela_frequencia$relativa)
+
+# Formatar os dados para porcentagem
+tabela_frequencia$relativa <- paste0(tabela_frequencia$relativa * 100)
+tabela_frequencia$realativa_acumulada <- paste0(tabela_frequencia$realativa_acumulada * 100)
+
+# Formatar os nomes das colunas
+names(tabela_frequencia) <- c("Formação", "Frequência absoluta", "Frequência relativa", "Frequência acumulada", "Frequência relativa acumulada")
+
+# Imprimir a tabela em um formato legal
+kableExtra::kable(tabela_frequencia, align = 'c')
+
+```
+
+</center>
+
 
 As estatísticas descritivas podem ser divididas em duas formas, as medidas de **posição** e medidas de **dispersão**. As medidas de posição ilustram onde a maior parte dos dados se encontra, essas medidas incluem as **médias**, **medianas** e **modas**. As medias de dispersão, por utro lado, descrevem a variação dos dados, essas medidas incluem o **desvio padrão**, a **variância** e o **erro padrão**.
 

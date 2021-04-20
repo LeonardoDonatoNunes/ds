@@ -106,7 +106,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   <!--radix_placeholder_rmarkdown_metadata-->
 
   <script type="text/json" id="radix-rmarkdown-metadata">
-  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","anchor_sections","output"]}},"value":[{"type":"character","attributes":{},"value":["Estatística"]},{"type":"logical","attributes":{},"value":[false]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["toc"]}},"value":[{"type":"logical","attributes":{},"value":[true]}]}]}]}
+  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","anchor_sections","output"]}},"value":[{"type":"character","attributes":{},"value":["Estatística"]},{"type":"logical","attributes":{},"value":[false]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["toc","code_folding"]}},"value":[{"type":"logical","attributes":{},"value":[true]},{"type":"logical","attributes":{},"value":[false]}]}]}]}
   </script>
   <!--/radix_placeholder_rmarkdown_metadata-->
   <!--radix_placeholder_navigation_in_header-->
@@ -2292,7 +2292,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <ul>
 <li><a href="#introdução">Introdução</a>
 <ul>
-<li><a href="#tipos-de-dados">Tipos de dados</a></li>
+<li><a href="#tipos-de-variáveis">Tipos de variáveis</a></li>
 </ul></li>
 <li><a href="#estatísticas-descritivas">Estatísticas descritivas</a>
 <ul>
@@ -2305,7 +2305,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <h2 id="introdução">Introdução</h2>
 <p>A estatística é a prática e o estudo de coletar e analisar dados, pode ser utilizada para responder muitos tipos de questão. É a base da ciência de dados, é responsável por transformar os dados em valor. Ela é usada para resumir, identificar tendências e padrões e fazer previsões. Nesta página serão abordados os principais tópicos de estatística básica.</p>
 <p>A estatística pode ser dividida em duas áreas principais, a <strong>estatística descritiva</strong>, que tem como objetivo descrver e resumir os dados, como por exemplo, médias, medianas, máximo, mínimo, porcentagens e outras medidas de posição e de dispersão. E a <strong>estatística inferencial</strong> que usa uma amostra dos dados para fazer inferências sobre uma população maior.</p>
-<h3 id="tipos-de-dados">Tipos de dados</h3>
+<h3 id="tipos-de-variáveis">Tipos de variáveis</h3>
 <p>Ser capaz de identificar os tipos de dados é importante para saber qual o tipo de análise será usada ou qual a melhor forma de visualização fará sentido para cada tipo.</p>
 <p><strong>Existem dois tipos principais de dados</strong></p>
 <div class="cols">
@@ -2347,6 +2347,250 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <p><br/ ></p>
 <h2 id="estatísticas-descritivas">Estatísticas descritivas</h2>
 <p>Para que possamos extrair valor dos dados que coletamos, primeiramente precisamos identificar algumas tendências e medidas. As análises mais básicas que podemos fazer, para identificar algum padrão ou tendência, são as estatísticas descritivas. Como o nome já sugere, esse conjunto de ferramentas serve para uma primeira descrição dos dados, é com essas análises que teremos as primeiras idéias a respeito do nosso conjunto de dados.</p>
+<p>Como uma primeira descrição dos nossos dados, principalmente para dados categórigos, mas também pode ser empregado para dados numéricos, pode ser feita com a contrução de uma <strong>tabela de frequência</strong>, que é uma tabela, com as quantidades de ocorrências por categoria.</p>
+<ul>
+<li><p>De acordo com o tipo devariável:</p>
+<ul>
+<li><p>Categória - Contagem de ocorrências para cada categoria.</p></li>
+<li><p>Numéricas:</p>
+<ul>
+<li><p>Variável discreta - Contagem de cada valor</p></li>
+<li><p>Variável contínua - Categorização por classes da variável contínua, e depois uma contagem das classes.</p></li>
+</ul></li>
+</ul></li>
+</ul>
+<p>Uma tabela de frequência é composta pelos seguintes tipos de frequência:</p>
+<ul>
+<li><p><strong>Frequência absoluta</strong> - Contagem de ocorrências por categoria</p></li>
+<li><p><strong>Frequência relativa</strong> - Porcentagem de cada categoria em relação ao todo</p></li>
+<li><p><strong>Frequência acumulada</strong> - Soma da frequência absoluta a cada nova classe</p></li>
+<li><p><strong>Frequência relativa acumulada</strong> - Soma da frequência relativa a cada nova classe</p></li>
+</ul>
+<p>Para um exemplo de uma tabela de frequência, foi criado um conjunto de dados com cinco tipos de formação acadêmica, que descrevem um total de 1000 pessoas.</p>
+<p>A variável “<strong>Formação</strong>”, do tipo categórica (ou qualitativa) nominal, pois não possui uma órdem natural , contém cinco categorias (também conhecidas como níveis ou classes), que são: Matemática; Biologia; Estatística; Física, e Ciências da computação. A variável indivíduos, que apesar de ser representada por um número, também é uma variável qualitativa, pois se refere a uma identidade de um indivíduo, está representata somente para compor o conjunto de dados.</p>
+<center>
+<div class="layout-chunk" data-layout="l-body">
+<details>
+<summary>
+Show code
+</summary>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='co'># Cria uma semente para que os dados criados sejam reprodutíveis</span>
+
+<span class='co'># Vetor com as cinco formações</span>
+<span class='va'>formacao</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"Matemática"</span>, <span class='st'>"Biologia"</span>, <span class='st'>"Estatística"</span>, <span class='st'>"Física"</span>, <span class='st'>"Ciência da computação"</span><span class='op'>)</span>
+
+<span class='co'># Cria o data frame das formações</span>
+<span class='va'>df</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/data.frame.html'>data.frame</a></span><span class='op'>(</span>individuo <span class='op'>=</span> <span class='fl'>1</span><span class='op'>:</span><span class='fl'>1000</span>,
+                 formacao <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/sample.html'>sample</a></span><span class='op'>(</span><span class='va'>formacao</span>, size <span class='op'>=</span> <span class='fl'>1000</span>, replace <span class='op'>=</span> <span class='cn'>T</span><span class='op'>)</span><span class='op'>)</span>
+
+<span class='fu'>kableExtra</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/knitr/man/kable.html'>kable</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='va'>df</span><span class='op'>)</span><span class='op'>)</span>
+</code></pre>
+</div>
+</details>
+<table>
+<thead>
+<tr>
+<th style="text-align:right;">
+individuo
+</th>
+<th style="text-align:left;">
+formacao
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:left;">
+Biologia
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:left;">
+Física
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:left;">
+Ciência da computação
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:left;">
+Biologia
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:left;">
+Ciência da computação
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:left;">
+Biologia
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</center>
+<p>** Para calcular uma tabela de frequência com o R</p>
+<center>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='co'># Com o pacote dplyr é muito simples calcular uma tabela de frequências</span>
+<span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://dplyr.tidyverse.org'>dplyr</a></span><span class='op'>)</span>
+
+<span class='co'># Calcula as frequências</span>
+<span class='va'>tabela_frequencia</span> <span class='op'>&lt;-</span> <span class='va'>df</span> <span class='op'>%&gt;%</span> 
+                      <span class='fu'><a href='https://dplyr.tidyverse.org/reference/group_by.html'>group_by</a></span><span class='op'>(</span><span class='va'>formacao</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
+                      <span class='fu'><a href='https://dplyr.tidyverse.org/reference/count.html'>count</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+                      <span class='fu'><a href='https://dplyr.tidyverse.org/reference/summarise.html'>summarise</a></span><span class='op'>(</span>absoluta <span class='op'>=</span> <span class='va'>n</span>,
+                                relativa <span class='op'>=</span> <span class='va'>n</span><span class='op'>/</span><span class='fu'><a href='https://rdrr.io/r/base/nrow.html'>nrow</a></span><span class='op'>(</span><span class='va'>df</span><span class='op'>)</span><span class='op'>)</span>
+
+<span class='co'># Calcula as variáveis acumuladas</span>
+<span class='va'>tabela_frequencia</span><span class='op'>$</span><span class='va'>acumulada</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/cumsum.html'>cumsum</a></span><span class='op'>(</span><span class='va'>tabela_frequencia</span><span class='op'>$</span><span class='va'>absoluta</span><span class='op'>)</span>
+<span class='va'>tabela_frequencia</span><span class='op'>$</span><span class='va'>realativa_acumulada</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/cumsum.html'>cumsum</a></span><span class='op'>(</span><span class='va'>tabela_frequencia</span><span class='op'>$</span><span class='va'>relativa</span><span class='op'>)</span>
+
+<span class='co'># Formatar os dados para porcentagem</span>
+<span class='va'>tabela_frequencia</span><span class='op'>$</span><span class='va'>relativa</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/paste.html'>paste0</a></span><span class='op'>(</span><span class='va'>tabela_frequencia</span><span class='op'>$</span><span class='va'>relativa</span> <span class='op'>*</span> <span class='fl'>100</span><span class='op'>)</span>
+<span class='va'>tabela_frequencia</span><span class='op'>$</span><span class='va'>realativa_acumulada</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/paste.html'>paste0</a></span><span class='op'>(</span><span class='va'>tabela_frequencia</span><span class='op'>$</span><span class='va'>realativa_acumulada</span> <span class='op'>*</span> <span class='fl'>100</span><span class='op'>)</span>
+
+<span class='co'># Formatar os nomes das colunas</span>
+<span class='fu'><a href='https://rdrr.io/r/base/names.html'>names</a></span><span class='op'>(</span><span class='va'>tabela_frequencia</span><span class='op'>)</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"Formação"</span>, <span class='st'>"Frequência absoluta"</span>, <span class='st'>"Frequência relativa"</span>, <span class='st'>"Frequência acumulada"</span>, <span class='st'>"Frequência relativa acumulada"</span><span class='op'>)</span>
+
+<span class='co'># Imprimir a tabela em um formato legal</span>
+<span class='fu'>kableExtra</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/knitr/man/kable.html'>kable</a></span><span class='op'>(</span><span class='va'>tabela_frequencia</span>, align <span class='op'>=</span> <span class='st'>'c'</span><span class='op'>)</span>
+</code></pre>
+</div>
+<table>
+<thead>
+<tr>
+<th style="text-align:center;">
+Formação
+</th>
+<th style="text-align:center;">
+Frequência absoluta
+</th>
+<th style="text-align:center;">
+Frequência relativa
+</th>
+<th style="text-align:center;">
+Frequência acumulada
+</th>
+<th style="text-align:center;">
+Frequência relativa acumulada
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;">
+Biologia
+</td>
+<td style="text-align:center;">
+197
+</td>
+<td style="text-align:center;">
+19.7
+</td>
+<td style="text-align:center;">
+197
+</td>
+<td style="text-align:center;">
+19.7
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+Ciência da computação
+</td>
+<td style="text-align:center;">
+209
+</td>
+<td style="text-align:center;">
+20.9
+</td>
+<td style="text-align:center;">
+406
+</td>
+<td style="text-align:center;">
+40.6
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+Estatística
+</td>
+<td style="text-align:center;">
+191
+</td>
+<td style="text-align:center;">
+19.1
+</td>
+<td style="text-align:center;">
+597
+</td>
+<td style="text-align:center;">
+59.7
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+Física
+</td>
+<td style="text-align:center;">
+207
+</td>
+<td style="text-align:center;">
+20.7
+</td>
+<td style="text-align:center;">
+804
+</td>
+<td style="text-align:center;">
+80.4
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+Matemática
+</td>
+<td style="text-align:center;">
+196
+</td>
+<td style="text-align:center;">
+19.6
+</td>
+<td style="text-align:center;">
+1000
+</td>
+<td style="text-align:center;">
+100
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</center>
 <p>As estatísticas descritivas podem ser divididas em duas formas, as medidas de <strong>posição</strong> e medidas de <strong>dispersão</strong>. As medidas de posição ilustram onde a maior parte dos dados se encontra, essas medidas incluem as <strong>médias</strong>, <strong>medianas</strong> e <strong>modas</strong>. As medias de dispersão, por utro lado, descrevem a variação dos dados, essas medidas incluem o <strong>desvio padrão</strong>, a <strong>variância</strong> e o <strong>erro padrão</strong>.</p>
 <p>O objetivo desta sessão é apresentar as estatísticas descritivas mais comuns, e fazer algumas demonstrações em <strong>r</strong> e <strong>python</strong>.</p>
 <h3 id="medidas-de-posição">Medidas de posição</h3>
@@ -2357,15 +2601,15 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <p><span class="math display">\[\overline{x} = 6.8\]</span></p>
 <p>A <strong>média</strong> é a tendência central de um conjunto de observações, como pode ser visto na imagem abaixo, os pontos azuis são o nosso conjunto de dados citado acima, e o ponto vermelho é a média, mas note que a maior parte dos dados está a esquerda da média, ou seja, a média não descreve bem os dados quando o conjunto de dados é muito pequeno ou quando existem valores extremos no conjunto.</p>
 <div class="layout-chunk" data-layout="l-body">
-<p><img src="estatistica_files/figure-html5/unnamed-chunk-1-1.png" width="480" style="display: block; margin: auto;" /></p>
+<p><img src="estatistica_files/figure-html5/unnamed-chunk-3-1.png" width="480" style="display: block; margin: auto;" /></p>
 </div>
 <p>Quando temos um caso como este, um pequeno conjunto de dados, com valores extremos, a medida de posição que melhor representa os dados é a <strong>mediana</strong>. A médiana é o valor da posição central dos números quando eles estão alinhados, divide os números em duas metades, os 50% mais baixos e os 50% mais altos. Usando o mesmo conjunto de números, primeiro ordenamos os valores e depois pegamos o valor central, quando o número de valores no conjunto for ímpar, caso o número de elementos seja par, a mediana é a média dos dois números centrais. Note agora, que o ponto em vermelho, que agora representa a mediana, está melhor representado o conjunto de valores.</p>
 <div class="layout-chunk" data-layout="l-body">
-<p><img src="estatistica_files/figure-html5/unnamed-chunk-2-1.png" width="480" style="display: block; margin: auto;" /></p>
+<p><img src="estatistica_files/figure-html5/unnamed-chunk-4-1.png" width="480" style="display: block; margin: auto;" /></p>
 </div>
 <p>A <strong>moda</strong> é o valor mais frequente em um conjunto de dados, em um histograma, é o valor representado pela maior barra.</p>
 <div class="layout-chunk" data-layout="l-body">
-<p><img src="estatistica_files/figure-html5/unnamed-chunk-3-1.png" width="480" style="display: block; margin: auto;" /></p>
+<p><img src="estatistica_files/figure-html5/unnamed-chunk-5-1.png" width="480" style="display: block; margin: auto;" /></p>
 </div>
 <p>Abaixo são apresentados algumas funções e métodos em R e Python para calcular as médias dos dados. E para quem gosta de lógica, criei uma função própria para calcular a média.</p>
 <div class="cols">
