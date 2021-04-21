@@ -75,6 +75,8 @@ Este post foi criado para agregar conteúdos de Data Science através de Links q
 
 [Mastering Spark with R](https://therinspark.com/)
 
+[Zen do R - Curso-r](https://curso-r.github.io/zen-do-r/)
+
 # Pacotes <i class="fab fa-r-project"></i>
 
 [Distill for R Markdown](https://rstudio.github.io/distill/)

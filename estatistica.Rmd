@@ -160,32 +160,6 @@ kableExtra::kable(tabela_frequencia, align = 'c')
 
 </center>
 
-**Para calcular uma tabela de frequência com o Python**
-```{python}
-
-# -*- coding: utf-8 -*-
-
-# Para calcular a tabela de frequência vamos utilizar o pandas
-import pandas as pd
-
-# Para converter o df do r para pandas
-from rpy2.robjects import r, pandas2ri
-
-r.data('df')
-
-df_pandas = r['df']
-
-
-tabela_frequencia = df_pandas.groupby(['formacao'])['formacao'].count()
-
-tabela_frequencia['absoluta'] = tabela_frequencia[1]
-tabela_frequencia['relativa'] = tabela_frequencia['absoluta']/1000
-tabela_frequencia['acumulada'] = tabela_frequencia['absoluta'].cumsum()
-tabela_frequencia['relativa_acumulada'] = tabela_frequencia['relativa'].cumsum()
-
-
-```
-
 
 
 
