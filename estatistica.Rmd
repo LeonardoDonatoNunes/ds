@@ -161,8 +161,6 @@ kableExtra::kable(tabela_frequencia, align = 'c')
 </center>
 
 
-
-
 As estatísticas descritivas podem ser divididas em duas formas, as medidas de **posição** e medidas de **dispersão**. As medidas de posição ilustram onde a maior parte dos dados se encontra, essas medidas incluem as **médias**, **medianas** e **modas**. As medias de dispersão, por utro lado, descrevem a variação dos dados, essas medidas incluem o **desvio padrão**, a **variância** e o **erro padrão**.
 
 O objetivo desta sessão é apresentar as estatísticas descritivas mais comuns, e fazer algumas demonstrações em **r** e **python**.

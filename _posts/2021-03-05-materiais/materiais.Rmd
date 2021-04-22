@@ -49,6 +49,8 @@ Este post foi criado para agregar conteúdos de Data Science através de Links q
 
 # Sites e blogs <i class="fas fa-sitemap"></i>
 
+[R FOR DATA SCIENCE](https://www.rfordatasci.com/)
+
 [Font Awesome](https://fontawesome.com/)
 
 [Create Awesome HTML Table with knitr::kable and kableExtra](https://cran.r-project.org/web/packages/kableExtra/vignettes/awesome_table_in_html.html#Overview)
