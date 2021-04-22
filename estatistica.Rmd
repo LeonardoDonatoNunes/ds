@@ -193,6 +193,7 @@ ggplot(data = NULL) +
   ylim(c(-0.2, 0.2)) +
   theme_map()
 ```
+
 Quando temos um caso como este, um pequeno conjunto de dados, com valores extremos, a medida de posição que melhor representa os dados é a **mediana**. A médiana é o valor da posição central dos números quando eles estão alinhados, divide os números em duas metades, os 50% mais baixos e os 50% mais altos. Usando o mesmo conjunto de números, primeiro ordenamos os valores e depois pegamos o valor central, quando o número de valores no conjunto for ímpar, caso o número de elementos seja par, a mediana é a média dos dois números centrais. Note agora, que o ponto em vermelho, que agora representa a mediana, está melhor representado o conjunto de valores.
 
 
@@ -310,6 +311,25 @@ print(media(5,3,20,2,4))
 </div>
 :::
 ::::::
+
+Uma maneira de sumarizar os dados, levando em conta as medidas de posição, é idenficar os **percentis** de uma variável, que são os elementos que dividem as observações em **cem** partes iguais. Considerando que a variável está com os valores organizados de forma crescente.
+
+  * **Quratis** - São os elementos que dividem as observações em quatro partes iguais. Considerando que a variável está com os valores organizados de forma crescente.
+  
+    + **1º Quartil** - 25% das observações são menores que o 1º quartil
+  
+    + **1º Quartil** - é a mediana da variável
+    
+    + **1º Quartil** - 25% das observações são maiores que o 3º quartil
+    
+      - **1º Quartil** - 25º Percentil
+  
+      - **1º Quartil** - 50º Percentil
+    
+      - **1º Quartil** - 75º Percentil
+
+
+  * **Decis** - São os elementos que dividem as observações em 10 partes iguais. Segue a mesma lógica dos quartis.
 
 ### Medidas de dispersão
 
