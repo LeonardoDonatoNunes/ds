@@ -335,6 +335,8 @@ Uma maneira de sumarizar os dados, levando em conta as medidas de posição, é 
 
 As medidas de dispersão, com o nome sugere, descrevem como os dados estão distribuidos, como eles variam.
 
+
+
 A primeira medida é a **variância** (conhecida como $s^2$.), que mede a distância que cada ponto está da média. 
 
 Para calcular a variância, primeiro precisamos obter a diferênça entre cada ponto e a média. Por exemplo, vamos supor que temos o seguinte conjuto de dados $x = c(2,4,5,6,8)$. Começamos por calcular a média, que é $5$, depois subtraimos a média de cada valor.
