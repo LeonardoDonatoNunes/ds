@@ -1,0 +1,95 @@
+---
+title: "Tutorial SQL"
+description: |
+  Blocos de código SQL.
+author:
+  - name: Leonardo Donato Nunes
+    url: https://github.com/LeonardoDonatoNunes
+date: '`r format(as.Date("28/02/2021", format = "%d/%m/%Y"), "%B %d, %Y")`'
+output:
+  distill::distill_article:
+    self_contained: false
+    toc: true
+    css: ../../styles.css
+draft: false
+tags: [R, Python, Livros]
+categories:
+  - SQL
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = T,
+                      message = F, 
+                      warning = F, 
+                      dev.args = list(bg = 'transparent'),
+                      cache.rebuild = F,
+                      fig.align = "center",
+                      cache = F)
+```
+
+
+Esta página contém alguns blocos de código SQL para consulta.
+
+
+Para consultar todos os campos em uma tabela:
+
+```{sql, eval=FALSE}
+
+SELECT *
+FROM nome_bd.nome_tabela;
+
+```
+
+Para consultar campos (colunas) específicos em uma tabela:
+
+
+```{sql, eval=FALSE}
+
+SELECT coluna1, coluna2, ..., colunan
+FROM nome_bd.nome_tabela;
+
+```
+
+
+Para consultar todos os campos (colunas) em uma tabela e atender a alguma condição:
+
+```{sql, eval=FALSE}
+
+SELECT *
+FROM nome_bd.nome_tabela
+WHERE nome_coluna = condicao
+ORDER BY nome_coluna DESC;
+
+```
+
+As condições podem ser: 
+
+  * **>** - maior que
+
+  * **<** - menor que
+
+  * **=** - igual a
+
+  * **>=** - maior ou igual a
+  
+  * **<=** - menor ou igual a
+  
+  * **!=** ou **<>** - diferente de
+
+
+Para consultar todos os campos (colunas) e ordenar crescente (1º SELECT) e decrescente (2º SELECT):
+
+```{sql, eval=FALSE}
+
+SELECT *
+FROM nome_bd.nome_tabela
+ORDER BY nome_coluna;
+
+
+SELECT *
+FROM nome_bd.nome_tabela
+ORDER BY nome_coluna DESC;
+
+```
+
+

@@ -99,6 +99,25 @@
     "input_file": {}
   },
   {
+    "path": "posts/2021-05-29-tutorialsql/",
+    "title": "Tutorial SQL",
+    "description": "Blocos de código SQL.",
+    "author": [
+      {
+        "name": "Leonardo Donato Nunes",
+        "url": "https://github.com/LeonardoDonatoNunes"
+      }
+    ],
+    "date": "2021-02-28",
+    "categories": [
+      "SQL"
+    ],
+    "contents": "\r\nEsta página contém alguns blocos de código SQL para consulta.\r\nPara consultar todos os campos em uma tabela:\r\n\r\n\r\nSELECT *\r\nFROM nome_bd.nome_tabela;\r\n\r\nPara consultar campos (colunas) específicos em uma tabela:\r\n\r\n\r\nSELECT coluna1, coluna2, ..., colunan\r\nFROM nome_bd.nome_tabela;\r\n\r\nPara consultar todos os campos (colunas) em uma tabela e atender a alguma condição:\r\n\r\n\r\nSELECT *\r\nFROM nome_bd.nome_tabela\r\nWHERE nome_coluna = condicao\r\nORDER BY nome_coluna DESC;\r\n\r\nAs condições podem ser:\r\n> - maior que\r\n< - menor que\r\n= - igual a\r\n>= - maior ou igual a\r\n<= - menor ou igual a\r\n!= ou <> - diferente de\r\nPara consultar todos os campos (colunas) e ordenar crescente (1º SELECT) e decrescente (2º SELECT):\r\n\r\n\r\nSELECT *\r\nFROM nome_bd.nome_tabela\r\nORDER BY nome_coluna;\r\n\r\n\r\nSELECT *\r\nFROM nome_bd.nome_tabela\r\nORDER BY nome_coluna DESC;\r\n\r\n\r\n\r\n\r\n",
+    "preview": {},
+    "last_modified": "2021-05-29T20:26:15-03:00",
+    "input_file": "tutorialsql.utf8.md"
+  },
+  {
     "path": "posts/2021-03-05-postgis/",
     "title": "PostGIS",
     "description": "Criação de um Banco de Dados Espacial PostGIS com o R e Rstudio",
