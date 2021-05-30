@@ -2307,19 +2307,19 @@ d-article div.sourceCode pre {
 
 <div class="d-article">
 <p>Esta página contém alguns blocos de código SQL para consulta.</p>
-<p>Para consultar todos os campos em uma tabela:</p>
+<h4 id="para-consultar-todos-os-campos-em-uma-tabela">Para consultar todos os campos em uma tabela:</h4>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode" id="cb1"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> nome_bd.nome_tabela;</span></code></pre></div>
 </div>
-<p>Para consultar campos (colunas) específicos em uma tabela:</p>
+<h4 id="para-consultar-campos-colunas-específicos-em-uma-tabela">Para consultar campos (colunas) específicos em uma tabela:</h4>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode" id="cb2"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> coluna1, coluna2, <span class="op">..</span>., colunan</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> nome_bd.nome_tabela;</span></code></pre></div>
 </div>
-<p>Para consultar todos os campos (colunas) em uma tabela e atender a alguma condição:</p>
+<h4 id="para-consultar-todos-os-campos-colunas-em-uma-tabela-e-atender-a-alguma-condição">Para consultar todos os campos (colunas) em uma tabela e atender a alguma condição:</h4>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode" id="cb3"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span></span>
@@ -2336,7 +2336,7 @@ d-article div.sourceCode pre {
 <li><p><strong>&lt;=</strong> - menor ou igual a</p></li>
 <li><p><strong>!=</strong> ou <strong>&lt;&gt;</strong> - diferente de</p></li>
 </ul>
-<p>Para consultar todos os campos (colunas) e ordenar crescente (1º SELECT) e decrescente (2º SELECT):</p>
+<h4 id="para-consultar-todos-os-campos-colunas-e-ordenar-crescente-1º-select-e-decrescente-2º-select">Para consultar todos os campos (colunas) e ordenar crescente (1º SELECT) e decrescente (2º SELECT):</h4>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode" id="cb4"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span></span>
@@ -2348,7 +2348,7 @@ d-article div.sourceCode pre {
 <span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> nome_bd.nome_tabela</span>
 <span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="kw">ORDER</span> <span class="kw">BY</span> nome_coluna <span class="kw">DESC</span>;</span></code></pre></div>
 </div>
-<p>Consultar uma estatística de colunas de uma tabela do BD:</p>
+<h4 id="consultar-uma-estatística-de-colunas-de-uma-tabela-do-bd">Consultar uma estatística de colunas de uma tabela do BD:</h4>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode" id="cb5"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a># Maximo</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="fu">max</span>(nome_coluna)</span>
@@ -2366,28 +2366,49 @@ d-article div.sourceCode pre {
 <span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="fu">sum</span>(nome_coluna)</span>
 <span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> nome_bd.nome_tabela;</span></code></pre></div>
 </div>
-<p>Consultar estatísticas uma tablela do BD agrupando por outra variável:</p>
+<h4 id="consultar-estatísticas-uma-tablela-do-bd-agrupando-por-outra-variável">Consultar estatísticas uma tablela do BD agrupando por outra variável:</h4>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode" id="cb6"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="fu">max</span>(nome_coluna), <span class="fu">min</span>(nome_coluna), <span class="fu">avg</span>(nome_coluna), nome_variavel_grupos</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> nome_bd.nome_tabela</span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="kw">GROUP</span> <span class="kw">BY</span> nome_variavel_grupos;</span></code></pre></div>
 </div>
-<p>Contar quantas linhas existem na tabela:</p>
+<h4 id="contar-quantas-linhas-existem-na-tabela">Contar quantas linhas existem na tabela:</h4>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode" id="cb7"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="fu">count</span>(<span class="op">*</span>)</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> nome_bd.nome_tabela;</span></code></pre></div>
 </div>
-<p>Contar quantas linhas por alguma categoria existem na tabela:</p>
+<h4 id="contar-quantas-linhas-por-alguma-categoria-existem-na-tabela">Contar quantas linhas por alguma categoria existem na tabela:</h4>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode" id="cb8"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="fu">count</span>(nome_coluna), nome_variavel_grupos </span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> nome_bd.nome_tabela;</span></code></pre></div>
 </div>
-Trazer somente resultados distintos:
+<h4 id="trazer-somente-resultados-distintos">Trazer somente resultados distintos:</h4>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode" id="cb9"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="kw">distinct</span>(nome_coluna)</span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> nome_bd.nome_tabela;</span></code></pre></div>
 </div>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<h4 id="agrupar-tabelas">Agrupar tabelas:</h4>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode" id="cb10"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> apelido_tabela.nome_coluna</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> nome_bd.nome_tabela1 apelido_tabela1</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="kw">LEFT</span> <span class="kw">JOIN</span> nome_bd.nome_tabela2;</span></code></pre></div>
+</div>
+<h4 id="query-aninhada">Query aninhada</h4>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode" id="cb11"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a># Aninhado dentro do <span class="st">&#39;WHERE&#39;</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> nome_bd.nome_tabela1</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="kw">WHERE</span> nome_coluna_condicao <span class="kw">IN</span> (</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>  <span class="kw">SELECT</span> <span class="kw">DISTINCT</span> nome_coluna_condicao <span class="kw">FROM</span> nome_bd.nome_tabela1 <span class="kw">WHERE</span> nome_coluna_condicao <span class="op">=</span> <span class="st">&#39;valor_buscado&#39;</span>;</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a># Aninhado dentro do <span class="st">&#39;FROM&#39;</span> <span class="op">-</span> sepre  precisa usar um apelido.</span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> <span class="op">*</span></span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> (</span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>  <span class="kw">SELECT</span> <span class="kw">DISTINCT</span> nome_coluna_condicao <span class="kw">FROM</span> nome_bd.nome_tabela1 <span class="kw">WHERE</span> nome_coluna_condicao <span class="op">=</span> <span class="st">&#39;valor_buscado&#39;</span>;</span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a>) apelido</span></code></pre></div>
+</div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
 </div>

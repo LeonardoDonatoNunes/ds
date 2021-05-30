@@ -31,7 +31,7 @@ knitr::opts_chunk$set(echo = T,
 Esta página contém alguns blocos de código SQL para consulta.
 
 
-Para consultar todos os campos em uma tabela:
+#### Para consultar todos os campos em uma tabela:
 
 ```{sql, eval=FALSE}
 
@@ -40,7 +40,7 @@ FROM nome_bd.nome_tabela;
 
 ```
 
-Para consultar campos (colunas) específicos em uma tabela:
+#### Para consultar campos (colunas) específicos em uma tabela:
 
 
 ```{sql, eval=FALSE}
@@ -51,7 +51,7 @@ FROM nome_bd.nome_tabela;
 ```
 
 
-Para consultar todos os campos (colunas) em uma tabela e atender a alguma condição:
+#### Para consultar todos os campos (colunas) em uma tabela e atender a alguma condição:
 
 ```{sql, eval=FALSE}
 
@@ -77,7 +77,7 @@ As condições podem ser:
   * **!=** ou **<>** - diferente de
 
 
-Para consultar todos os campos (colunas) e ordenar crescente (1º SELECT) e decrescente (2º SELECT):
+#### Para consultar todos os campos (colunas) e ordenar crescente (1º SELECT) e decrescente (2º SELECT):
 
 ```{sql, eval=FALSE}
 
@@ -92,7 +92,7 @@ ORDER BY nome_coluna DESC;
 
 ```
 
-Consultar uma estatística de colunas de uma tabela do BD:
+#### Consultar uma estatística de colunas de uma tabela do BD:
 
 ```{sql, eval=FALSE}
 # Maximo
@@ -113,7 +113,7 @@ FROM nome_bd.nome_tabela;
 
 ```
 
-Consultar estatísticas uma tablela do BD agrupando por outra variável:
+#### Consultar estatísticas uma tablela do BD agrupando por outra variável:
 
 ```{sql, eval=FALSE}
 SELECT max(nome_coluna), min(nome_coluna), avg(nome_coluna), nome_variavel_grupos
@@ -121,24 +121,52 @@ FROM nome_bd.nome_tabela
 GROUP BY nome_variavel_grupos;
 ```
 
-Contar quantas linhas existem na tabela:
+#### Contar quantas linhas existem na tabela:
 
 ```{sql, eval=FALSE}
 SELECT count(*)
 FROM nome_bd.nome_tabela;
 ```
 
-Contar quantas linhas por alguma categoria existem na tabela:
+#### Contar quantas linhas por alguma categoria existem na tabela:
 
 ```{sql, eval=FALSE}
 SELECT count(nome_coluna), nome_variavel_grupos 
 FROM nome_bd.nome_tabela;
 ```
 
-Trazer somente resultados distintos:
+#### Trazer somente resultados distintos:
+
 ```{sql, eval=FALSE}
 SELECT distinct(nome_coluna)
 FROM nome_bd.nome_tabela;
+```
+
+
+#### Agrupar tabelas:
+
+```{sql, eval=FALSE}
+SELECT apelido_tabela.nome_coluna
+FROM nome_bd.nome_tabela1 apelido_tabela1
+LEFT JOIN nome_bd.nome_tabela2;
+```
+
+#### Query aninhada
+
+```{sql, eval=FALSE}
+# Aninhado dentro do 'WHERE'
+SELECT *
+FROM nome_bd.nome_tabela1
+WHERE nome_coluna_condicao IN (
+  SELECT DISTINCT nome_coluna_condicao FROM nome_bd.nome_tabela1 WHERE nome_coluna_condicao = 'valor_buscado';
+)
+
+# Aninhado dentro do 'FROM' - sepre  precisa usar um apelido.
+SELECT *
+FROM (
+  SELECT DISTINCT nome_coluna_condicao FROM nome_bd.nome_tabela1 WHERE nome_coluna_condicao = 'valor_buscado';
+) apelido
+
 ```
 
 
