@@ -5,7 +5,7 @@ description: |
 author:
   - name: Leonardo Donato Nunes
     url: https://github.com/LeonardoDonatoNunes
-date: '`r format(as.Date("28/02/2021", format = "%d/%m/%Y"), "%B %d, %Y")`'
+date: '`r format(as.Date("29/05/2021", format = "%d/%m/%Y"), "%B %d, %Y")`'
 output:
   distill::distill_article:
     self_contained: false
@@ -90,6 +90,55 @@ SELECT *
 FROM nome_bd.nome_tabela
 ORDER BY nome_coluna DESC;
 
+```
+
+Consultar uma estatística de colunas de uma tabela do BD:
+
+```{sql, eval=FALSE}
+# Maximo
+SELECT max(nome_coluna)
+FROM nome_bd.nome_tabela;
+
+# Minimo
+SELECT min(nome_coluna)
+FROM nome_bd.nome_tabela;
+
+# Media
+SELECT avg(nome_coluna)
+FROM nome_bd.nome_tabela;
+
+# Soma
+SELECT sum(nome_coluna)
+FROM nome_bd.nome_tabela;
+
+```
+
+Consultar estatísticas uma tablela do BD agrupando por outra variável:
+
+```{sql, eval=FALSE}
+SELECT max(nome_coluna), min(nome_coluna), avg(nome_coluna), nome_variavel_grupos
+FROM nome_bd.nome_tabela
+GROUP BY nome_variavel_grupos;
+```
+
+Contar quantas linhas existem na tabela:
+
+```{sql, eval=FALSE}
+SELECT count(*)
+FROM nome_bd.nome_tabela;
+```
+
+Contar quantas linhas por alguma categoria existem na tabela:
+
+```{sql, eval=FALSE}
+SELECT count(nome_coluna), nome_variavel_grupos 
+FROM nome_bd.nome_tabela;
+```
+
+Trazer somente resultados distintos:
+```{sql, eval=FALSE}
+SELECT distinct(nome_coluna)
+FROM nome_bd.nome_tabela;
 ```
 
 

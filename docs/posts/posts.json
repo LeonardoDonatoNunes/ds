@@ -40,6 +40,25 @@
     "input_file": {}
   },
   {
+    "path": "posts/2021-05-29-tutorialsql/",
+    "title": "Tutorial SQL",
+    "description": "Blocos de código SQL.",
+    "author": [
+      {
+        "name": "Leonardo Donato Nunes",
+        "url": "https://github.com/LeonardoDonatoNunes"
+      }
+    ],
+    "date": "2021-05-29",
+    "categories": [
+      "SQL"
+    ],
+    "contents": "\r\nEsta página contém alguns blocos de código SQL para consulta.\r\nPara consultar todos os campos em uma tabela:\r\n\r\n\r\nSELECT *\r\nFROM nome_bd.nome_tabela;\r\n\r\nPara consultar campos (colunas) específicos em uma tabela:\r\n\r\n\r\nSELECT coluna1, coluna2, ..., colunan\r\nFROM nome_bd.nome_tabela;\r\n\r\nPara consultar todos os campos (colunas) em uma tabela e atender a alguma condição:\r\n\r\n\r\nSELECT *\r\nFROM nome_bd.nome_tabela\r\nWHERE nome_coluna = condicao\r\nORDER BY nome_coluna DESC;\r\n\r\nAs condições podem ser:\r\n> - maior que\r\n< - menor que\r\n= - igual a\r\n>= - maior ou igual a\r\n<= - menor ou igual a\r\n!= ou <> - diferente de\r\nPara consultar todos os campos (colunas) e ordenar crescente (1º SELECT) e decrescente (2º SELECT):\r\n\r\n\r\nSELECT *\r\nFROM nome_bd.nome_tabela\r\nORDER BY nome_coluna;\r\n\r\n\r\nSELECT *\r\nFROM nome_bd.nome_tabela\r\nORDER BY nome_coluna DESC;\r\n\r\nConsultar uma estatística de colunas de uma tabela do BD:\r\n\r\n# Maximo\r\nSELECT max(nome_coluna)\r\nFROM nome_bd.nome_tabela;\r\n\r\n# Minimo\r\nSELECT min(nome_coluna)\r\nFROM nome_bd.nome_tabela;\r\n\r\n# Media\r\nSELECT avg(nome_coluna)\r\nFROM nome_bd.nome_tabela;\r\n\r\n# Soma\r\nSELECT sum(nome_coluna)\r\nFROM nome_bd.nome_tabela;\r\n\r\nConsultar estatísticas uma tablela do BD agrupando por outra variável:\r\n\r\nSELECT max(nome_coluna), min(nome_coluna), avg(nome_coluna), nome_variavel_grupos\r\nFROM nome_bd.nome_tabela\r\nGROUP BY nome_variavel_grupos;\r\n\r\nContar quantas linhas existem na tabela:\r\n\r\nSELECT count(*)\r\nFROM nome_bd.nome_tabela;\r\n\r\nContar quantas linhas por alguma categoria existem na tabela:\r\n\r\nSELECT count(nome_coluna), nome_variavel_grupos \r\nFROM nome_bd.nome_tabela;\r\n\r\nTrazer somente resultados distintos:\r\n\r\nSELECT distinct(nome_coluna)\r\nFROM nome_bd.nome_tabela;\r\n\r\n\r\n\r\n\r\n",
+    "preview": {},
+    "last_modified": "2021-05-29T21:36:38-03:00",
+    "input_file": {}
+  },
+  {
     "path": "posts/2021-03-05-lgpd/",
     "title": "LGPD",
     "description": "Breve resumo sobre a Lei Geral de Proteção de Dados",
@@ -97,25 +116,6 @@
     "preview": "posts/2021-03-05-rmarkdown/rmarkdown_files/figure-html5/unnamed-chunk-1-1.png",
     "last_modified": "2021-03-11T22:26:39-03:00",
     "input_file": {}
-  },
-  {
-    "path": "posts/2021-05-29-tutorialsql/",
-    "title": "Tutorial SQL",
-    "description": "Blocos de código SQL.",
-    "author": [
-      {
-        "name": "Leonardo Donato Nunes",
-        "url": "https://github.com/LeonardoDonatoNunes"
-      }
-    ],
-    "date": "2021-02-28",
-    "categories": [
-      "SQL"
-    ],
-    "contents": "\r\nEsta página contém alguns blocos de código SQL para consulta.\r\nPara consultar todos os campos em uma tabela:\r\n\r\n\r\nSELECT *\r\nFROM nome_bd.nome_tabela;\r\n\r\nPara consultar campos (colunas) específicos em uma tabela:\r\n\r\n\r\nSELECT coluna1, coluna2, ..., colunan\r\nFROM nome_bd.nome_tabela;\r\n\r\nPara consultar todos os campos (colunas) em uma tabela e atender a alguma condição:\r\n\r\n\r\nSELECT *\r\nFROM nome_bd.nome_tabela\r\nWHERE nome_coluna = condicao\r\nORDER BY nome_coluna DESC;\r\n\r\nAs condições podem ser:\r\n> - maior que\r\n< - menor que\r\n= - igual a\r\n>= - maior ou igual a\r\n<= - menor ou igual a\r\n!= ou <> - diferente de\r\nPara consultar todos os campos (colunas) e ordenar crescente (1º SELECT) e decrescente (2º SELECT):\r\n\r\n\r\nSELECT *\r\nFROM nome_bd.nome_tabela\r\nORDER BY nome_coluna;\r\n\r\n\r\nSELECT *\r\nFROM nome_bd.nome_tabela\r\nORDER BY nome_coluna DESC;\r\n\r\n\r\n\r\n\r\n",
-    "preview": {},
-    "last_modified": "2021-05-29T20:26:15-03:00",
-    "input_file": "tutorialsql.utf8.md"
   },
   {
     "path": "posts/2021-03-05-postgis/",
