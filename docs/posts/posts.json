@@ -20,6 +20,23 @@
     "input_file": {}
   },
   {
+    "path": "posts/2021-08-24-git/",
+    "title": "Git",
+    "description": "A short description of the post.",
+    "author": [
+      {
+        "name": "Leonardo Donato Nunes",
+        "url": "https://github.com/LeonardoDonatoNunes"
+      }
+    ],
+    "date": "2021-08-24",
+    "categories": [],
+    "contents": "\r\nPrimeiros passos\r\nPara começar a rastrear uma pasta:\r\n\r\n$ cd C:/nome-da-pasta\r\n\r\n$ git init\r\n\r\n$ git status\r\n\r\nConfigurar nome e e-mail do usuário\r\n\r\n$ git config --user.name \"Nome Usuario\"\r\n\r\n$ git config --user.email \"email@gmail.com\"\r\n\r\nPara adicionar arquivos da pasta\r\nPara adicionar um arquivo único:\r\n\r\n$ git add nome_arquivo.ext\r\n\r\nPara adicionar todos os arquivos da pasta:\r\n\r\n$ git add .\r\n\r\nComit das alterações\r\n\r\n$ git commit -m \"Mensagem do commit\"\r\n\r\nCaso forem feitas novas modificações\r\nPrecisa adicionar o arquivo modificado novamente e fazer um novo commit\r\n\r\n$ git add index.html\r\n$ git commit -m \"Modificação do conteúdo x\"\r\n\r\nVisualizar o histórico de commits\r\nPara mais formas de ver o histórico acessar (git log cheatsheet)[https://devhints.io/git-log]\r\n\r\n$ git log\r\n\r\n$ git log --oneline\r\n\r\n$ git log -p\r\n\r\n\r\n\r\n\r\n",
+    "preview": {},
+    "last_modified": "2021-08-24T23:14:17-03:00",
+    "input_file": "git.utf8.md"
+  },
+  {
     "path": "posts/2021-04-06-peixes-dashboard/",
     "title": "Peixes Dashboard",
     "description": "Aplicação Shiny de acompanhamento de programas de marcação de peixes.",

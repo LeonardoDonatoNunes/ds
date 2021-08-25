@@ -1,0 +1,81 @@
+---
+title: "Git"
+description: |
+  A short description of the post.
+author:
+  - name: Leonardo Donato Nunes
+    url: https://github.com/LeonardoDonatoNunes
+date: 08-24-2021
+output:
+  distill::distill_article:
+    self_contained: false
+---
+
+
+```{r setup, include=FALSE, eval = F}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+
+## Primeiros passos
+
+Para começar a rastrear uma pasta:
+
+```{git}
+$ cd C:/nome-da-pasta
+
+$ git init
+
+$ git status
+```
+
+## Configurar nome e e-mail do usuário
+
+```{git}
+$ git config --user.name "Nome Usuario"
+
+$ git config --user.email "email@gmail.com"
+```
+
+## Para adicionar arquivos da pasta
+
+Para adicionar um arquivo único:
+
+```{git}
+$ git add nome_arquivo.ext
+```
+
+Para adicionar todos os arquivos da pasta:
+
+  
+```{git}
+$ git add .
+```
+
+## Comit das alterações
+
+```{git}
+$ git commit -m "Mensagem do commit"
+```
+
+## Caso forem feitas novas modificações
+
+Precisa adicionar o arquivo modificado novamente e fazer um novo commit
+
+```{git}
+$ git add index.html
+$ git commit -m "Modificação do conteúdo x"
+```
+
+
+## Visualizar o histórico de commits
+
+Para mais formas de ver o histórico acessar [git log cheatsheet](https://devhints.io/git-log)
+
+```{git}
+$ git log
+
+$ git log --oneline
+
+$ git log -p
+```
